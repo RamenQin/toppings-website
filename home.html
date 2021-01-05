@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/home.css">
+</head>
+
+<body>
+    <div class="popup" onclick="myFunction()">Learn how Toppings is supporting local restaurants during Covid-19 here!
+        <span class="popuptext" id="myPopup">A Simple Popup!</span>
+      </div>
+    <div id='navbar'>
+    </div>
+    <section id='pageOne' style = 'margin-bottom:700px'>
+        <div class='container' id='page-1'>
+
+
+        </div>
+    </section>
+    <section id='pageTwo'>
+        
+    </section>
+    <section id = 'pageTwoPointFive'>
+    </section>
+
+    <section id='pageThree' style = 'margin-top:-250px'>
+        
+    </section>
+
+    <!-- <section id = 'pageFour'>
+        
+        </section> -->
+    <!-- Trigger/Open The Modal -->
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+    <!-- The Modal -->
+    <!-- <div id="myModal" class="modal"> -->
+
+    <!-- Modal content -->
+    <!-- <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="./home.js"> </script>
+    <script src="./waitlist.js"></script>
+    <script src='./email.js'></script>
+    <script>
+        function initialize(){
+    post('https://www.getwaitlist.com/waitlist',
+        {
+            email: "maxwellyu@college.harvard.edu",
+            api_key: 'P0DDR1',
+            referral_link: "https://www.toppingsapp.com"
+        }, success_callback, fail_callback)
+    const success_callback = function (response) {
+        numWaiters = response['total_waiters_currently']
+        console.log(numWaiters)
+    }
+}
+        window.onload = initialize;
+      </script>
+      <script src="node_modules/confetti-js/dist/index.min.js"></script>
+</body>
+
+</html>
