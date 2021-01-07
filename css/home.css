@@ -185,7 +185,7 @@ section {
   transform:rotate(-90deg);
   background-color: #2196F3;;
   position: absolute; /* Position them relative to the browser window */
-  right: -78%; /* Position them outside of the screen */
+  right: -69%; /* Position them outside of the screen */
   top:3%;
   transition: 0.3s; /* Add transition on hover */
    /* 15px padding */
@@ -202,7 +202,7 @@ section {
   color: white; /* White text color */
 }
 #mySidenav:hover {
-  right: -57%; /* On mouse-over, make the elements appear as they should */
+  right: -45%; /* On mouse-over, make the elements appear as they should */
 }
 /* The about link: 20px from the top with a green background */
 #about {
