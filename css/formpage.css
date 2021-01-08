@@ -7,8 +7,8 @@ body
 #form
 {
     margin: 0 auto;
-    /* background-color: #0083FF; */
-    background-image: url("./images/ToppingsPrintBlueGradientWeb (1).svg");
+    background-color: #0083FF;
+    /* background-image: url("./images/ToppingsPrintBlueGradientWeb (1).svg"); */
     background-size: contain;
     color: white;
     width: 100%;
@@ -22,8 +22,8 @@ body
 {
     margin: 0 auto;
     padding-top: 2%;
-    /* background-color:  #d8e5f2; */
-    background-image: url("./images/ToppingsPrintLightBlueWeb (1).svg");
+    background-color:  #d8e5f2;
+    /* background-image: url("./images/ToppingsPrintLightBlueWeb (1).svg"); */
     background-size: contain;
     color: white;
     width: 100%;

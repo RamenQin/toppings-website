@@ -186,7 +186,7 @@ section {
   background-color: #2196F3;;
   position: absolute; /* Position them relative to the browser window */
   right: -69%; /* Position them outside of the screen */
-  top:3%;
+  top:5%;
   transition: 0.3s; /* Add transition on hover */
    /* 15px padding */
   width: 250px;
