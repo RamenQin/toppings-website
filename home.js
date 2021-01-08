@@ -109,22 +109,10 @@ function sizeWindow(x) {
     `
     $("#navbar").append(myNavbar)
     const p1Content = `
-    <div class = 'row'>
-    <div id="mySidenav" class="sidenav" style = 'z-index:50'>
-     
-      <a href="#" id="blog">PSSSSSHHHHT!!!</a>
-      <div style = 'transform: rotate(90deg); position:relative;top:5px;left:20px'>
-      <p style = 'font-size:medium; color:white;'>Do you have the Secret Code?</p>
-      
-      <span><input class="form-control" type="referral" style = 'width:80%;' id="referral_code" placeholder="Referral Code"></span>
-        <button class="btn btn-primary btn-block" type="button" id="demo_submit_button"
-            onclick="save_code()" style="width:80%;height:40%;position:relative;top;50px;"> Submit </button>
-      
-      </div>
-    </div>
+    
    
     <div class = 'row'>
-    <div class = col-sm-2></div>
+    <div class = col-sm-1></div>
     <div class = col-sm-5 col-md-5 style = "color:#007EFF;margin-top:15%;">
     <h4 style = 'font-size:.4em;text-align:left;'>Your Two Favorite <span style="color: #FF5200">F</span> Words:</h4>
     <div style ='text-align:center'>
