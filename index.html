@@ -1,87 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./css/home.css">
-</head>
-
-<body>
-    <div id="mySidenav" class="sidenav" style = 'z-index:50'>
-     
-        <a href="#" id="blog">PSSSSSSSTTT!!!</a>
-        <div style = 'transform: rotate(90deg); position:relative;top:90px;left:20px'>
-        <p style = 'font-size:medium;font-weight:bold; color:white;'>Do you have the Secret Code?</p>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://use.typekit.net/vxy1uqp.css">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <title>Toppings Delivery Service</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("user_8t0pD6Hjvovh0GCFDhEg5");
+   })();
+    </script>
+<script>
+     window.onload = function() {
+            document.getElementById('signup-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var templateParams = {
+                    user_name: document.getElementById("signup-form").elements[0].value,
+                    user_email: document.getElementById("signup-form").elements[1].value,
+                    user_phone: document.getElementById("signup-form").elements[2].value,
+                    uni_affiliation: document.getElementById("signup-form").elements[3].value,
+                    vendor_name: document.getElementById("signup-form").elements[5].value,
+                    vendor_address: document.getElementById("signup-form").elements[6].value
+                };
+                emailjs.send('signup_form', 'signup', templateParams);
+                document.getElementById("signup-form").classList.add("reveal-if-active");  //hides form
+                document.getElementById("confirmation").classList.remove("reveal-if-active");
+                document.getElementById("confirmation").classList.add("visible");
+            });
         
-        <span><input class="form-control" type="referral" style = 'width:80%; color:blue' id="referral_code" placeholder="Referral Code"></span>
-          <button class="btn btn-primary btn-block" type="button" id="demo_submit_button"
-              onclick="save_code()" style="width:80%;height:40%;position:relative;top:50px;"> Submit </button>
-        </div>
-    </div>
-    <div id='navbar'>
-    </div>
-    <section id='pageOne' style = 'margin-bottom:700px'>
-        <div class='container' id='page-1'>
-
-
-        </div>
-    </section>
-    <section id='pageTwo'>
-        
-    </section>
-    <section id = 'pageTwoPointFive'>
-    </section>
-
-    <section id='pageThree' style = 'margin-top:-250px'>
-        
-    </section>
-
-    <!-- <section id = 'pageFour'>
-        
-        </section> -->
-    <!-- Trigger/Open The Modal -->
-    <!-- <button id="myBtn">Open Modal</button> -->
-
-    <!-- The Modal -->
-    <!-- <div id="myModal" class="modal"> -->
-
-    <!-- Modal content -->
-    <!-- <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-        </div>
-
-    </div> -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="./home.js"> </script>
-    <script src="./waitlist.js"></script>
-    <script src='./email.js'></script>
-    <script>
-        function initialize(){
-    post('https://www.getwaitlist.com/waitlist',
-        {
-            email: "maxwellyu@college.harvard.edu",
-            api_key: 'P0DDR1',
-            referral_link: "https://www.toppingsapp.com"
-        }, success_callback, fail_callback)
-    const success_callback = function (response) {
-        numWaiters = response['total_waiters_currently']
-        console.log(numWaiters)
     }
-}
-        window.onload = initialize;
-      </script>
-      <script src="node_modules/confetti-js/dist/index.min.js"></script>
-</body>
+</script>
+</head>
+<body>
 
+        <div id="navbar">
+            <img src="./images/logo color.png" id="logo">
+            <div id="navlinks">
+                                <span class="navlink":><a href="#home">Home</a></span>
+                                <span class="navlink":><a href="#about">About Us</a></span>
+                                <!--<span class="navlink":> <a href="#our-partners">Our Partners</a></span>
+                                <span class="navlink":><a href="#testimonials">Testimonials</a></span>-->
+                                <span class="navlink":><a href="#vendor">Vendor Portal</a></span>
+                                <span class="navlink":> <a href="#signup">Sign Up</a></span>
+                                <span class="navlink":><a href="#contact">Contact Us</a></span>
+            </div>
+            <!--<img src="./images/navbar.svg" class="navshape">-->
+        </div>
+        <section id="home">
+            <div class="home-container">
+                <div class = 'container'>
+                <div class = 'row'><h1>Free Delivery for Friends!</h1></div>
+                <div class = 'row'>
+                <div><img src="./images/hero.jpg" class="hero"></div>
+            </div>
+                <div class="tagline-container">
+                    <a href="#about"><img src="./images/arrow.svg" id="arrow"></a>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <div class="subtitle-contain">
+                    <div class="subtitle">
+                    <h1>
+                        <!--<center>What is Toppings?</center>-->
+                    </h1>
+                    <div class="about-container">
+                     
+                        <div class="about-elem"><img src="./images/002-money.svg" class="about-img"><h2>Current delivery systems are <em>too expensive</em> for you, me, restaurants and stores!</h2></div>
+
+                        <div class="about-elem"><img src="./images/005-chat bubble.svg" class="about-img"><h2>Toppings combines <em>delivery</em> and the <em>social network</em> to allow community members to <em>get free delivery</em> and <em>get rewarded for helping</em> out one another using their excess capacity.</h2></div>
+                        
+                        <div class="about-elem"><img src="./images/teamwork.svg" class="about-img"><h2>  We are dedicated to the community with no delivery or service fees for restaurants + <em>profit guarantee.</em></h2></div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <section id="covid">
+            <div class="container">
+                <div class="subtitle-contain">
+                    <div class="subtitle">
+                        <div class="about-secondary">
+                            <img src="./images/handshake.svg" class="secondary-img">
+                            <h2>
+                                  To help with the current COVID-19 situation and help communities coordinate delivery, Toppings has waived all set-up fees and costs for restaurants + has a full-time team dedicated to facilitating the onboarding + customer service process.
+
+                                </h2>
+                        </div>
+                    </div>
+                <img src="./images/arrow.svg" id="arrow">
+                </div>
+            </div>
+            <img src="./images/diagonal.svg" class="diagonal">
+        </section>
+        <section id="vendor">
+            <div class="container">
+                <div class="subtitle subtitle-contain center">
+                        <h1>Vendor Portal</h1>
+                        <h2> Are you currently a participating vendor or interested in becoming one? </br> Log in below if you have already created an account for our vendor portal. </br> Sign up if you haven't already! </h2>
+                <div class="aside">
+                <a href="portal.html"><button class="loginsignup"> Log In </button></a>
+                <a href="signup.html"><button class="loginsignup"> Sign Up </button></a>
+                </div>
+            </div>
+            </div>
+        </section>
+       <!-- <section id="our-partners">
+            <div class="container">
+                <div class="center"><h1>Our Partners</h1>
+                        <div class="p-container">
+                            <div class="p-image"></div>
+                            <div class="p-image"></div>
+                            <div class="p-image"></div>
+                            <div class="p-image"></div>
+                        </div>
+                       <h3> For a complete list of stores, click here > </h3>
+                       <img src="./images/oarrow.svg" id="arrow" style="padding-top:2vh;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials">
+            <div class="container">
+                <div class="tagline-container" id="secondary-container"><h1>What Our Users are Saying</h1>
+                <img src="./images/arrow.svg" id="arrow"></div>
+                <div><img src="./images/secondary.jpg" class="secondary" ></div>
+            </div>
+        </section> -->
+        <section id="signup">
+            <center><h1>Interested in Toppings?</h1></center>
+            <div class="form-container">
+                <form id="signup-form">
+                    
+                    
+                    <label for="user_name"> Contact Name</label>
+                    <input type="text" id="user_name" name="user_name" placeholder="First Last" required>
+                    <label for="user_email">Email Address</label>
+                    <input type="text" id="user_email" name="user_email" placeholder="Email Address" required>
+                    <label for="user_phone"> Phone Number</label>
+                    <input type="text" id="user_phone" name="user_phone" placeholder="1234567890" required>
+                    <label for="uni_affiliation"> If you are a university student, which school do you attend? </label>
+                    <input type="text" id="uni_affiliation" name="uni_affiliation" placeholder="XYZ University">
+                    <div>
+                        <input type="checkbox" name="is-vendor" id="is-vendor">
+                        <label for="is-vendor">Please check this box if you represent a vendor.</label>
+                    
+                        <div class="reveal-if-active">
+                            <label for="vendor_name">Name of Vendor Business</label>
+                            <input type="text" id="vendor_name" name="vendor_name" placeholder="">
+                            <label for="vendor_address">Address of Vendor Business</label>
+                            <input type="text" id="vendor_address" name="vendor_address" placeholder="">
+                        </div>
+                    </div>
+
+                    <center><input type="submit" value="Send"></center>
+                </form>
+
+                <div class="reveal-if-active" id="confirmation">
+                    <center><h2> Thank you! Your information has been received. </h2></center>
+                </div>
+            </div>
+            <img src="./images/pinkdiagonal.svg" class="diagonal">
+        </section>
+        <section id="contact">
+            <center><h1>Contact Us</h1></center>
+            <div class="contact-info">
+                    <div><img src="./images/email.svg" class="contact-img"></div>
+                    <div>
+                    <h2>ToppingsStartup@gmail.com </br>
+                    (678) 710-1220</h2>
+                    </div>
+            </div>
+        </section>
+
+
+    <script src="index.js"></script>
+        
+
+</body>
 </html>
