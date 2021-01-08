@@ -100,7 +100,7 @@ function sizeWindow(x) {
         
         <span class="navlink" :><a href="#pageTwoPointFive">About Us &nbsp</a></span>
         
-        <span class="navlink":><a href="#pageTwo">How it Works</a></span>
+        <span class="navlink":><a href="#pageTwo">How it Works &nbsp</a></span>
         <span class="navlink" :><a href="./portal.html">Vendor Portal &nbsp</a></span>
         
         <span class="navlink" :><a href="#pageThree">Contact Us</a></span>
@@ -145,40 +145,45 @@ function sizeWindow(x) {
     
     `
     const p2Content = `
-    <div class='container-fluid'>
+    <div class='container-fluid' style = 'margin-top:150px'>
+    <div class = 'row'>
+    <div class = 'col-12 text-center'>
+    <h1 style="color: #FF5200; font-size:500%">We Hate Delivery Fees. So we got rid of 'em!</h1>
+    </div> 
+    </div>
             <div class='row'>
-                <div class=col-4>
+                <div class='col-4' align = 'center'>
                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                         <div class="flipper">
                             <div class="front">
-                                <img src = "./images/front1.png" id="logo" style="height:100%;width: 100%;">
+                                <img src = "./images/front1.png" id="logo" style="height:100%;width:100%;display: block;margin-left: auto;margin-right: auto;">
                             </div>
                             <div class="back">
-                                <img src = "./images/back1.png" id="logo" style="height:100%;width: 100%;">
+                                <img src = "./images/back1.png" id="logo" style="height:100%;width: 100%; display: block;margin-left: auto;margin-right: auto;">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class=col-4>
+                <div class='col-4' align = 'center'>
                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                         <div class="flipper">
                             <div class="front">
-                                <img src = "./images/front2.png" id="logo" style="height:100%;width: 100%;">
+                                <img src = "./images/front2.png" id="logo" style="height:100%;width: 100%;display: block;margin-left: auto;margin-right: auto;">
                             </div>
                             <div class="back">
-                                <img src = "./images/back2.png" id="logo" style="height:100%;width: 100%;">
+                                <img src = "./images/back2.png" id="logo" style="height:100%;width: 100%;display: block;margin-left: auto;margin-right: auto;">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class=col-4>
+                <div class='col-4' align = 'center'>
                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                         <div class="flipper">
                             <div class="front">
-                                <img src = "./images/front3.png" id="logo" style="height:100%;width: 100%;">
+                                <img src = "./images/front3.png" id="logo" style="height:100%;width: 100%;display: block;margin-left: auto;margin-right: auto;">
                             </div>
                             <div class="back">
-                                <img src = "./images/back3.png" id="logo" style="height:100%;width: 100%;">
+                                <img src = "./images/back3.png" id="logo" style="height:100%;width: 100%;display: block;margin-left: auto;margin-right: auto;">
                             </div>
                         </div>
                     </div>
@@ -186,12 +191,13 @@ function sizeWindow(x) {
             </div>
         </div>
     
+    
     `
     const p2Point5Content = `
       <div class = 'container-fluid'>
       <div class = 'row'>
-        <div class = 'col-3'>
-        <img src = 'images/ourStory.png' style = 'height:100%;width:100%'>
+        <div class = 'col-5'>
+        <img src = 'images/toppingsteam.png' style = 'height:100%;width:100%'>
         </div>
         <div class = 'col-7' style = 'margin-top:2%;font-weight:bold;font-size:xx-large;'>
         <p>
