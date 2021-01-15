@@ -27,6 +27,19 @@ function save_code(){
         alert('Please Enter a valid Referral Code')
     }
 }
+function save_code2(){
+    if($('#referral_code').val().length === 9)
+    {
+        localStorage.setItem('code',$('#referral_code').val())
+        console.log($('#referral_code').val())
+        console.log('test')
+        window.location.href = 'mobileSecret.html'
+        return false;
+    }
+    else {
+        alert('Please Enter a valid Referral Code')
+    }
+}
 // function initialize(){
 //     const success_callback = function (response) {
 //         numWaiters = response['total_waiters_currently']
