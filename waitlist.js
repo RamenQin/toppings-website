@@ -15,15 +15,16 @@ function post(api_url, data, success_callback, fail_callback) {
     });
 }
 function save_code(){
-    if($('#referral_code').val().length === 0)
+    if($('#referral_code').val().length === 9)
     {
+        localStorage.setItem('code',$('#referral_code').val())
+        console.log($('#referral_code').val())
+        console.log('test')
+        window.location.href = 'secret.html'
         return false;
     }
     else {
-    localStorage.setItem('code',$('#referral_code').val())
-    console.log($('#referral_code').val())
-    console.log('test')
-    window.location.href = 'secret.html'
+        alert('Please Enter a valid Referral Code')
     }
 }
 // function initialize(){

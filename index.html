@@ -16,6 +16,39 @@
     </script>
     <script>
         window.onload = function () {
+            if(window.innerWidth >1000)
+            {
+                $('body').append(` 
+                <div id="mySidenav" class="sidenav" style = 'z-index:50;overflow:hidden;'>
+     
+                <a href="#" id="blog" style = 'position:relative;top:10px;'>Friend on the App?</a>
+                <div style = 'transform: rotate(90deg); position:relative;top:90px;left:20px'>
+                <p style = 'position:relative;right:60px; font-size:xx-large;font-weight:bold;font-family:FatFrank; color:white;text-align:center'>Have a <br>Referral Code?</p>
+     
+                <span><input class="form-control" type="referral" style = 'position:relative;top:15px;right:40px;width:80%; color:blue' id="referral_code" placeholder="Referral Code"></span>
+                <button class="btn btn-primary btn-block" type="button" id="demo_submit_button"
+                onclick="save_code()" style="width:80%;height:40px;position:relative;top:30px;right:35px;background-color: #FF5200;color:white;border-radius:10px;font-family:FatFrank;font-size:large"> Submit </button>
+                </div>
+                </div>`)
+            }
+            else if (window.innerWidth<1000)
+            {
+                $('body').append(`
+                <div id="mySidenav2" class="sidenav" style = 'z-index:50;overflow:hidden;'>
+     
+                <a href="#" id="blog" style = 'position:relative;top:10px;'>Friend on the App?</a>
+                <div style = 'transform: rotate(90deg); position:relative;top:90px;left:20px'>
+                <p style = 'position:relative;right:60px; font-size:xx-large;font-weight:bold;font-family:FatFrank; color:white;text-align:center'>Have a <br>Referral Code?</p>
+        
+                <span><input class="form-control" type="referral" style = 'position:relative;top:15px;right:40px;width:80%; color:blue' id="referral_code" placeholder="Referral Code"></span>
+                <button class="btn btn-primary btn-block" type="button" id="demo_submit_button"
+                onclick="save_code()" style="width:80%;height:40px;position:relative;top:30px;right:35px;background-color: #FF5200;color:white;border-radius:10px;font-family:FatFrank;font-size:large"> Submit </button>
+                </div>
+                </div>`)
+                $("#navbar").attr('style',"width:45%;height:4%;border-radius:0px 0px 10px 10px;")
+                
+            }
+
             document.getElementById('signup-form').addEventListener('submit', function (event) {
                 event.preventDefault();
                 //     var templateParams = {
@@ -65,17 +98,7 @@
 </head>
 
 <body>
-    <div id="mySidenav" class="sidenav" style = 'z-index:50;overflow:hidden;'>
-     
-        <a href="#" id="blog" style = 'position:relative;top:10px;'>Friend on the App?</a>
-        <div style = 'transform: rotate(90deg); position:relative;top:90px;left:20px'>
-        <p style = 'position:relative;right:60px; font-size:xx-large;font-weight:bold;font-family:FatFrank; color:white;text-align:center'>Have a <br>Referral Code?</p>
-        
-        <span><input class="form-control" type="referral" style = 'position:relative;top:15px;right:40px;width:80%; color:blue' id="referral_code" placeholder="Referral Code"></span>
-          <button class="btn btn-primary btn-block" type="button" id="demo_submit_button"
-              onclick="save_code()" style="width:80%;height:40px;position:relative;top:30px;right:35px;background-color: #FF5200;color:white;border-radius:10px;font-family:FatFrank;font-size:large"> Submit </button>
-        </div>
-    </div>
+   
     <div id="navbar">
         <img src="./images/logo color.png" id="logo">
         <div id="navlinks">
