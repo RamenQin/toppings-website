@@ -134,7 +134,7 @@ function submit_email_to_waitlist() {
     post('https://www.getwaitlist.com/waitlist',
         {
             email: new_signup,
-            api_key: 'P0DDR1',
+            api_key: 'GPSWYI',
             referral_link: current_url
         }, success_callback, fail_callback);
     localStorage.setItem('post','post')
