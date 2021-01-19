@@ -117,7 +117,7 @@ a:any-link
     background-color: #007EFF;;
     position: absolute; /* Position them relative to the browser window */
     right: -240px; /* Position them outside of the screen */
-    top:32%;
+    top:90%;
     transition: 0.3s; /* Add transition on hover */
      /* 15px padding */
     width: 250px;

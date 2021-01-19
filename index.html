@@ -46,7 +46,12 @@
                 </div>
                 </div>`)
                 $("#navbar").attr('style',"height:4%;border-radius:0px 0px 10px 10px;")
+                //$(".hero").css('padding-top','500px')
+                $("#imgcont").css('height','300px')
+                $(".hero").css('height','100vh')
+                $(".freefood").css('font-size','7em')
                 
+                $(".freefood").css('padding-top','10px')
             }
 
             document.getElementById('signup-form').addEventListener('submit', function (event) {
@@ -134,13 +139,13 @@
                         
                         <div style ='text-align:left;font-family: FatFrank;'>
                         <h4 style = 'font-size:2em;text-align:left;position:relative;top:100px'>Your Two Favorite <span style="color: white">F</span> Words:</h4>
-                        <h1 style = 'color:white;font-size:10em;font-weight:bold;line-height:80%'><span style = "font-size:1.18em">FREE</span> <br>&<br> FOOD</h1>
+                        <h1 style = 'color:white;font-size:10em;font-weight:bold;line-height:80%' class = 'freefood'><span style = "font-size:1.18em">FREE</span> <br>&<br> FOOD</h1>
                         <h4 style = 'font-size:2em;text-align:left;color:gray; position:relative; bottom:100px'>No-fee food delivery, fast.</h4>
                         </div>
                         </div>
                 </div>
                 <div class='row'>
-                    <div><img src="./images/AppFront.png" class="hero"></div>
+                    <div id = 'imgcont'><img src="./images/AppFront.png" class="hero"></div>
                 </div>
                 <div class="tagline-container">
                     <a href="#about"><img src="./images/arrow.svg" id="arrow"></a>
