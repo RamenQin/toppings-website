@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toppings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/home.css">
+</head>
+<body style = 'background-image:url("./images/ToppingsPrintGray.png")'>
+    <div class = 'container' style = 'margin-top:10%;text-align:center'>
+    <strong style = 'font-size:200%;font-family:FatFrank;color: #007bff;'>You are in the Alpha group for launch. We will reach out to you soon!</strong>
+            
+    <div id = 'dataDiv' style = 'font-family:fatfrank;'>    
+    </div>
+    <div id = 'referral' style = 'background-color:#007bff; border: 2px solid black;;border-radius:5px;'>
+        <h1 style = 'font-family:fatFrank;color:white'>Your Referral Code:</h1>
+        <h1 id = 'code' style = 'color:#FF5200;font-family:FatFrank;background-color: white;width:80%;margin-left:10%;'></h1>
+    </div>
+
+    <!-- <Strong> In the meantime, here's a code to refer up to 10 of your friends to the club. (If you max out your referrals, there's a surprise reward!)</Strong>
+     -->
+</div>
+<script>
+    function load(){
+        var data = JSON.parse(localStorage.getItem('data'))
+        console.log(data)
+        var referrals = data.total_referrals
+        
+        let progress =``
+        console.log(referrals<2)
+        if(referrals<2)
+        {
+            progress = `
+            <h1>You have Referred ${referrals} Friends</h1>
+            <div class="progress">
+            
+            
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+            aria-valuemin="0" aria-valuemax="100" style="width:100%;background-color:#FF5200">
+              0%
+            </div>
+          </div>
+          <h1>Refer Friends to get the following rewards!</h1>
+          <ul style = "text-align:left">
+            <li>2 referrals - Early Access to the App + Special In-App Reward</li>
+            <li>5 referrals - IRL Toppings Sticker</li>
+            <li>10 referrals - Toppings Drawstring Bag</li>
+            <li>20 referrals - Toppings T Shirt + Mystery Prize!!!</li>
+            </ul>
+            `
+        }
+        else if (referrals >= 2 && referrals < 5)
+        {
+            progress = `
+            <h1>You have Referred ${referrals} Friends!</h1>
+            <div class="progress">
+            
+            <div class="progress-bar progress-bar-striped active" role="progressbar"
+            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
+              25%
+            </div>
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="75"
+            aria-valuemin="0" aria-valuemax="100" style="width:75%;background-color:#FF5200">
+              75%
+            </div>
+          </div>
+          <h1>Your Reward:</h1>
+          <ul>
+            <li style = "color:#FF5200">2 referrals - Early Access to the App + Special In-App Reward</li>
+            <li>5 referrals - IRL Toppings Sticker</li>
+            <li>10 referrals - Toppings Drawstring Bag</li>
+            <li>20 referrals - Toppings T Shirt + Mystery Prize!!!</li>
+            </ul>
+          `
+        }
+        else if (referrals >= 5 && referrals < 10)
+        {
+            progress = `
+            <h1>You have Referred ${referrals} Friends!</h1>
+            <div class="progress">
+            
+            <div class="progress-bar progress-bar-striped active" role="progressbar"
+            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+              50%
+            </div>
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100" style="width:50%;background-color:#FF5200">
+              50%
+            </div>
+          </div>
+          <h1>Your Rewards:</h1>
+          <ul>
+            <li style = "color:#FF5200">2 referrals - Early Access to the App + Special In-App Reward</li>
+            <li style = "color:#FF5200">5 referrals - IRL Toppings Sticker</li>
+            <li>10 referrals - Toppings Drawstring Bag</li>
+            <li>20 referrals - Toppings T Shirt + Mystery Prize!!!</li>
+            </ul>`
+        }
+        else if (referrals >= 10 && referrals < 20)
+        {
+            progress = `
+            <h1>You have Referred ${referrals} Friends!</h1>
+            <div class="progress">
+            
+            <div class="progress-bar progress-bar-striped active" role="progressbar"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+              75%
+            </div>
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="25"
+            aria-valuemin="0" aria-valuemax="100" style="width:25%;background-color:#FF5200">
+              25%
+            </div>
+          </div>
+          <h1>Your Rewards:</h1>
+          <ul>
+            <li style = "color:#FF5200">2 referrals - Early Access to the App + Special In-App Reward</li>
+            <li style = "color:#FF5200">5 referrals - IRL Toppings Sticker</li>
+            <li style = "color:#FF5200">10 referrals - Toppings Drawstring Bag</li>
+            <li>20 referrals - Toppings T Shirt + Mystery Prize!!!</li>
+            </ul>`
+        }
+        else{
+            progress = `
+            <h1>You have Referred ${referrals} Friends!</h1>
+            <div class="progress">
+            
+            <div class="progress-bar progress-bar-striped active" role="progressbar"
+            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+              100%
+            </div>
+            
+          </div>
+          <h1>Congrats! You Have Maxed Out Your Referrals and Earned all the Rewards!</h1>
+          <ul>
+            <li style = "color:#FF5200">2 referrals - Early Access to the App + Special In-App Reward</li>
+            <li style = "color:#FF5200">5 referrals - IRL Toppings Sticker</li>
+            <li style = "color:#FF5200">10 referrals - Toppings Drawstring Bag</li>
+            <li style = "color:#FF5200">20 referrals - Toppings T Shirt + Mystery Prize!!!</li>
+            </ul>`
+        }
+        $('#code').append(data.referral_link.substring(35))
+        $('#dataDiv').append(progress)
+    }
+    window.onload = load
+    
+</script>
+    
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="./waitlist.js"></script>
+</body>
+</html>

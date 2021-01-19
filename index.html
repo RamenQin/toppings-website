@@ -45,7 +45,7 @@
                 onclick="save_code2()" style="width:80%;height:40px;position:relative;top:30px;right:35px;background-color: #FF5200;color:white;border-radius:10px;font-family:FatFrank;font-size:large"> Submit </button>
                 </div>
                 </div>`)
-                $("#navbar").attr('style',"width:45%;height:4%;border-radius:0px 0px 10px 10px;")
+                $("#navbar").attr('style',"height:4%;border-radius:0px 0px 10px 10px;")
                 
             }
 
@@ -107,19 +107,40 @@
             <!--<span class="navlink":> <a href="#our-partners">Our Partners</a></span>
                                 <span class="navlink":><a href="#testimonials">Testimonials</a></span>-->
             <!--span class="navlink":><a href="#vendor">Vendor Portal</a></span-->
-            <span class="navlink" :> <a href="#signup">Sign Up</a></span>
+            
+            
             <span class="navlink" :><a href="#contact">Contact Us</a></span>
+            <!--span class="navlink" :> <button id="myBtn">Sign In</button></span-->
         </div>
         <!--<img src="./images/navbar.svg" class="navshape">-->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Click Here to Sign In and see your rewards</p>
+              <span><input class="form-control" type="referral" style = 'position:relative;top:15px;right:40px;width:80%; color:blue' id="user_email" placeholder="Email"></span>
+                <button class="btn btn-primary btn-block" type="button" id="demo_submit_button"
+                onclick="sign_in()" style="width:80%;height:40px;position:relative;top:30px;right:35px;background-color: #FF5200;color:white;border-radius:10px;font-family:FatFrank;font-size:large"> Submit </button>
+                
+            </div>
+          
+          </div>
     </div>
     <section id="home">
         <div class="home-container">
             <div class='container'>
                 <div class='row'>
-                    <h1 style='margin-top:35%'>Free Delivery for Friends!</h1>
+                        
+                        <div style ='text-align:left;font-family: FatFrank;'>
+                        <h4 style = 'font-size:2em;text-align:left;position:relative;top:100px'>Your Two Favorite <span style="color: white">F</span> Words:</h4>
+                        <h1 style = 'color:white;font-size:10em;font-weight:bold;line-height:80%'><span style = "font-size:1.18em">FREE</span> <br>&<br> FOOD</h1>
+                        <h4 style = 'font-size:2em;text-align:left;color:gray; position:relative; bottom:100px'>No-fee food delivery, fast.</h4>
+                        </div>
+                        </div>
                 </div>
                 <div class='row'>
-                    <div><img src="./images/hero.jpg" class="hero"></div>
+                    <div><img src="./images/AppFront.png" class="hero"></div>
                 </div>
                 <div class="tagline-container">
                     <a href="#about"><img src="./images/arrow.svg" id="arrow"></a>
@@ -137,19 +158,16 @@
                     <div class="about-container">
 
                         <div class="about-elem"><img src="./images/002-money.svg" class="about-img">
-                            <h2>Current delivery systems are <em>too expensive</em> for you, me, restaurants and stores!
+                            <h2>By the power of a <em>social network</em> we're able to provide you with <em>free delivery</em> from your <em>favorite local restaurants</em>!
                             </h2>
                         </div>
 
                         <div class="about-elem"><img src="./images/005-chat bubble.svg" class="about-img">
-                            <h2>Toppings combines <em>delivery</em> and the <em>social network</em> to allow community
-                                members to <em>get free delivery</em> and <em>get rewarded for helping</em> out one
-                                another using their excess capacity.</h2>
+                            <h2>We think helping one another should be <em>encouaged and rewarded</em> Boom! <em>Free stuff</em> when you deliver to friends
                         </div>
 
                         <div class="about-elem"><img src="./images/teamwork.svg" class="about-img">
-                            <h2> We are dedicated to the community with no delivery or service fees for restaurants +
-                                <em>profit guarantee.</em></h2>
+                            <h2> We love our community and want to support the <em>mom and pop shops</em>, so we make sure they make a <em>profit on every item sold</em></h2>
                         </div>
 
                     </div>
