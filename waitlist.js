@@ -18,6 +18,7 @@ function save_code(){
     if($('#referral_code').val().length === 9)
     {
         localStorage.setItem('code',$('#referral_code').val())
+        localStorage.setItem('fromHome','true')
         console.log($('#referral_code').val())
         console.log('test')
         window.location.href = 'theTop.html'
@@ -26,6 +27,7 @@ function save_code(){
     else if($('#referral_code').val().length === 57)
     {
         localStorage.setItem('code',$('#referral_code').val().substring(48))
+        localStorage.setItem('fromHome','true')
         console.log($('#referral_code').val())
         console.log('test')
         window.location.href = 'theTop.html'
@@ -39,6 +41,7 @@ function save_code2(){
     if($('#referral_code').val().length === 9)
     {
         localStorage.setItem('code',$('#referral_code').val())
+        localStorage.setItem('fromHome','true')
         console.log($('#referral_code').val())
         console.log('test')
         window.location.href = 'theTop.html'
@@ -48,6 +51,7 @@ function save_code2(){
     {
         localStorage.setItem('code',$('#referral_code').val().substring(48))
         console.log($('#referral_code').val())
+        localStorage.setItem('fromHome','true')
         console.log('test')
         window.location.href = 'theTop.html'
         return false;
@@ -83,6 +87,7 @@ function save_code2(){
 function submit_email_to_waitlist() {
     // fetch values from the frontend
     
+    
     var new_signup = document.getElementById('waitlist_email').value;
     if (new_signup.substring(new_signup.length-19)!= "college.harvard.edu")
     {
@@ -93,6 +98,7 @@ function submit_email_to_waitlist() {
     localStorage.setItem('email', new_signup)
     var current_url = "https://www.toppingsapp.com/theTop.html"
     console.log(localStorage.getItem('code'))
+   
     if(localStorage.getItem('code').length === 0 )
     {
         alert("Please Enter a Referral Code")
