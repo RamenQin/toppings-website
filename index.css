@@ -279,7 +279,8 @@ a:any-link
 
 #home
 {
-    background-color: #FF5200;
+    /* background-color: #FF5200; */
+   
     color: white;
     width: 100%;
     margin-bottom: none;

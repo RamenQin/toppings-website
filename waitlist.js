@@ -67,7 +67,13 @@ function save_code2(){
 function submit_email_to_waitlist() {
     // fetch values from the frontend
     
-    var new_signup = document.getElementById('waitlist_email').value; //fetch user signing up on frontend
+    var new_signup = document.getElementById('waitlist_email').value;
+    if (new_signup.substring(new_signup.length-11)!= "harvard.edu")
+    {
+        alert("Please Enter a Harvard Email");
+        return false;
+    }
+    //fetch user signing up on frontend
     localStorage.setItem('email', new_signup)
     var current_url = "https://www.toppingsapp.com"
     console.log(localStorage.getItem('code'))
