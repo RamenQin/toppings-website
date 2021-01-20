@@ -68,7 +68,7 @@ function submit_email_to_waitlist() {
     // fetch values from the frontend
     
     var new_signup = document.getElementById('waitlist_email').value;
-    if (new_signup.substring(new_signup.length-11)!= "harvard.edu")
+    if (new_signup.substring(new_signup.length-19)!= "college.harvard.edu")
     {
         alert("Please Enter a Harvard Email");
         return false;
