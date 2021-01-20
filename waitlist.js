@@ -23,6 +23,14 @@ function save_code(){
         window.location.href = 'theTop.html'
         return false;
     }
+    else if($('#referral_code').val().length === 57)
+    {
+        localStorage.setItem('code',$('#referral_code').val().substring(48))
+        console.log($('#referral_code').val())
+        console.log('test')
+        window.location.href = 'theTop.html'
+        return false;
+    }
     else {
         alert('Please Enter a valid Referral Code')
     }
@@ -31,6 +39,14 @@ function save_code2(){
     if($('#referral_code').val().length === 9)
     {
         localStorage.setItem('code',$('#referral_code').val())
+        console.log($('#referral_code').val())
+        console.log('test')
+        window.location.href = 'theTop.html'
+        return false;
+    }
+    else if($('#referral_code').val().length === 57)
+    {
+        localStorage.setItem('code',$('#referral_code').val().substring(48))
         console.log($('#referral_code').val())
         console.log('test')
         window.location.href = 'theTop.html'
@@ -75,7 +91,7 @@ function submit_email_to_waitlist() {
     }
     //fetch user signing up on frontend
     localStorage.setItem('email', new_signup)
-    var current_url = "https://www.toppingsapp.com"
+    var current_url = "https://www.toppingsapp.com/theTop.html"
     console.log(localStorage.getItem('code'))
     if(localStorage.getItem('code').length === 0 )
     {
@@ -84,7 +100,7 @@ function submit_email_to_waitlist() {
     }
     if(localStorage.getItem('code').length === 9)
     {
-    current_url = "https://www.toppingsapp.com?&ref_id="+localStorage.getItem('code')//fetch current URL, including potential referral token
+    current_url = "https://www.toppingsapp.com/theTop.html?&ref_id="+localStorage.getItem('code')//fetch current URL, including potential referral token
     }
     else if (localStorage.getItem('code').length>40)
     {
@@ -116,7 +132,7 @@ function submit_email_to_waitlist() {
         // $('#demo_referral').show()
        
         // appending HTML information
-        var mylink = referral_link.substring(35)
+        var mylink = referral_link.substring(48)
         $('#current_waiter_spot').html("You are waiter " + waiter_priority)
         $('#all_waiter_spots').html(" out of " + total_waiters_currently)
         $('#total_referral').html("Referrals: " +total_referrals)
@@ -206,9 +222,8 @@ post('https://www.getwaitlist.com/waitlist',
     {
         email: new_signup,
         api_key: 'GPSWYI',
-        referral_link: 'https://www.toppingsapp.com'
+        referral_link: 'https://www.toppingsapp.com/theTop.html'
     }, success_callback, fail_callback);
-localStorage.setItem('post','post')
 };
 // function copy_link() {
 //     var text1 = document.getElementById("referral_link_url").textContent;
