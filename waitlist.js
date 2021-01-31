@@ -84,11 +84,11 @@ function save_code2(){
     
 // }
 
-function submit_email_to_waitlist() {
+function submit_email_to_waitlist(user_name, user_email) {
     // fetch values from the frontend
     
     
-    var new_signup = document.getElementById('waitlist_email').value;
+    var new_signup = $('#user_email').val();
     if (new_signup.substring(new_signup.length-19)!= "college.harvard.edu")
     {
         alert("Please Enter a Harvard Email");
@@ -124,26 +124,43 @@ function submit_email_to_waitlist() {
         total_referrals = response['total_referrals']
         $("#userSubmit").hide()
         $("#userData").attr("style", "background-color: #007EFF;width:100%;border-radius: 5px;display: visible")
-        //$(".modal-content").css("width","200%")
-        // hiding parts of HTML
-        // $('#waitlist_email').hide()
-        // $('#demo_submit_button').hide()
-        // $('#email_address_text').hide()
-
-        // showing parts of HTML
-        // $('#current_text').show()
-        // $('#current_waiter_spot').show()
-        // $('#out_of').show()
-        // $('#all_waiter_spots').show()
-        // $('#demo_referral').show()
+        
+        //send email to max@toppingsapp.com
        
-        // appending HTML information
+        localStorage.setItem('email',"success-test")
+        var data = {
+        service_id: 'service_siolzuj',
+        template_id: 'template_4h3fvz6',
+        user_id: 'user_EvvJTh5bb1VQKSEsvVn5W',
+        template_params: {
+            user_name: $("#user_name").val(),
+            user_email: $("#user_email").val(),
+            message: "Your Referral Code: " + referral_link,
+            
+        },
+        }
+        //console.log('test')
+        //console.log(params)
+        console.log(data)
+        $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: false,
+            
+        }).done(function () {
+            //alert('Your mail is sent!');
+            console.log('success!')
+        }).fail(function (error) {
+            alert('Oops... ' + JSON.stringify(error));
+        });
+
+
         var mylink = referral_link.substring(48)
         $('#current_waiter_spot').html("You are waiter " + waiter_priority)
         $('#all_waiter_spots').html(" out of " + total_waiters_currently)
         $('#total_referral').html("Referrals: " +total_referrals)
         $('#referral_link_url').html("Your Referral Code: " +mylink)
-        window.location.replace('./results.html')
+        //window.location.replace('./results.html')
         //$('#info_ref_link').html('Click on the button to copy your referral link (also sent to your email).')
         //window.location.href = 'secret.html'
     };
