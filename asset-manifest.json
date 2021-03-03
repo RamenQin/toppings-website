@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/toppings-website/static/css/main.6d1a8abe.chunk.css",
+    "main.js": "/toppings-website/static/js/main.53d539c6.chunk.js",
+    "main.js.map": "/toppings-website/static/js/main.53d539c6.chunk.js.map",
+    "runtime-main.js": "/toppings-website/static/js/runtime-main.81bc55ff.js",
+    "runtime-main.js.map": "/toppings-website/static/js/runtime-main.81bc55ff.js.map",
+    "static/css/2.ae9f1eb3.chunk.css": "/toppings-website/static/css/2.ae9f1eb3.chunk.css",
+    "static/js/2.9dd5676e.chunk.js": "/toppings-website/static/js/2.9dd5676e.chunk.js",
+    "static/js/2.9dd5676e.chunk.js.map": "/toppings-website/static/js/2.9dd5676e.chunk.js.map",
+    "index.html": "/toppings-website/index.html",
+    "static/css/2.ae9f1eb3.chunk.css.map": "/toppings-website/static/css/2.ae9f1eb3.chunk.css.map",
+    "static/css/main.6d1a8abe.chunk.css.map": "/toppings-website/static/css/main.6d1a8abe.chunk.css.map",
+    "static/js/2.9dd5676e.chunk.js.LICENSE.txt": "/toppings-website/static/js/2.9dd5676e.chunk.js.LICENSE.txt",
+    "static/media/home.css": "/toppings-website/static/media/Roboto-Bold.4f39c579.ttf",
+    "static/media/Hong_Kong_Logo.135a6644.png": "/toppings-website/static/media/Hong_Kong_Logo.135a6644.png",
+    "static/media/Jefes.39597969.jpg": "/toppings-website/static/media/Jefes.39597969.jpg",
+    "static/media/Jefes_logo.cf8a8b63.png": "/toppings-website/static/media/Jefes_logo.cf8a8b63.png",
+    "static/media/Playa_Bowls_logo.edaba9b6.png": "/toppings-website/static/media/Playa_Bowls_logo.edaba9b6.png",
+    "static/media/Shake-Shack.e8edadbd.png": "/toppings-website/static/media/Shake-Shack.e8edadbd.png",
+    "static/media/Tasty_Burger_Logo.d8f734d1.png": "/toppings-website/static/media/Tasty_Burger_Logo.d8f734d1.png",
+    "static/media/ToppingsPrintGray.32aa0e3b.png": "/toppings-website/static/media/ToppingsPrintGray.32aa0e3b.png",
+    "static/media/front1-removebg-preview.d9e8acc8.png": "/toppings-website/static/media/front1-removebg-preview.d9e8acc8.png",
+    "static/media/front2-removebg-preview.987ea22a.png": "/toppings-website/static/media/front2-removebg-preview.987ea22a.png",
+    "static/media/front3-removebg-preview.3cf06285.png": "/toppings-website/static/media/front3-removebg-preview.3cf06285.png",
+    "static/media/logo white.f74b3cfc.png": "/toppings-website/static/media/logo white.f74b3cfc.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.81bc55ff.js",
+    "static/css/2.ae9f1eb3.chunk.css",
+    "static/js/2.9dd5676e.chunk.js",
+    "static/css/main.6d1a8abe.chunk.css",
+    "static/js/main.53d539c6.chunk.js"
+  ]
+}
