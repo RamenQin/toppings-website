@@ -8,7 +8,7 @@ function PageOne(){
     <section id = 'pageOne' style = {{backgroundImage:`url(${background})`, width:"100%"}}>
         <div className = 'container-fluid'>
         {/* <div className = 'row'> */}
-        <div className = "col-6" id = "pageOneTextLg" style = {{height:"98.75%", position:"absolute",left:"0"}}>
+        <div className = "col-6" id = "pageOneTextLg" style = {{height:"98.75%", position:"absolute",left:"0", opacity:"85%"}}>
         <div>
             <h1 style = {{color: "#FF5200", paddingTop:"10%", paddingBottom:"7.5%",paddingLeft:"10%"}}> Free Food Delivery From Friends</h1>
                 <div>
