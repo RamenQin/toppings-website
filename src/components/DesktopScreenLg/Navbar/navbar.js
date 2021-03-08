@@ -12,9 +12,10 @@ function Navbar(){
             <span class="navlink" ><a href="#pageOne">Home</a></span>
             <span class="navlink"><a href="#pageTwo">Partners</a></span>
             <span class="navlink" ><a href="#pageThree">About</a></span>
+             <span><a href= 'https://maxyu13.github.io/toppings-portal/'>Vendor Portal </a></span>
             <span class="navlink" ><a href="#pageFour">Sign Up</a></span>
-            {/* <span class="navlink" ><a href="./portal.html">Vendor Portal </a></span>
-            <span class="navlink" ><a href="#pageThree">Contact</a></span> */}
+            
+            {/*<span class="navlink" ><a href="#pageThree">Contact</a></span> */}
         
             
         
