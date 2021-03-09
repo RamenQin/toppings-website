@@ -20,10 +20,10 @@ function PageTwo(){
                         <div className = 'col-4'><img src = {Kong} style = {{height:"80%",width:"80%"}}></img></div>
                         <div className = 'col-4'><img src = {Playa} style = {{height:"80%",width:"80%"}}></img></div>
                     </div>
-                    <div className = 'row'>
+                    {/* <div className = 'row'>
                     <div className = 'col-6'><img src = {Shake} style = {{height:"80%",width:"80%"}}></img></div>
                         <div className = 'col-6'><img src = {Tasty} style = {{height:"80%",width:"80%"}}></img></div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className = 'row'>
