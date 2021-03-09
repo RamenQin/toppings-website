@@ -1,24 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.db539fd5.chunk.css",
-    "main.js": "/static/js/main.3150f329.chunk.js",
-    "main.js.map": "/static/js/main.3150f329.chunk.js.map",
+    "main.js": "/static/js/main.a686c741.chunk.js",
+    "main.js.map": "/static/js/main.a686c741.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d03785d9.js",
     "runtime-main.js.map": "/static/js/runtime-main.d03785d9.js.map",
     "static/css/2.ae9f1eb3.chunk.css": "/static/css/2.ae9f1eb3.chunk.css",
-    "static/js/2.9dd5676e.chunk.js": "/static/js/2.9dd5676e.chunk.js",
-    "static/js/2.9dd5676e.chunk.js.map": "/static/js/2.9dd5676e.chunk.js.map",
+    "static/js/2.99e7ade8.chunk.js": "/static/js/2.99e7ade8.chunk.js",
+    "static/js/2.99e7ade8.chunk.js.map": "/static/js/2.99e7ade8.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.ae9f1eb3.chunk.css.map": "/static/css/2.ae9f1eb3.chunk.css.map",
     "static/css/main.db539fd5.chunk.css.map": "/static/css/main.db539fd5.chunk.css.map",
-    "static/js/2.9dd5676e.chunk.js.LICENSE.txt": "/static/js/2.9dd5676e.chunk.js.LICENSE.txt",
+    "static/js/2.99e7ade8.chunk.js.LICENSE.txt": "/static/js/2.99e7ade8.chunk.js.LICENSE.txt",
     "static/media/home.css": "/static/media/Roboto-Bold.4f39c579.ttf",
     "static/media/Hong_Kong_Logo.135a6644.png": "/static/media/Hong_Kong_Logo.135a6644.png",
     "static/media/Jefes.39597969.jpg": "/static/media/Jefes.39597969.jpg",
     "static/media/Jefes_logo.cf8a8b63.png": "/static/media/Jefes_logo.cf8a8b63.png",
     "static/media/Playa_Bowls_logo.edaba9b6.png": "/static/media/Playa_Bowls_logo.edaba9b6.png",
-    "static/media/Shake-Shack.e8edadbd.png": "/static/media/Shake-Shack.e8edadbd.png",
-    "static/media/Tasty_Burger_Logo.d8f734d1.png": "/static/media/Tasty_Burger_Logo.d8f734d1.png",
     "static/media/ToppingsPrintGray.32aa0e3b.png": "/static/media/ToppingsPrintGray.32aa0e3b.png",
     "static/media/front1-removebg-preview.d9e8acc8.png": "/static/media/front1-removebg-preview.d9e8acc8.png",
     "static/media/front2-removebg-preview.987ea22a.png": "/static/media/front2-removebg-preview.987ea22a.png",
@@ -28,8 +26,8 @@
   "entrypoints": [
     "static/js/runtime-main.d03785d9.js",
     "static/css/2.ae9f1eb3.chunk.css",
-    "static/js/2.9dd5676e.chunk.js",
+    "static/js/2.99e7ade8.chunk.js",
     "static/css/main.db539fd5.chunk.css",
-    "static/js/main.3150f329.chunk.js"
+    "static/js/main.a686c741.chunk.js"
   ]
 }
