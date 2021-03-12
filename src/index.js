@@ -5,6 +5,11 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
+// ReactDOM.render(<Router basename={process.env.PUBLIC_URL}>< App />
+// </Router>, 
+// document.getElementById("root")
+// );
+
 ReactDOM.render(
   <App />,
   document.getElementById("root")
