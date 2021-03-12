@@ -43,7 +43,7 @@ export default () => {
         subheading={<Subheading></Subheading>}
         heading={
           <>
-            Free <HighlightedText>Food</HighlightedText>
+            Free <HighlightedText style = {{color:"#007bff"}}>Food</HighlightedText>
           </>
         }
         textOnLeft={false}
@@ -57,7 +57,7 @@ export default () => {
         subheading={<Subheading></Subheading>}
         heading={
           <>
-            Community- <HighlightedText>Minded</HighlightedText>
+            Community- <HighlightedText style = {{color:"#007bff"}}>Minded</HighlightedText>
           </>
         }
         imageSrc={prototypeIllustrationImageSrc}
