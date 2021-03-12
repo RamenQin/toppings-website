@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.f8fd3397.chunk.css",
-    "main.js": "/static/js/main.86f99bfb.chunk.js",
-    "main.js.map": "/static/js/main.86f99bfb.chunk.js.map",
+    "main.js": "/static/js/main.5391dd19.chunk.js",
+    "main.js.map": "/static/js/main.5391dd19.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cbbb42e2.js",
     "runtime-main.js.map": "/static/js/runtime-main.cbbb42e2.js.map",
     "static/css/2.b71ebc9b.chunk.css": "/static/css/2.b71ebc9b.chunk.css",
-    "static/js/2.d1ce5cb3.chunk.js": "/static/js/2.d1ce5cb3.chunk.js",
-    "static/js/2.d1ce5cb3.chunk.js.map": "/static/js/2.d1ce5cb3.chunk.js.map",
+    "static/js/2.3ec15118.chunk.js": "/static/js/2.3ec15118.chunk.js",
+    "static/js/2.3ec15118.chunk.js.map": "/static/js/2.3ec15118.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f024a02e6dbbb73e13709b45b026df55.js": "/precache-manifest.f024a02e6dbbb73e13709b45b026df55.js",
+    "precache-manifest.dd8492fbafd48948292cda5890fe681e.js": "/precache-manifest.dd8492fbafd48948292cda5890fe681e.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.b71ebc9b.chunk.css.map": "/static/css/2.b71ebc9b.chunk.css.map",
     "static/css/main.f8fd3397.chunk.css.map": "/static/css/main.f8fd3397.chunk.css.map",
-    "static/js/2.d1ce5cb3.chunk.js.LICENSE.txt": "/static/js/2.d1ce5cb3.chunk.js.LICENSE.txt",
+    "static/js/2.3ec15118.chunk.js.LICENSE.txt": "/static/js/2.3ec15118.chunk.js.LICENSE.txt",
     "static/media/AboutUsPage.jpeg": "/static/media/AboutUsPage.3722f7e7.jpeg",
     "static/media/AgencyLandingPage.jpeg": "/static/media/AgencyLandingPage.df4fcdeb.jpeg",
     "static/media/BlogIndexPage.jpeg": "/static/media/BlogIndexPage.7e8818a2.jpeg",
@@ -58,13 +58,15 @@
     "static/media/dot-pattern.1c251c8f.svg": "/static/media/dot-pattern.1c251c8f.svg",
     "static/media/email-illustration.svg": "/static/media/email-illustration.a1ad2491.svg",
     "static/media/email-newsletter-icon.7064f155.svg": "/static/media/email-newsletter-icon.7064f155.svg",
-    "static/media/facebook-icon.5e030c93.svg": "/static/media/facebook-icon.5e030c93.svg",
+    "static/media/facebook-icon.8e6df75f.svg": "/static/media/facebook-icon.8e6df75f.svg",
     "static/media/fast-icon.svg": "/static/media/fast-icon.6c9e80ee.svg",
     "static/media/front1-removebg-preview.png": "/static/media/front1-removebg-preview.6d7eec38.png",
     "static/media/front2-removebg-preview.png": "/static/media/front2-removebg-preview.593d158c.png",
     "static/media/front3-removebg-preview.png": "/static/media/front3-removebg-preview.1b80646d.png",
     "static/media/github-icon.61eae8b2.svg": "/static/media/github-icon.61eae8b2.svg",
     "static/media/handle-icon.20ccfb09.svg": "/static/media/handle-icon.20ccfb09.svg",
+    "static/media/instagram-icon.304fb315.svg": "/static/media/instagram-icon.304fb315.svg",
+    "static/media/linked-in-icon.64cca31d.svg": "/static/media/linked-in-icon.64cca31d.svg",
     "static/media/linkedin-icon.fa5666fa.svg": "/static/media/linkedin-icon.fa5666fa.svg",
     "static/media/log-in.svg": "/static/media/log-in.6c3aec23.svg",
     "static/media/login-illustration.svg": "/static/media/login-illustration.60e77202.svg",
@@ -110,8 +112,8 @@
   "entrypoints": [
     "static/js/runtime-main.cbbb42e2.js",
     "static/css/2.b71ebc9b.chunk.css",
-    "static/js/2.d1ce5cb3.chunk.js",
+    "static/js/2.3ec15118.chunk.js",
     "static/css/main.f8fd3397.chunk.css",
-    "static/js/main.86f99bfb.chunk.js"
+    "static/js/main.5391dd19.chunk.js"
   ]
 }

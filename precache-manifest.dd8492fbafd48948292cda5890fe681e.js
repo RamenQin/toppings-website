@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fbd25d7a302ffa5c101a46c26bdfcdf5",
+    "revision": "9cc335580d2c6c012ff693f9d854d306",
     "url": "/index.html"
   },
   {
-    "revision": "8f7eba10a2699f901eda",
+    "revision": "924bedc31009c8786d50",
     "url": "/static/css/2.b71ebc9b.chunk.css"
   },
   {
-    "revision": "83d42e745029f0659e93",
+    "revision": "f1a1f704b399f5aed9e7",
     "url": "/static/css/main.f8fd3397.chunk.css"
   },
   {
-    "revision": "8f7eba10a2699f901eda",
-    "url": "/static/js/2.d1ce5cb3.chunk.js"
+    "revision": "924bedc31009c8786d50",
+    "url": "/static/js/2.3ec15118.chunk.js"
   },
   {
     "revision": "a8b7f9925879c67c458b78e4fa827b7f",
-    "url": "/static/js/2.d1ce5cb3.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.3ec15118.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "83d42e745029f0659e93",
-    "url": "/static/js/main.86f99bfb.chunk.js"
+    "revision": "f1a1f704b399f5aed9e7",
+    "url": "/static/js/main.5391dd19.chunk.js"
   },
   {
     "revision": "7632c6acda2e3c494e67",
@@ -204,8 +204,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/email-newsletter-icon.7064f155.svg"
   },
   {
-    "revision": "5e030c93ee64514b9fcdc887289ce8a9",
-    "url": "/static/media/facebook-icon.5e030c93.svg"
+    "revision": "8e6df75f3f6a97c77a063c34a0c80975",
+    "url": "/static/media/facebook-icon.8e6df75f.svg"
   },
   {
     "revision": "6c9e80eec6977f6497b0e55f0fce374a",
@@ -230,6 +230,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "20ccfb09e5a6a5360835f862fed25066",
     "url": "/static/media/handle-icon.20ccfb09.svg"
+  },
+  {
+    "revision": "304fb3151e3b1f86d0150dc8144fcc3c",
+    "url": "/static/media/instagram-icon.304fb315.svg"
+  },
+  {
+    "revision": "64cca31df6d1eb60457c888db3a7cd8f",
+    "url": "/static/media/linked-in-icon.64cca31d.svg"
   },
   {
     "revision": "fa5666fa9730a9f927a76edfa9b53e2b",
