@@ -79,6 +79,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
       {/* <NavLink href="/#" tw="lg:ml-12!">
         Login
       </NavLink> */}
+      <NavLink href="https://maxyu13.github.io/toppings-portal">Vendor Portal</NavLink>
       <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} style = {{backgroundColor: "#007bff"}}href="/#">Sign Up</PrimaryLink>
     </NavLinks>
   ];

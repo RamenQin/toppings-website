@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import {ReactComponent as SvgDotPatternIcon} from "../../images/dot-pattern.svg"
 
+
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -36,11 +37,11 @@ const SvgDotPattern1 = tw(SvgDotPatternIcon)`absolute bottom-0 right-0 transform
 
 export default () => {
   return (
-    <Container>
-      <Content>
-        <FormContainer>
+    <Container >
+      <Content >
+        <FormContainer style = {{backgroundColor:"#007bff" }}>
           <div tw="mx-auto max-w-4xl">
-            <h2>Organize an Event</h2>
+            <h2>Contact Us</h2>
             <form action="#">
               <TwoColumn>
                 <Column>
@@ -61,7 +62,7 @@ export default () => {
                 </Column>
               </TwoColumn>
 
-              <SubmitButton type="submit" value="Submit">Submit</SubmitButton>
+              <SubmitButton type="submit" value="Submit" style = {{color:"#007bff" }} onSubmit = {{}}>Submit</SubmitButton>
             </form>
           </div>
           <SvgDotPattern1 />

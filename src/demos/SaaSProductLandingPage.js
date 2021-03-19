@@ -11,6 +11,7 @@ import Pricing from "components/pricing/ThreePlans.js";
 import Testimonial from "components/testimonials/TwoColumnWithImageAndRating.js";
 import FAQ from "components/faqs/SingleCol.js";
 import GetStarted from "components/cta/GetStarted";
+import Contact from "components/forms/SimpleContactUs"
 import Footer from "components/footers/MiniCenteredFooter.js";
 import heroScreenshotImageSrc from "images/front1-removebg-preview.png";
 import macHeroScreenshotImageSrc from "images/front2-removebg-preview.png";
@@ -77,6 +78,7 @@ export default () => {
           }
         ]}
       />
+      {/* <Contact /> */}
       {/* <Pricing
         subheading={<Subheading>Pricing</Subheading>}
         heading={
