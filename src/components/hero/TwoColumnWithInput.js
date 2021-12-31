@@ -78,7 +78,7 @@ class ShowModal extends React.Component {
 
 
 
-export default ({ roundedHeaderButton }) => {
+export default ({ roundedHeaderButton, grocery }) => {
   
   return (
     <>
@@ -86,9 +86,15 @@ export default ({ roundedHeaderButton }) => {
       <Container>
         <TwoColumn>
           <LeftColumn>
-            <Heading>
-              Free Food Delivery From Friends
-            </Heading>
+            {grocery ? 
+              <Heading>
+                Free Grocery Delivery From Friends
+              </Heading>
+            :
+              <Heading>
+                Free Food Delivery From Friends
+              </Heading>
+            }
             <Paragraph>
             Using the power of social networks, get your favorite meals delivered to your doorstep with no delivery fees by delivering to friends! Best part? You’ll be rewarded for every pick-up and order!
             </Paragraph>

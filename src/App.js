@@ -110,21 +110,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 export default function App() {
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
-    <SaaSProductLandingPage />
-    // <Router>
-    //   <Switch>
-    //     <Route path="/components/:type/:subtype/:name">
-    //       <ComponentRenderer />
-    //     </Route>
-    //     <Route path="/components/:type/:name">
-    //       <ComponentRenderer />
-    //     </Route>
-    //     <Route path="/">
-    //       <SaaSProductLandingPage />
-    //     </Route>
-    //     <Route exact path={`/`} render={ (routerProps) => < Home routerProps={routerProps} setUpGame={this.setUpGame} />} />
-    //   </Switch>
-    // </Router>
+    // <SaaSProductLandingPage />
+    <Router>
+      <Switch>
+        <Route path="/">
+          <SaaSProductLandingPage />
+        </Route>
+        <Route path="/groceries">
+          <SaaSProductLandingPage />
+        </Route>
+        {/* <Route exact path={`/`} render={ (routerProps) => < Home routerProps={routerProps} setUpGame={this.setUpGame} />} /> */}
+      </Switch>
+    </Router>
   );
 }
 
