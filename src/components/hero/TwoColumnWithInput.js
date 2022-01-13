@@ -86,17 +86,17 @@ export default ({ roundedHeaderButton, grocery }) => {
       <Container>
         <TwoColumn>
           <LeftColumn>
-            {grocery ? 
+            {/* {grocery ? 
               <Heading>
                 Free Grocery Delivery From Friends
               </Heading>
-            :
+            : */}
               <Heading>
-                Free Food Delivery From Friends
+                Social Ordering Made Easy And Rewarding
               </Heading>
-            }
+            {/* } */}
             <Paragraph>
-            Using the power of social networks, get your favorite meals delivered to your doorstep with no delivery fees by delivering to friends! Best part? You’ll be rewarded for every pick-up and order!
+            Using the power of social networks, get your meals and groceries delivered to your doorstep with no fees by delivering to friends by coordinating with friends! Best part? You’ll be rewarded for every pick-up and order!
             </Paragraph>
             <Actions>
               {/* <input type="text" placeholder="Your E-mail Address" ref ={email} />

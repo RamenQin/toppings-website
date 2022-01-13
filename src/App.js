@@ -87,6 +87,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 // import HotelTravelLandingPage from "demos/HotelTravelLandingPage.js";
 // import AgencyLandingPage from "demos/AgencyLandingPage.js";
  import SaaSProductLandingPage from "demos/SaaSProductLandingPage.js";
+ import SaaSProductLandingPageGrocery from "demos/SaaSProductLandingPageGrocery";
 // import RestaurantLandingPage from "demos/RestaurantLandingPage.js";
 // import ServiceLandingPage from "demos/ServiceLandingPage.js";
 // import HostingCloudLandingPage from "demos/HostingCloudLandingPage.js";
@@ -116,8 +117,8 @@ export default function App() {
         <Route path="/">
           <SaaSProductLandingPage />
         </Route>
-        <Route path="/groceries">
-          <SaaSProductLandingPage />
+        <Route exact path="/groceries">
+          <SaaSProductLandingPageGrocery />
         </Route>
         {/* <Route exact path={`/`} render={ (routerProps) => < Home routerProps={routerProps} setUpGame={this.setUpGame} />} /> */}
       </Switch>

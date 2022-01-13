@@ -44,14 +44,14 @@ export default () => {
         subheading={<Subheading></Subheading>}
         heading={
           <>
-            Free <HighlightedText style = {{color:"#007bff"}}>Food</HighlightedText>
+            Free <HighlightedText style = {{color:"#007bff"}}>Rewards</HighlightedText>
           </>
         }
         textOnLeft={false}
         imageSrc={macHeroScreenshotImageSrc}
         imageDecoratorBlob={false}
         showDecoratorBlob={false}
-        description = "To incentivise and reward people for delivering through the app, our vendors have agreed to setup reward systems that will reimburse customers with free food for delivering to friends, or just ordering through the app!"
+        description = "To incentivise and reward people for delivering through the app, our vendors have agreed to setup reward systems that will reimburse customers with free food and gift cards for delivering to friends, or just ordering through the app!"
         decoratorBlobCss={tw`xl:w-40 xl:h-40 opacity-15 -translate-x-1/2 left-1/2`}
       />
       <MainFeature

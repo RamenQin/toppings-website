@@ -30,7 +30,7 @@ export default () => {
         // subheading={<Subheading>Restaurants</Subheading>}
         heading={
           <>
-            Our <HighlightedText style = {{color:"#007bff"}}>Vendors</HighlightedText>
+            Our <HighlightedText style = {{color:"#007bff"}}>Vendords</HighlightedText>
           </>
         }
       />
@@ -44,7 +44,7 @@ export default () => {
         subheading={<Subheading></Subheading>}
         heading={
           <>
-            Free <HighlightedText style = {{color:"#007bff"}}>Food</HighlightedText>
+            Free <HighlightedText style = {{color:"#007bff"}}>Rewards</HighlightedText>
           </>
         }
         textOnLeft={false}
