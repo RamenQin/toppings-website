@@ -12,7 +12,7 @@ import DesignIllustration from "../../images/CommunityBlueBox.png";
 import CustomersLogoStripImage from "../../images/customers-logo-strip.png";
 import { NavLink } from "react-router-dom";
 
-
+import axios from "axios";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row lg:items-center max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -52,12 +52,16 @@ const CustomersLogoStrip = styled.div`
 function sendEmail(e) {
   e.preventDefault();
 
-  emailjs.sendForm('service_siolzuj', 'template_ny3an7k', e.target, 'user_EvvJTh5bb1VQKSEsvVn5W')
+  axios.post('https://getwaitlist.com/api/v1/waitlists/submit', {
+    api_key: "JJ6V1L",
+    email: e.target[0].value,
+    referral_link: (process.env.NODE_ENV === "development" || !process.env.NODE_ENV) ? 'https://toppingsapp.com' : window.location.href,
+  })
     .then((result) => {
       alert("Thank You for Signing Up! We will be in touch to get you onto the app soon!")
         console.log(result.text);
     }, (error) => {
-        console.log(error.text);
+        console.log(error);
     });
     //https://docs.google.com/forms/d/1LcfXiqvYKopNI-cyrxQAswtOL5n22NzOFMWg2dRe27w
 }

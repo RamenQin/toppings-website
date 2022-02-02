@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.25.0",
     "email-js": "^2.0.2",
     "emailjs": "^3.4.0",
     "emailjs-com": "^2.6.4",
