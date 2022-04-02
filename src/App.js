@@ -109,13 +109,13 @@ import MainLandingPage from "MainLandingPage.js";
 import OrderOnline from './pages/OrderOnline.js';
 import OrderOnlineSuccess from './pages/OrderOnlineSuccess.js';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
 
 export default function App() {
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
     // <SaaSProductLandingPage />
-    <Router>
+    <HashRouter>
       <Switch>
         <Route exact path="/">
           <SaaSProductLandingPage />
@@ -136,7 +136,7 @@ export default function App() {
         </Route> */}
         {/* <Route exact path={`/`} render={ (routerProps) => < Home routerProps={routerProps} setUpGame={this.setUpGame} />} /> */}
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
 
