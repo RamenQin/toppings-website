@@ -34,6 +34,7 @@
     "react-slick": "^0.25.2",
     "reactjs-popup": "^2.0.4",
     "slick-carousel": "^1.8.1",
+    "stripe": "^8.215.0",
     "styled-components": "^5.0.1",
     "tailwindcss": "^1.2.0",
     "twin.macro": "^1.0.0-alpha.7",

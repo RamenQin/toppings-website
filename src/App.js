@@ -106,12 +106,9 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
 
-<<<<<<< HEAD
 import HomePage from "components/HomePage/HomePage.js";
-=======
 import OrderOnline from './pages/OrderOnline.js';
 import OrderOnlineSuccess from './pages/OrderOnlineSuccess.js';
->>>>>>> main
 
 import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
 
@@ -121,14 +118,9 @@ export default function App() {
     // <SaaSProductLandingPage />
     <HashRouter>
       <Switch>
-<<<<<<< HEAD
         <Route path="/">
           {/* <SaaSProductLandingPage /> */}
           <HomePage />
-=======
-        <Route exact path="/">
-          <SaaSProductLandingPage />
->>>>>>> main
         </Route>
         <Route path="/groceries">
           <SaaSProductLandingPageGrocery />
