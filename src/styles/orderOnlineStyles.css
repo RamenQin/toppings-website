@@ -1,0 +1,344 @@
+.order-online .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px 80px 20px;
+}
+
+.order-online .container .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-online .header h1 {
+  font-size: 24px;
+  font-family: "Raleway";
+  font-weight: 800;
+  text-align: center;
+  color: #1C2547;
+}
+
+.order-online .header h2 {
+  font-size: 24px;
+  font-family: "Cabin";
+  font-weight: 500;
+  text-align: center;
+  color: #1C2547;
+}
+
+.order-online .header .restaurant-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.order-online .menu-container {
+  padding-top: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.order-online .menu-text {
+  font-family: "Cabin";
+  font-weight: 500;
+  font-size: 16px;
+  color: #485BFF;
+}
+
+.order-online .menu-container h2 {
+  font-family: "Raleway";
+  font-size: 30px;
+  font-weight: 700;
+  color: #1C2547;
+  margin-bottom: 10px;
+}
+
+.order-online .menu-item-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0px 5px 0px;
+  width: 100%;
+}
+
+.order-online .menu-item-row div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.order-online .menu-item-row span {
+  font-family: "Cabin";
+  font-size: 20px;
+  font-weight: 700;
+  color: #1C2547;
+}
+
+.order-online .menu-item-row img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.order-online .quantity-circle {
+  height: 20px;
+  min-width: 20px;
+  padding: 0px 5px 0px 5px;
+  margin-right: 5px;
+  border-radius: 30px;
+  background-color: #1C2547;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-online .quantity-circle span {
+  font-family: "Cabin";
+  font-size: 14px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.order-online .quantity-circle button {
+  width: 10px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 10px 0px 10px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #1C2547;
+  position: absolute;
+  bottom: 0px;
+}
+
+.footer span {
+  font-family: 'Raleway';
+  font-weight: 800;
+  font-size: 30px;
+  color: #96CBFF;
+}
+
+.selected-item-body img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  padding: 20px 20px 0px 20px;
+}
+
+.item-content h1 {
+  font-family: "Raleway";
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.item-content h2 {
+  font-family: "Raleway";
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.item-content span {
+  font-family: "Cabin";
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.item-content p {
+  font-family: "Cabin";
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  margin: 10px 0px 10px 0px;
+}
+
+.item-content input {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.back-button {
+  height: 18px;
+  width: 9px;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.back-button div {
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button img {
+  width: 9px;
+  height: 18px;
+}
+
+.quantity-button {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E6F3FF;
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: #000000;
+  width: 140px;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.quantity-button div {
+  margin: 0px 20px 0px 20px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.quantity-button span {
+  font-family: "Cabin";
+  font-size: 30px;
+}
+
+.checkout-modal-body {
+  padding: 20px;
+}
+
+.checkout-modal-body h1 {
+  font-family: "Raleway";
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.checkout-items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-item-row {
+  margin: 10px 0px 10px 0px;
+  padding: 10px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  background-color: #E6F3FF;
+}
+
+.checkout-top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-top-row img {
+  width: 110px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.checkout-item-row h2 {
+  font-family: "Cabin";
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.checkout-item-row span {
+  font-family: "Cabin";
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-form label {
+  font-family: "Cabin";
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.checkout-form input {
+  width: 100%;
+  margin: 5px 0px 10px 0px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.checkout-form button {
+  width: 160px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #1C2547;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway";
+  font-size: 24px;
+  font-weight: 700;
+  color:#96CBFF;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.card-payment {
+  width: 100%;
+  margin: 5px 0px 10px 0px;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-family: "Cabin";
+  padding: 3px;
+}
+
+.download-button-ios {
+  width: 157px;
+  height: 49px;
+}
+
+.download-button-android {
+  width: 169px;
+  height: 95px;
+}
+
+.blue-background {
+  margin: 20px 0px 20px 0px;
+  padding: 20px;
+  background-color: #0082FF;
+  width: calc(100% + 40px);
+}

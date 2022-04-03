@@ -1,5 +1,6 @@
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
+import "styles/orderOnlineStyles.css";
 import React from "react";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
@@ -105,26 +106,47 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
 
+<<<<<<< HEAD
 import HomePage from "components/HomePage/HomePage.js";
+=======
+import OrderOnline from './pages/OrderOnline.js';
+import OrderOnlineSuccess from './pages/OrderOnlineSuccess.js';
+>>>>>>> main
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
 
 export default function App() {
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
     // <SaaSProductLandingPage />
-    <Router>
+    <HashRouter>
       <Switch>
+<<<<<<< HEAD
         <Route path="/">
           {/* <SaaSProductLandingPage /> */}
           <HomePage />
+=======
+        <Route exact path="/">
+          <SaaSProductLandingPage />
+>>>>>>> main
         </Route>
-        <Route exact path="/groceries">
+        <Route path="/groceries">
           <SaaSProductLandingPageGrocery />
         </Route>
+        <Route path="/order/:runId" exact children={() => <OrderOnline />} />
+        <Route path="/order/:runId/success" exact children={() => <OrderOnlineSuccess />} />
+        <Route
+          path="/download-app"
+          component={() => {
+            window.location.replace('https://toppingsapp.page.link/download');
+            return null;
+          }}
+        />
+          {/* <OrderOnline />
+        </Route> */}
         {/* <Route exact path={`/`} render={ (routerProps) => < Home routerProps={routerProps} setUpGame={this.setUpGame} />} /> */}
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
 

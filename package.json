@@ -4,16 +4,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@material-ui/core": "^5.0.0-beta.5",
     "@material-ui/styles": "^4.11.4",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.3",
+=======
+    "@stripe/react-stripe-js": "^1.7.0",
+    "@stripe/stripe-js": "^1.26.0",
+>>>>>>> main
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.25.0",
+    "dayjs": "^1.11.0",
     "email-js": "^2.0.2",
     "emailjs": "^3.4.0",
     "emailjs-com": "^2.6.4",
@@ -23,7 +29,7 @@
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-awesome-modal": "^2.0.5",
     "react-dom": "^16.13.1",
-    "react-modal": "^3.11.2",
+    "react-modal": "^3.14.4",
     "react-portal": "^4.2.1",
     "react-rnd": "^10.1.9",
     "react-router-dom": "^5.2.0",
@@ -34,7 +40,8 @@
     "styled-components": "^5.0.1",
     "tailwindcss": "^1.2.0",
     "twin.macro": "^1.0.0-alpha.7",
-    "use-in-view": "^1.0.15"
+    "use-in-view": "^1.0.15",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

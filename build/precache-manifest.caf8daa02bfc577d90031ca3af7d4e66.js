@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "14a6c7b5026a562aad65766031df1eb7",
+    "revision": "0e289ca2bde7bee171add6360acab428",
     "url": "/index.html"
   },
   {
-    "revision": "25d546603bada8d2deab",
+    "revision": "a20391d921126323bf74",
     "url": "/static/css/2.b71ebc9b.chunk.css"
   },
   {
-    "revision": "ac0b9b85cdbb11a4a5a3",
-    "url": "/static/css/main.f8fd3397.chunk.css"
+    "revision": "a543a413ebd26af39bf8",
+    "url": "/static/css/main.bd066d01.chunk.css"
   },
   {
-    "revision": "25d546603bada8d2deab",
-    "url": "/static/js/2.bc98d8d8.chunk.js"
+    "revision": "a20391d921126323bf74",
+    "url": "/static/js/2.e9ac9ece.chunk.js"
   },
   {
     "revision": "a8b7f9925879c67c458b78e4fa827b7f",
-    "url": "/static/js/2.bc98d8d8.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.e9ac9ece.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ac0b9b85cdbb11a4a5a3",
-    "url": "/static/js/main.a015d1e2.chunk.js"
+    "revision": "a543a413ebd26af39bf8",
+    "url": "/static/js/main.79da788f.chunk.js"
   },
   {
     "revision": "7632c6acda2e3c494e67",
@@ -40,6 +40,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/BlogIndexPage.7e8818a2.jpeg"
   },
   {
+    "revision": "f36168da5d6b38f8723fa1f2ccaf288f",
+    "url": "/static/media/Cabin-Bold.f36168da.ttf"
+  },
+  {
+    "revision": "663f55b214418d4c55b85c6fc32ab18a",
+    "url": "/static/media/Cabin-Medium.663f55b2.ttf"
+  },
+  {
+    "revision": "548e005a375c047eb8bd9485508eb58a",
+    "url": "/static/media/Cabin-Regular.548e005a.ttf"
+  },
+  {
     "revision": "981eefc908dd560a88b0e0fd316d3cc4",
     "url": "/static/media/CommunityBlueBox.981eefc9.png"
   },
@@ -52,6 +64,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/EventLandingPage.7d7ae3a6.jpeg"
   },
   {
+    "revision": "514e5ed549b615b8554b16b32adce4e5",
+    "url": "/static/media/GooglePlayButton.514e5ed5.png"
+  },
+  {
     "revision": "232798dd5cd01cb1e3312b77372d2843",
     "url": "/static/media/Hong_Kong_Logo.232798dd.png"
   },
@@ -62,6 +78,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "4fde2dfbce6e91ebf4588557d6f77a4c",
     "url": "/static/media/HotelTravelLandingPage.4fde2dfb.jpeg"
+  },
+  {
+    "revision": "a84a52dd8f93bb622a7f3ace89f33ed8",
+    "url": "/static/media/IOSButton.a84a52dd.png"
   },
   {
     "revision": "8983d0173fc624b6d6761474c0745af7",
@@ -86,6 +106,26 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "60bc4cc11478f8bb00e285f976a88cf8",
     "url": "/static/media/PrivacyPolicyPage.60bc4cc1.jpeg"
+  },
+  {
+    "revision": "38b405eba92acbb5aef45d8152f2a736",
+    "url": "/static/media/Raleway-Black.38b405eb.ttf"
+  },
+  {
+    "revision": "7802d8b27fcb19893ce6b38c0789268e",
+    "url": "/static/media/Raleway-Bold.7802d8b2.ttf"
+  },
+  {
+    "revision": "c9503ab0f939e9d37fcfb59b25acf8b3",
+    "url": "/static/media/Raleway-ExtraBold.c9503ab0.ttf"
+  },
+  {
+    "revision": "2ec8557460d3a2cd7340b16ac84fce32",
+    "url": "/static/media/Raleway-Medium.2ec85574.ttf"
+  },
+  {
+    "revision": "75b4247fdd3b97d0e3b8e07b115673c2",
+    "url": "/static/media/Raleway-Regular.75b4247f.ttf"
   },
   {
     "revision": "b747f875e940514cbef7962de9f8e9b2",

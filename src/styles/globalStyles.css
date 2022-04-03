@@ -1,18 +1,58 @@
-/* Below animations are fore modal created using React-Modal */
 .ReactModal__Overlay {
-    transition: transform 300ms ease-in-out;
-    transition-delay: 100ms;
-    transform: scale(0);
-    /* transform: translateY(-150%); */
+  opacity: 1;
+  transform: translateX(-100px);
+  transition: all 450ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open{
-    transform: scale(1);
-    /* transform: translateY(0%); */
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
 }
 
-.ReactModal__Overlay--before-close{
-    transform: scale(0);
-    /* transform: translateY(-150%); */
+.ReactModal__Overlay--before-close {
+  opacity: 1;
+  transform: translateX(-100px);
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 900;
+  src: url("./fonts/Raleway-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  font-weight: 800;
+  src: url("./fonts/Raleway-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  font-weight: 700;
+  src: url("./fonts/Raleway-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  font-weight: 500;
+  src: url("./fonts/Raleway-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  font-weight: 400;
+  src: url("./fonts/Raleway-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-weight: 700;
+  src: url("./fonts/Cabin-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Cabin";
+  font-weight: 500;
+  src: url("./fonts/Cabin-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Cabin";
+  font-weight: 400;
+  src: url("./fonts/Cabin-Regular.ttf") format("truetype");
 }
 
