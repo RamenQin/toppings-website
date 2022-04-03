@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
+import dayjs from "dayjs";
 
 import SelectedItemModal from "./SelectedItemModal";
 import CheckoutModal from "./CheckoutModal";
+
+dayjs().format();
 
 export default function OrderOnline() {
   let { runId } = useParams();
@@ -100,6 +103,15 @@ export default function OrderOnline() {
       <body className="order-online">
         <div>
           loading...
+        </div>
+      </body>
+    )
+  }
+  if (run && dayjs().diff(dayjs(run.windowCloseTime)) < 0) {
+    return (
+      <body className="order-online">
+        <div>
+          run has expired
         </div>
       </body>
     )
