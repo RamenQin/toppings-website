@@ -105,6 +105,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
 
+import HomePage from "components/HomePage/HomePage.js";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -115,7 +116,8 @@ export default function App() {
     <Router>
       <Switch>
         <Route path="/">
-          <SaaSProductLandingPage />
+          {/* <SaaSProductLandingPage /> */}
+          <HomePage />
         </Route>
         <Route exact path="/groceries">
           <SaaSProductLandingPageGrocery />
