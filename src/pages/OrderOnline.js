@@ -17,6 +17,10 @@ export default function OrderOnline() {
   const [restaurant, setRestaurant] = useState(null);
 
   const [cart, setCart] = useState([]);
+  let totalCartPrice = 0;
+  cart.map(item => {
+    totalCartPrice += item.price;
+  });
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedItemVisible, setSelectedItemVisible] = useState(false);
@@ -136,7 +140,7 @@ export default function OrderOnline() {
       <div className="container">
         <div className="header">
           <h1>
-            Order from {run.deliverer.name} at {run.restaurant.name}
+            {run.deliverer.name}'s Group Order From {run.restaurant.name}
           </h1>
           <img src={run.restaurant.thumbnail} alt={`${run.restaurant.name}`} className="restaurant-image" />
         </div>
@@ -163,7 +167,7 @@ export default function OrderOnline() {
                         />
                       )}
                       <span>
-                        {menuItem.name}
+                        {menuItem.name} <span style={{ fontWeight: 400 }}>(${(menuItem.price / 100).toFixed(2)})</span>
                       </span>
                     </div>
                     <img src={menuItem.image} alt={`${menuItem.name}`} />
@@ -175,7 +179,7 @@ export default function OrderOnline() {
         </div>
         <div className="footer" onClick={handleOpenCheckout}>
           <span>
-            check out
+            check out <span style={{ fontWeight: 500 }}>(${(totalCartPrice / 100).toFixed(2)})</span>
           </span>
         </div>
       </div>
