@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from '@material-ui/core';
+import { Tabs } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const StyledTabs = styled((props) => (

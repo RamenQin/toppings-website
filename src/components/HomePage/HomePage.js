@@ -5,7 +5,7 @@ import {
   Button,
   Toolbar,
   IconButton,
-} from '@material-ui/core';
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { makeStyles } from '@material-ui/styles';

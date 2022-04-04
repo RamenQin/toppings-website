@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Grid,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 
 import theme from '../../Theme.js';
 

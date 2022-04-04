@@ -4,7 +4,7 @@ import {
   Typography,
   Button,
   Divider,
-} from '@material-ui/core';
+} from '@mui/material';
 import { makeStyles } from '@material-ui/styles'
 
 import ToppingsIcon from 'images/ToppingsIcon.png';

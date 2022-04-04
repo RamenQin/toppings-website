@@ -9,7 +9,7 @@ import {
   MenuItem,
   useMediaQuery,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import { makeStyles } from '@material-ui/styles'
 
 import ToppingsLogo from 'images/ToppingsLogoBlue.png';
