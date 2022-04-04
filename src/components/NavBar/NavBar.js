@@ -81,15 +81,15 @@ const NavBar = (props) => {
               <MenuItem onClick={() => handleSelectItem(0)}>
                 <Typography sx={sxMenuText}>The App</Typography>
               </MenuItem>
-              <MenuItem onClick={() => handleSelectItem(1)}>
+              {/* <MenuItem onClick={() => handleSelectItem(1)}>
                 <Typography sx={sxMenuText}>About Us</Typography>
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem onClick={() => {window.location.replace('https://toppings-dev.github.io/toppings-vendor/')}}>
                 <Typography sx={sxMenuText}>Vendor Portal</Typography>
               </MenuItem>
-              <MenuItem onClick={() => handleSelectItem(0)}>
+              {/* <MenuItem onClick={() => handleSelectItem(0)}>
                 <Typography sx={sxMenuText}>FAQ</Typography>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
           </Grid>
           <Grid container justifyContent='flex-end' sx={sxBigScreen}>
@@ -105,14 +105,14 @@ const NavBar = (props) => {
                 component={Link}
                 to={'/'}
               />
-              <StyledTab 
+              {/* <StyledTab 
                 value={1}
                 label="About Us"
                 disableRipple
                 className={classes.navBarButton}
                 component={Link}
                 to={'/aboutus'}
-              />
+              /> */}
               <StyledTab 
                 value={2}
                 label="Vendor Portal"
@@ -121,14 +121,14 @@ const NavBar = (props) => {
                 onClick={() => {window.location.replace('https://toppings-dev.github.io/toppings-vendor/')}}
                 sx={{ ':focus': {outline: "none"} }}
               />
-              <StyledTab 
+              {/* <StyledTab 
                 value={3}
                 label="FAQ"
                 disableRipple
                 className={classes.navBarButton}
                 component={Link}
                 to={'/faq'}
-              />
+              /> */}
             </StyledTabs>
           </Grid>
         </Toolbar>

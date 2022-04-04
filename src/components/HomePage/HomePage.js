@@ -25,6 +25,7 @@ import CapitalPartnersImage from 'images/CapitalPartnersImage.png';
 import InnovationLabsImage from 'images/InnovationLabsImage.png';
 import ProdImage from 'images/ProdImage.png';
 import InverseNextIcon from 'images/InverseNextIcon.png';
+import MirroredBlueArrow from 'images/MirroredBlueArrow.png';
 import CommunityGraphic from 'images/CommunityGraphic.png';
 import JefesCircleImage from 'images/JefesCircleImage.png';
 import HongKongCircleImage from 'images/HongKongCircleImage.png';
@@ -43,8 +44,11 @@ const HomePage = () => {
   const location = useLocation();
 
   const [explanationIndex, setExplanationIndex] = useState(1);
-  const handleExplanationIndex = () => {
+  const increaseExplanationIndex = () => {
     if (explanationIndex < 3) setExplanationIndex(explanationIndex+1);
+  }
+  const decreaseExplanationIndex = () => {
+    if (explanationIndex > 1) setExplanationIndex(explanationIndex-1);
   }
 
   return (
@@ -111,14 +115,23 @@ const HomePage = () => {
             {explanationIndex==2 && <Slide2 />}
             {explanationIndex==3 && <Slide3 />}
             <Grid container direction="row" alignItems="center" padding={3.5} spacing='3%'>
+              {explanationIndex!=1 && 
+                <Grid item>
+                  <IconButton onClick={decreaseExplanationIndex} sx={{':focus': {outline: "none"}}}>
+                    <img src={MirroredBlueArrow} className={classes.blueArrow}/>
+                  </IconButton>
+                </Grid>
+              }
               <Grid item sx={{width: 'auto'}}>
                 <Typography sx={sxBold}>{explanationIndex}/3</Typography>
               </Grid>
-              <Grid item>
-                <IconButton onClick={handleExplanationIndex} sx={{':focus': {outline: "none"}}}>
-                  <img src={InverseNextIcon} className={classes.blueArrow}/>
-                </IconButton>
-              </Grid>
+              {explanationIndex!=3 && 
+                <Grid item>
+                  <IconButton onClick={increaseExplanationIndex} sx={{':focus': {outline: "none"}}}>
+                    <img src={InverseNextIcon} className={classes.blueArrow}/>
+                  </IconButton>
+                </Grid>
+              }
             </Grid>
           </Grid>
           <Grid container alignItems="center" justifyContent="center" lg={6.5} xs={5} padding={1}>

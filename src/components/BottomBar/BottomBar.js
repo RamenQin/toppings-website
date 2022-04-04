@@ -37,11 +37,11 @@ const BottomBar = () => {
             <Typography sx={sxLink}>Home</Typography>
           </Button>
         </Grid>
-        <Grid item>
+        {/* <Grid item>
           <Button onClick={handleClick(1)} sx={{textTransform: 'none', ':focus': {outline: "none"}}}>
             <Typography sx={sxLink}>About Us</Typography>
           </Button>
-        </Grid>
+        </Grid> */}
         <Grid item>
           <Button onClick={handleClick(3)} sx={{textTransform: 'none', ':focus': {outline: "none"}}}>
             <a href='https://toppings-dev.github.io/toppings-vendor/' target="_blank">
@@ -49,11 +49,11 @@ const BottomBar = () => {
             </a>
           </Button>
         </Grid>
-        <Grid item>
+        {/* <Grid item>
           <Button onClick={handleClick} sx={{textTransform: 'none', ':focus': {outline: "none"}}}>
             <Typography sx={sxLink}>FAQ</Typography>
           </Button>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Grid container justifyContent={"center"} alignItems="flex-start" spacing={3} padding={3}>
         <Grid item>
