@@ -269,12 +269,14 @@ const sxBold = {
   },
 }
 const sxRightMargin = {
-  [theme.breakpoints.down('xl')]: {marginRight: -5},
+  marginRight: -5,
+  [theme.breakpoints.down('lg')]: {marginRight: -4},
   [theme.breakpoints.down('md')]: {marginRight: -4},
   [theme.breakpoints.down('sm')]: {marginRight: -3},
 }
 const sxLeftMargin = {
-  [theme.breakpoints.down('xl')]: {marginLeft: -5},
+  marginLeft: -5,
+  [theme.breakpoints.down('lg')]: {marginLeft: -4},
   [theme.breakpoints.down('md')]: {marginLeft: -4},
   [theme.breakpoints.down('sm')]: {marginLeft: -3},
 }
