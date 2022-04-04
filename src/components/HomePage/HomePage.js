@@ -24,7 +24,7 @@ import AppStoreLogo from 'images/AppStoreLogo.png';
 import CapitalPartnersImage from 'images/CapitalPartnersImage.png';
 import InnovationLabsImage from 'images/InnovationLabsImage.png';
 import ProdImage from 'images/ProdImage.png';
-import InverseNextIcon from 'images/InverseNextIcon.png';
+import BlueArrow from 'images/BlueArrow.png';
 import MirroredBlueArrow from 'images/MirroredBlueArrow.png';
 import CommunityGraphic from 'images/CommunityGraphic.png';
 import JefesCircleImage from 'images/JefesCircleImage.png';
@@ -114,7 +114,7 @@ const HomePage = () => {
             {explanationIndex==1 && <Slide1 />}
             {explanationIndex==2 && <Slide2 />}
             {explanationIndex==3 && <Slide3 />}
-            <Grid container direction="row" alignItems="center" padding={3.5} spacing='3%'>
+            <Grid container direction="row" alignItems="center" paddingTop={3.5} spacing='3%'>
               {explanationIndex!=1 && 
                 <Grid item>
                   <IconButton onClick={decreaseExplanationIndex} sx={{':focus': {outline: "none"}}}>
@@ -128,7 +128,7 @@ const HomePage = () => {
               {explanationIndex!=3 && 
                 <Grid item>
                   <IconButton onClick={increaseExplanationIndex} sx={{':focus': {outline: "none"}}}>
-                    <img src={InverseNextIcon} className={classes.blueArrow}/>
+                    <img src={BlueArrow} className={classes.blueArrow}/>
                   </IconButton>
                 </Grid>
               }
@@ -429,8 +429,8 @@ const useStyles = makeStyles(() => ({
     width: 48,
     height: 48,
     [theme.breakpoints.down('sm')]: {
-      width: 28,
-      height: 28,
+      width: 22,
+      height: 22,
     }
   },
   appScreenshot: {
