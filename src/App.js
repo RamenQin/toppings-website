@@ -106,6 +106,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
 
+import HomePage from "components/HomePage/HomePage.js";
 import OrderOnline from './pages/OrderOnline.js';
 import OrderOnlineSuccess from './pages/OrderOnlineSuccess.js';
 
@@ -117,8 +118,9 @@ export default function App() {
     // <SaaSProductLandingPage />
     <HashRouter>
       <Switch>
-        <Route exact path="/">
-          <SaaSProductLandingPage />
+        <Route path="/">
+          {/* <SaaSProductLandingPage /> */}
+          <HomePage />
         </Route>
         <Route path="/groceries">
           <SaaSProductLandingPageGrocery />
