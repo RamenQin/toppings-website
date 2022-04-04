@@ -111,7 +111,7 @@ export default function OrderOnline() {
       </body>
     )
   }
-  if (run && dayjs().diff(dayjs(run.windowCloseTime)) < 0) {
+  if (run && dayjs().diff(dayjs(run.windowCloseTime)) > 0) {
     return (
       <body className="order-online">
         <div>
