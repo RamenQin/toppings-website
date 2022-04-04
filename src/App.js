@@ -118,7 +118,7 @@ export default function App() {
     // <SaaSProductLandingPage />
     <HashRouter>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           {/* <SaaSProductLandingPage /> */}
           <HomePage />
         </Route>
