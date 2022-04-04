@@ -149,7 +149,7 @@ export default function SelectedItemModal({ modalVisible, handleModalClose, menu
 
         <div className="footer" onClick={addToCart}>
           <span>
-            save
+            add 1 to cart
           </span>
         </div>
       </div>

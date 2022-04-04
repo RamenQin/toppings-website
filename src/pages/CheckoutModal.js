@@ -30,6 +30,13 @@ const customStyles = {
 };
 
 export default function CheckoutModal({ modalVisible, handleModalClose, cart, createOrder }) {
+  let totalCartPrice = 0;
+  cart.map(item => {
+    totalCartPrice += item.price;
+  });
+  let tax = totalCartPrice * 0.078;
+  let totalCartPriceWithTax = totalCartPrice + tax;
+
   return (
     <Modal
       isOpen={modalVisible}
@@ -78,16 +85,40 @@ export default function CheckoutModal({ modalVisible, handleModalClose, cart, cr
               </div>
             )
           })}
+          <div className="checkout-totals-row">
+            <span>
+              subtotal
+            </span>
+            <span>
+              {(totalCartPrice / 100).toFixed(2)}
+            </span>
+          </div>
+          <div className="checkout-totals-row">
+            <span>
+              tax
+            </span>
+            <span>
+              {(tax / 100).toFixed(2)}
+            </span>
+          </div>
+          <div className="checkout-totals-row" style={{ marginBottom: 10 }}>
+            <span>
+              total
+            </span>
+            <span>
+              ${(totalCartPriceWithTax / 100).toFixed(2)}
+            </span>
+          </div>
         </div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm createOrder={createOrder} />
+          <CheckoutForm createOrder={createOrder} price={totalCartPriceWithTax} />
         </Elements>
       </div>
     </Modal>
   );
 }
 
-const CheckoutForm = ({ createOrder }) => {
+const CheckoutForm = ({ createOrder, price }) => {
   const nameInput = useRef();
   const phoneNumberInput = useRef();
 
@@ -115,7 +146,7 @@ const CheckoutForm = ({ createOrder }) => {
       <label for="card-payment">Credit Card:</label>
       <CardElement className="card-payment" id="card-payment" />
       <button type="submit" disabled={!stripe || !elements}>
-        Pay
+        Place Order<span style={{ fontWeight: 500, marginLeft: 5 }}>(${(price / 100).toFixed(2)})</span>
       </button>
     </form>
   );
