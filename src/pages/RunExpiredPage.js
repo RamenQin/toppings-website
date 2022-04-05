@@ -8,6 +8,10 @@ import IOSButton from "../images/IOSButton.png";
 
 dayjs().format();
 
+// Oh no! It seems like this run is no longer available.
+
+// Make sure to download the app to never miss another order.
+
 export default function RunExpiredPage({ run }) {
   const redirectToStore = () => {
     window.location.replace('https://toppingsapp.page.link/download');

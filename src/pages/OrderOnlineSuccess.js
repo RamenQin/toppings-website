@@ -65,13 +65,16 @@ export default function OrderOnlineSuccess() {
           </h2>
           <div className="blue-background">
             <h2 style={{ color: '#FFFFFF' }}>
-              Download the app now to easily order from a next run.
-            </h2>
-            <h2 style={{ color: '#FFFFFF', marginTop: 10 }}>
-              Earn free food for yourself!{'\n'}
+              Get FREE FOOD
             </h2>
             <h2 style={{ color: '#FFFFFF' }}>
-              Never miss a free
+              Track your order live
+            </h2>
+            <h2 style={{ color: '#FFFFFF' }}>
+              Never miss a free delivery
+            </h2>
+            <h2 style={{ color: '#FFFFFF', marginTop: 10 }}>
+              Download the Toppings app!
             </h2>
           </div>
           <button onClick={redirectToStore} style={{ marginTop: 20 }}>
