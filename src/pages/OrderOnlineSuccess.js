@@ -15,6 +15,7 @@ export default function OrderOnlineSuccess() {
 
   const [run, setRun] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
+  const [deliverer, setDeliverer] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -33,6 +34,8 @@ export default function OrderOnlineSuccess() {
       let restaurantData = resp.data.restaurant;
       delete restaurantData.menu[0];
       setRestaurant(restaurantData);
+
+      setDeliverer(resp.data.deliverer);
     };
     getData();
   }, [runId]);
@@ -41,7 +44,7 @@ export default function OrderOnlineSuccess() {
     window.location.replace('https://toppingsapp.page.link/download');
   };
 
-  if (!run || !restaurant) {
+  if (!run || !restaurant || !deliverer) {
     return (
       <body className="order-online">
         <div>
@@ -77,6 +80,12 @@ export default function OrderOnlineSuccess() {
               Download the Toppings app!
             </h2>
           </div>
+          <h2 style={{ marginTop: 10 }}>
+            Use {deliverer.name}'s code <h2 style={{ color: '#0082FF' }}>{deliverer.referralCode}</h2> to get both of you free food!
+          </h2>
+          <p style={{ fontFamily: 'Cabin', fontSize: 14, color: '#747474', fontWeight: 400 }}>
+            Referral rewards are doubled for the first 100 users
+          </p>
           <button onClick={redirectToStore} style={{ marginTop: 20 }}>
             <img src={IOSButton} alt={"IOS"} className="download-button-ios" />
             <img src={GooglePlayButton} alt={"Google Play"} className="download-button-android" />
