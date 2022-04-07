@@ -357,3 +357,13 @@
   background-color: #0082FF;
   width: calc(100% + 40px);
 }
+
+.loading-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000000;
+  opacity: 0.6;
+}

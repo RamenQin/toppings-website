@@ -17,6 +17,8 @@ export default function OrderOnline() {
   const [run, setRun] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
 
+  const [createOrderLoading, setCreateOrderLoading] = useState(false);
+
   const [cart, setCart] = useState([]);
   let totalCartPrice = 0;
   cart.map(item => {
@@ -112,11 +114,11 @@ export default function OrderOnline() {
       </body>
     )
   }
-  if (run && dayjs().diff(dayjs(run.windowCloseTime)) > 0) {
-    return (
-      <RunExpiredPage run={run} />
-    )
-  }
+  // if (run && dayjs().diff(dayjs(run.windowCloseTime)) > 0) {
+  //   return (
+  //     <RunExpiredPage run={run} />
+  //   )
+  // }
   return (
     <body className="order-online">
       <SelectedItemModal
@@ -133,7 +135,12 @@ export default function OrderOnline() {
         handleModalClose={handleCloseCheckout}
         cart={cart}
         createOrder={createOrder}
+        createOrderLoading={createOrderLoading}
+        setCreateOrderLoading={setCreateOrderLoading}
       />
+      {createOrderLoading && (
+        <div className="loading-background"></div>
+      )}
       <div className="container">
         <div className="header">
           <h1>

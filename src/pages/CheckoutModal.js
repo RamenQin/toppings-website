@@ -29,7 +29,7 @@ const customStyles = {
   },
 };
 
-export default function CheckoutModal({ modalVisible, handleModalClose, cart, createOrder }) {
+export default function CheckoutModal({ modalVisible, handleModalClose, cart, createOrder, createOrderLoading, setCreateOrderLoading }) {
   let totalCartPrice = 0;
   cart.map(item => {
     totalCartPrice += item.price;
@@ -111,14 +111,14 @@ export default function CheckoutModal({ modalVisible, handleModalClose, cart, cr
           </div>
         </div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm createOrder={createOrder} price={totalCartPriceWithTax} />
+          <CheckoutForm createOrder={createOrder} price={totalCartPriceWithTax} createOrderLoading={createOrderLoading} setCreateOrderLoading={setCreateOrderLoading} />
         </Elements>
       </div>
     </Modal>
   );
 }
 
-const CheckoutForm = ({ createOrder, price }) => {
+const CheckoutForm = ({ createOrder, price, createOrderLoading, setCreateOrderLoading }) => {
   const nameInput = useRef();
   const phoneNumberInput = useRef();
 
@@ -126,7 +126,13 @@ const CheckoutForm = ({ createOrder, price }) => {
   const elements = useElements();
 
   const handleSubmit = async (event) => {
+
     event.preventDefault();
+
+    setCreateOrderLoading(true);
+    if (createOrderLoading) {
+      return;
+    }
 
     if (elements == null) {
       return;
@@ -135,6 +141,7 @@ const CheckoutForm = ({ createOrder, price }) => {
     const token = await stripe.createToken(elements.getElement(CardElement));
     
     await createOrder(token.token.id, nameInput.current.value, phoneNumberInput.current.value);
+    setCreateOrderLoading(false);
   };
 
   return (
@@ -145,7 +152,7 @@ const CheckoutForm = ({ createOrder, price }) => {
       <input type="number" id="phoneNumber" name="phone number" ref={phoneNumberInput} />
       <label for="card-payment">Credit Card:</label>
       <CardElement className="card-payment" id="card-payment" />
-      <button type="submit" disabled={!stripe || !elements}>
+      <button type="submit" disabled={!stripe || !elements || createOrderLoading}>
         Place Order<span style={{ fontWeight: 500, marginLeft: 5 }}>(${(price / 100).toFixed(2)})</span>
       </button>
     </form>
