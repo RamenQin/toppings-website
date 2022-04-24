@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 import dayjs from "dayjs";
 import { CognitoUserPool, CognitoUserAttribute, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
+import { promisify } from 'util';
 
 import GooglePlayButton from "../images/GooglePlayButton.png";
 import IOSButton from "../images/IOSButton.png";
@@ -13,10 +14,10 @@ export default function ForgotPassword() {
   let userPoolParams = {
     UserPoolId: 'us-east-1_BZrR4rdM5',
     ClientId: '68aj8nbksgd001o2bd00gds65r',
-    endpoint: 'https://cognito-idp.us-east-1.amazonaws.com/us-east-1_BZrR4rdM5',
   };
 
   const userPool = new CognitoUserPool(userPoolParams);
+  let cognitoUser;
 
   const [phoneNumber, setPhoneNumber] = useState('');
   
@@ -56,56 +57,68 @@ export default function ForgotPassword() {
     }
   };
 
-  const handleSendCode = () => {
-    const cognitoUser = new CognitoUser({
-      Username: '+1' + phoneNumber.replace(/[-()]/g, ''),
-      Pool: userPool,
-    });
+  const handleSendCode = e => {
+    e.preventDefault();
 
-    cognitoUser.forgotPassword({
-      onSuccess(data) {
-          setLoading(false);
-          setSentCode(true);
-      },
-      onFailure(err) {
-        setLoading(false);
-        alert(`Something went wrong: ${err.message}`);
-      },
-    });
-  };
-
-  const handleResetPassword = () => {
-    const cognitoUser = new CognitoUser({
-      Username: phoneNumber,
-      Pool: userPool,
-    });
-
-    cognitoUser.confirmPassword(
-      codeRef.current.value,
-      passwordRef.current.value,
-      {
-        onSuccess(data) {
-          setLoading(false);
-          setSuccess(true);
-        },
-        onFailure(err) {
-          setLoading(false);
-          alert(`Something went wrong: ${err.message}`);
-        }
-      }
-    );
-  }
-
-  const handleSubmit = () => {
     setLoading(true);
-    if (loading) return;
+    const username = '+1' + phoneNumber.replace(/[-()]/g, '');
+    cognitoUser = new CognitoUser({
+      Username: username,
+      Pool: userPool,
+    });
 
-    if (!sentCode) {
-      handleSendCode();
-    } else if (sentCode && !success) {
-      handleResetPassword();
+    try {
+      cognitoUser.forgotPassword({
+        onSuccess: function (data) {
+            setLoading(false);
+            setSentCode(true);
+        },
+        onFailure: function (err) {
+          setLoading(false);
+          console.log(err);
+          alert(err.message || JSON.stringify(err));
+          // alert(`Something went wrong: ${err.message}`);
+        },
+      });
+    } catch (err) {
+      console.log(err);
+      alert(err.message || JSON.stringify(err));
     }
   };
+
+  const handleResetPassword = e => {
+    e.preventDefault();
+
+    setLoading(true);
+    const username = '+1' + phoneNumber.replace(/[-()]/g, '');
+    cognitoUser = new CognitoUser({
+      Username: username,
+      Pool: userPool,
+    });
+
+    console.log(codeRef.current.value,
+      passwordRef.current.value);
+    try {
+      cognitoUser.confirmPassword(
+        codeRef.current.value,
+        passwordRef.current.value,
+        {
+          onSuccess() {
+            setLoading(false);
+            setSuccess(true);
+          },
+          onFailure(err) {
+            setLoading(false);
+            console.log(err);
+            alert(`Something went wrong: ${err.message}`);
+          }
+        }
+      );
+    } catch (err) {
+      console.log(err);
+      alert(err.message || JSON.stringify(err));
+    }
+  }
   
   return (
     <body className="order-online">
@@ -117,7 +130,7 @@ export default function ForgotPassword() {
           </h1>
           {!sentCode && !success && (
             <form onSubmit={handleSendCode} className="checkout-form">
-              <label for="phoneNumber">Your phone number:</label>
+              <label htmlFor="phoneNumber">Your phone number:</label>
               <input id="phoneNumber" name="phone number" value={phoneNumber} onChange={onChangePhoneNumber} />
               <button type="submit" disabled={loading}>
                 Submit
@@ -126,9 +139,9 @@ export default function ForgotPassword() {
           )}
           {sentCode && !success && (
             <form onSubmit={handleResetPassword} className="checkout-form">
-              <label for="code">Code:</label>
+              <label htmlFor="code">Code:</label>
               <input type="number" id="code" name="verification code" ref={codeRef} />
-              <label for="password">New Password (8 characters min):</label>
+              <label htmlFor="password">New Password (8 characters min):</label>
               <input type="password" id="password" name="password" ref={passwordRef} />
               <button type="submit" disabled={loading}>
                 Submit
