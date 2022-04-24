@@ -109,6 +109,7 @@ import MainLandingPage from "MainLandingPage.js";
 import HomePage from "components/HomePage/HomePage.js";
 import OrderOnline from './pages/OrderOnline.js';
 import OrderOnlineSuccess from './pages/OrderOnlineSuccess.js';
+import ForgotPassword from './pages/ForgotPassword.js';
 
 import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
 
@@ -134,6 +135,7 @@ export default function App() {
             return null;
           }}
         />
+        <Route path="/forgot-password" exact children={() => <ForgotPassword />} />
           {/* <OrderOnline />
         </Route> */}
         {/* <Route exact path={`/`} render={ (routerProps) => < Home routerProps={routerProps} setUpGame={this.setUpGame} />} /> */}
