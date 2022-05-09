@@ -1,455 +1,682 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Grid,
-  Typography,
-  Button,
-  Toolbar,
-  IconButton,
-} from '@mui/material';
-import { styled } from '@mui/material/styles';
+  Link,
+  DirectLink,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from 'react-scroll';
 
-import { makeStyles } from '@material-ui/styles';
+import BlueArrowRightIcon from 'images/icons/BlueArrowRight.png';
 
-import NavBar from "components/NavBar/NavBar.js";
-import BottomBar from "components/BottomBar/BottomBar.js";
+import PhoneImage from 'images/vectors/Phone.png';
+import BackgroundBoxes from 'images/vectors/BackgroundBoxes.png';
 
-import Slide1 from './Components/Slide1.js';
-import Slide2 from './Components/Slide2.js';
-import Slide3 from './Components/Slide3.js';
+import S1i1 from 'images/vectors/S1i1.png';
+import S1i2 from 'images/vectors/S1i2.png';
+import S1i3 from 'images/vectors/S1i3.png';
+import S1i4 from 'images/vectors/S1i4.png';
+import S2i1 from 'images/vectors/S2i1.png';
+import S2i2 from 'images/vectors/S2i2.png';
+import S2i3 from 'images/vectors/S2i3.png';
 
-import FoodImage from 'images/FoodImage.png';
-import AppScreenshot from 'images/AppScreenshot.png';
-import GooglePlayLogo from 'images/GooglePlayLogo.png';
-import AppStoreLogo from 'images/AppStoreLogo.png';
-import CapitalPartnersImage from 'images/CapitalPartnersImage.png';
-import InnovationLabsImage from 'images/InnovationLabsImage.png';
-import ProdImage from 'images/ProdImage.png';
-import BlueArrow from 'images/BlueArrow.png';
-import MirroredBlueArrow from 'images/MirroredBlueArrow.png';
-import CommunityGraphic from 'images/CommunityGraphic.png';
-import JefesCircleImage from 'images/JefesCircleImage.png';
-import HongKongCircleImage from 'images/HongKongCircleImage.png';
-import PlayaBowlsCircleImage from 'images/PlayaBowlsCircleImage.png';
-import LeftScreenshot from 'images/LeftScreenshot.png';
-import RightScreenshot from 'images/RightScreenshot.png';
-import Screenshot from 'images/Screenshot.png';
+import InnovationLabsImage from 'images/awards/InnovationLabsImage.png';
+import CapitalPartnersImage from 'images/awards/CapitalPartnersImage.png';
+import ProdImage from 'images/awards/ProdImage.png';
 
-import theme from '../Theme.js';
+import JefesCircle from 'images/restaurants/JefesCircle.png';
+import HongKongCircle from 'images/restaurants/HongKongCircle.png';
+import PlayaCircle from 'images/restaurants/PlayaCircle.png';
 
-import { Link, useLocation } from 'react-router-dom';
-
+const toppingsBlue = '#0082FF';
+const grayBlue = '#3B74B2';
 const HomePage = () => {
-  const classes = useStyles();
-
-  const location = useLocation();
-
-  const [explanationIndex, setExplanationIndex] = useState(1);
-  const increaseExplanationIndex = () => {
-    if (explanationIndex < 3) setExplanationIndex(explanationIndex+1);
+  // console.log(window.location.href);
+  // isMobile detecting >
+  const [width, setWidth] = useState(window.innerWidth);
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
   }
-  const decreaseExplanationIndex = () => {
-    if (explanationIndex > 1) setExplanationIndex(explanationIndex-1);
-  }
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    };
+  }, []);
+  const isMobile = width <= 768;
+  const getApp = () => {
+    const url = isMobile
+      ? 'toppingsapp.page.link/download'
+      : 'https://apps.apple.com/us/app/toppings-free-food-4-friends/id1552594551';
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  };
+  // <  isMobile detecting
+
+  const scrollTo = (elementName) => {
+    scroller.scrollTo(elementName, {
+      duration: 500,
+      // delay: 100,
+      smooth: true,
+      // containerId: 'ContainerElementID',
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    });
+  };
 
   return (
-    <Grid container paddingTop={3} direction="column" spacing={3} xs={12} sx={{ marginLeft: 0 }}>
-      <NavBar />
-      <Toolbar />
-      <Grid container>
-        <Grid container direction="column"  alignItems="center" justifyContent="space-between" className={classes.foodBackground} >
-          <Grid container direction="column" alignItems="center" rowSpacing={6} paddingTop={16} sx={{[theme.breakpoints.down('sm')]: {paddingTop: 12}}} >
-            <Grid item >
-              <Typography variant='h2' sx={sxTitle}>Free Food with Friends</Typography>
-            </Grid>
-            <Grid item sx={{[theme.breakpoints.up('md')]: {width: '45%' }, [theme.breakpoints.down('md')]: {width: '80%'}}}>
-              <Typography variant='h5' align='center' sx={sxDescription}>Earn free food by picking up orders for your social network. See who’s out at restaurants to get free delivery!</Typography>
-            </Grid>
-            <Grid container direction="row" spacing='5%' alignItems="center" justifyContent="center" paddingTop={5}>
-              <Grid item>
-                <a href={"https://toppingsapp.page.link/download"} target="_blank">
-                  <img src={GooglePlayLogo} className={classes.googlePlay} />
-                </a>
-              </Grid>
-              <Grid item>
-                <a href={"https://toppingsapp.page.link/download"} target="_blank">
-                  <img src={AppStoreLogo} className={classes.appStore} />
-                </a>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid container direction="row" padding={4}>
-          <Grid container direction="column" alignItems="center" justifyContent="center" spacing={2} lg={6} xs={7}>
-            <Grid>
-              <Typography variant='h4' sx={sxAchievements}>Student-founded at Harvard College</Typography>
-              <Typography variant='h4' sx={sxAchievements}>20+ Local Restaurants</Typography>
-              <Typography variant='h4' sx={sxAchievements}>$1000+ of free food earned</Typography>
-            </Grid>
-            <Grid paddingTop='24px'>
-              <Typography variant='h4' sx={sxAchievements}>Winner of the HUCP Innovation Fund</Typography>
-              <Typography variant='h4' sx={sxAchievements}>Awarded Harvard i-Labs SPARK Grant</Typography>
-              <Typography variant='h4' sx={sxAchievements}>MIT/Harvard PROD Cohort</Typography>
-            </Grid>
-          </Grid>
-          <Grid container direction="column" lg={6} xs={5} alignItems="center">
-            <Grid item sx={sxCapitalPartners}>
-              <img src={CapitalPartnersImage} />
-            </Grid>
-            <Grid item sx={sxInnovationLab}>
-              <img src={InnovationLabsImage}/>
-            </Grid>
-            <Grid item sx={sxProd}>
-              <img src={ProdImage} />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item paddingLeft='6%'>
-          <Typography sx={{ ...sxTitle, color: '#0083FF' }}>How It Works</Typography>
-        </Grid>
-        <Grid container backgroundColor='#E7F3FF'>
-          <Grid container paddingTop='5%' justifyContent='center' lg={2} xs={2}>
-            <Typography sx={sxNumber}>{explanationIndex}</Typography>
-          </Grid>
-          <Grid container direction="column" paddingTop='6%' lg={3.5} xs={5}>
-            {explanationIndex==1 && <Slide1 />}
-            {explanationIndex==2 && <Slide2 />}
-            {explanationIndex==3 && <Slide3 />}
-            <Grid container direction="row" alignItems="center" paddingTop={3.5} spacing='3%'>
-              {explanationIndex!=1 && 
-                <Grid item>
-                  <IconButton onClick={decreaseExplanationIndex} sx={{':focus': {outline: "none"}}}>
-                    <img src={MirroredBlueArrow} className={classes.blueArrow}/>
-                  </IconButton>
-                </Grid>
-              }
-              <Grid item sx={{width: 'auto'}}>
-                <Typography sx={sxBold}>{explanationIndex}/3</Typography>
-              </Grid>
-              {explanationIndex!=3 && 
-                <Grid item>
-                  <IconButton onClick={increaseExplanationIndex} sx={{':focus': {outline: "none"}}}>
-                    <img src={BlueArrow} className={classes.blueArrow}/>
-                  </IconButton>
-                </Grid>
-              }
-            </Grid>
-          </Grid>
-          <Grid container alignItems="center" justifyContent="center" lg={6.5} xs={5} padding={1}>
-            <img src={AppScreenshot} className={classes.appScreenshot} />
-          </Grid>
-        </Grid>
-        <Grid container alignItems="center" justifyContent="center" padding={'10%'}>
-          <img src={CommunityGraphic} style={{ width: '100%', height: '100%' }}/>
-        </Grid>
-        <Grid container direction="column" alignItems="center" spacing='3%' padding={4}>
-          <Grid item>
-            <Typography align='center' sx={{ ...sxTitle, color: '#0083FF' }}>Our Local Restaurant Partners</Typography>
-          </Grid>
-          <Grid item>
-            <Typography sx={sxDescription} align='center'>We're committed to supporting local restaurants and small businesses!</Typography>
-          </Grid>
-          <Grid container justifyContent='center' alignItems='center' spacing='6%' paddingTop={10}>
-            <Grid item>
-              <img src={JefesCircleImage} className={classes.bigCircle} />
-            </Grid>
-            <Grid item marginLeft={-1}>
-              <img src={HongKongCircleImage} className={classes.smallCircle} />
-            </Grid>
-            <Grid item>
-              <img src={PlayaBowlsCircleImage} className={classes.smallCircle} />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid container backgroundColor='#E7F3FF' padding='3%' paddingLeft='5%' marginTop='12%'>
-          <Grid item xs={4.5} >
-            <Typography sx={sxSubTitle}>Free food has never been so easy!</Typography>
-          </Grid>
-          <Grid container direction='column' xs={7} alignItems='center' marginTop='-12%' xs={7.5}>
-            <Grid container direction="row" alignItems="center" justifyContent="center">
-              <Grid item sx={sxRightMargin}>
-                <img src={LeftScreenshot} className={classes.screenBorder}/>
-              </Grid>
-              <Grid item sx={{ zIndex: 1 }}>
-                <img src={Screenshot} className={classes.biggerScreenBorder}/>
-              </Grid>
-              <Grid item sx={sxLeftMargin}>
-                <img src={RightScreenshot} className={classes.screenBorder}/>
-              </Grid>
-            </Grid>
-            <Grid item padding={2}>
-              <Typography sx={sxSubTitle}>Download Now!</Typography>
-            </Grid>
-            <Grid container direction="row" spacing='8%' alignItems="center" justifyContent="center" >
-              <Grid item>
-                <a href={"https://toppingsapp.page.link/download"} target="_blank">
-                  <img src={GooglePlayLogo} className={classes.googlePlay}/>
-                </a>
-              </Grid>
-              <Grid item>
-                <a href={"https://toppingsapp.page.link/download"} target="_blank">
-                  <img src={AppStoreLogo} className={classes.appStore} />
-                </a>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <BottomBar/>
-        </Grid>
-      </Grid>
-    </Grid>
+    <div>
+      <div style={styles.stickyHeader}>
+        <button
+          style={styles.headerText}
+          onClick={() => scrollTo('howItWorks')}
+        >
+          How It Works
+        </button>
+        <button style={styles.headerText} onClick={() => scrollTo('team')}>
+          The Team
+        </button>
+        <button
+          style={styles.headerText}
+          onClick={() => scrollTo('partnerships')}
+        >
+          Partnerships
+        </button>
+      </div>
+      <div style={styles.root}>
+        <div style={{ ...styles.gradientBackground }}>
+          <img
+            src={BackgroundBoxes}
+            style={{
+              width: 420,
+              height: 425,
+              objectFit: 'cover',
+              objectPosition: '0% 50%',
+              position: 'absolute',
+              right: 0,
+              top: 164,
+            }}
+          />
+          <p style={{ ...styles.title, marginTop: 160, marginBottom: 60 }}>
+            Toppings
+          </p>
+          <p style={{ ...styles.subtitle2, color: grayBlue }}>
+            FREE FOOD WITH FRIENDS.
+          </p>
+          <button
+            style={{
+              width: 240,
+              height: 60,
+              borderRadius: 100,
+              backgroundColor: toppingsBlue,
+              margin: '160px 0px',
+            }}
+            onClick={getApp}
+          >
+            <p style={{ ...styles.subtitle1, color: '#FFF' }}>Get the app</p>
+          </button>
+        </div>
+        <div
+          style={{
+            marginTop: 58,
+            color: grayBlue,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <div
+            style={{
+              width: 300,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 48,
+            }}
+          >
+            <div>
+              <div style={styles.body}>
+                <br />
+                Student-founded at
+              </div>
+              <div style={styles.subtitle1}>Harvard College</div>
+            </div>
+          </div>
+          <div
+            style={{
+              width: 300,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 48,
+            }}
+          >
+            <div>
+              <div style={styles.body}>
+                <br />
+                Order with Toppings at
+              </div>
+              <div style={styles.subtitle1}>23 restaurants</div>
+            </div>
+          </div>
+          <div
+            style={{
+              width: 300,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 48,
+            }}
+          >
+            <div>
+              <div style={styles.body}>
+                Users have earned <br />
+                free food worth
+              </div>
+
+              <div style={styles.subtitle1}>$1802</div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            backgroundColor: grayBlue,
+            width: '50%',
+            height: 2,
+            marginBottom: 120,
+          }}
+        />
+        {/* 1 */}
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="howItWorks">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>HOW IT WORKS</p>
+          </Element>
+        </div>
+        <p style={styles.subtitle2}>1. TOPPINGS = FREE FOOD</p>
+        <p
+          style={{
+            ...styles.body,
+            textAlign: 'center',
+            marginTop: 64,
+            marginBottom: 100,
+          }}
+        >
+          Other food apps make you order twenty items for one free item.
+          <br />
+          Toppings gets you <b>free food with a single order.</b>
+        </p>
+        <div
+          style={{
+            color: grayBlue,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 48,
+              marginRight: 76,
+            }}
+          >
+            <img src={S1i1} style={{ width: 142, height: 160 }} />
+            <p style={styles.body}>
+              You’re hungry and order
+              <br />
+              ahead at your fav restaurant
+            </p>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 48,
+              marginRight: 76,
+            }}
+          >
+            <div style={{ paddingTop: 60 }}>
+              <img src={S1i2} style={{ width: 157, height: 100 }} />
+            </div>
+            <p style={styles.body}>
+              Friends <b>nearby</b> can
+              <br />
+              order there too
+            </p>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 48,
+              marginRight: 76,
+            }}
+          >
+            <div style={{ paddingTop: 10 }}>
+              <img src={S1i3} style={{ width: 198, height: 150 }} />
+            </div>
+            <p style={styles.body}>
+              Pick-up and bring back
+              <br />
+              your food <b>and</b> your friends’ food
+            </p>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 48,
+            }}
+          >
+            <div style={{ paddingTop: 20 }}>
+              <img src={S1i4} style={{ width: 124, height: 140 }} />{' '}
+            </div>
+            <p style={styles.body}>
+              Toppings <b>rewards</b> you
+              <br />
+              with free food!
+            </p>
+          </div>
+        </div>
+        {/* 2 */}
+        <p style={styles.subtitle2}>2. TOPPINGS = ZERO-COST DELIVERY</p>
+        <p
+          style={{
+            ...styles.body,
+            textAlign: 'center',
+            marginTop: 64,
+            marginBottom: 70,
+          }}
+        >
+          Other delivery apps make you pay $15 in delivery fees for a single
+          item.
+          <br />
+          With Toppings, <b>you pay nothing.</b>
+        </p>
+        <div
+          style={{
+            color: grayBlue,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            // alignItems: 'center',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 64,
+              // marginRight: 76,
+            }}
+          >
+            <img src={S2i1} style={{ width: 418, height: 220 }} />
+            <p style={styles.body}>
+              Get notified when friends in your area
+              <br />
+              are going out to get food
+            </p>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginBottom: 64,
+              marginRight: 76,
+            }}
+          >
+            <div style={{ paddingTop: 70 }}>
+              <img src={S2i2} style={{ width: 198, height: 150 }} />
+            </div>
+            <p style={styles.body}>
+              Send them an order and your friend
+              <br />
+              will <b>bring your food back</b> too
+            </p>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              paddingBottom: 164,
+              marginRight: 76,
+            }}
+          >
+            <div style={{ paddingTop: 60 }}>
+              <img src={S2i3} style={{ width: 178, height: 160 }} />
+            </div>
+            <p style={styles.body}>
+              With Toppings, your social
+              <br />
+              network helps you <b>save $$$!</b>
+            </p>
+          </div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            marginBottom: 140,
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginRight: 117,
+            }}
+          >
+            <p style={{ ...styles.subtitle2, marginBottom: 30 }}>
+              Toppings is the future of food.
+            </p>
+            <p style={{ ...styles.body, marginBottom: 104 }}>
+              BLURB BLURB BLURB
+            </p>
+            <button style={{ display: 'flex' }} onClick={getApp}>
+              <p style={{ ...styles.h6, color: toppingsBlue }}>GET THE APP</p>
+              <img
+                src={BlueArrowRightIcon}
+                style={{ width: 14, height: 14, marginLeft: 16, marginTop: 7 }}
+              />
+            </button>
+          </div>
+          <img src={PhoneImage} style={{ width: 271, height: 510 }} />
+        </div>
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="team">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM</p>
+          </Element>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: '70%',
+            // justifyContent: 'space-between',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 86,
+              marginRight: 60,
+            }}
+          >
+            <div
+              style={{
+                height: 140,
+                width: 140,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+              }}
+            >
+              {/* IMAGE */}
+            </div>
+            <div>
+              <p style={{ ...styles.body }}>CEO</p>
+              <p style={{ ...styles.subtitle2 }}>RAYMOND</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Serial founder + CEO/COO: ICON, GRC, PROD
+                <br />
+                Uncommon Venture PM
+                <br />
+                ACL-tearer 2x / basketball
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 86,
+              marginRight: 60,
+            }}
+          >
+            <div
+              style={{
+                height: 140,
+                width: 140,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+              }}
+            >
+              {/* IMAGE */}
+            </div>
+            <div>
+              <p style={{ ...styles.body }}>CEO</p>
+              <p style={{ ...styles.subtitle2 }}>COLIN</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Serial founder + CEO/COO: ICON, GRC, PROD
+                <br />
+                Uncommon Venture PM
+                <br />
+                ACL-tearer 2x / basketball
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 86,
+              marginRight: 60,
+            }}
+          >
+            <div
+              style={{
+                height: 140,
+                width: 140,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+              }}
+            >
+              {/* IMAGE */}
+            </div>
+            <div>
+              <p style={{ ...styles.body }}>CEO</p>
+              <p style={{ ...styles.subtitle2 }}>SHAY</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Serial founder + CEO/COO: ICON, GRC, PROD
+                <br />
+                Uncommon Venture PM
+                <br />
+                ACL-tearer 2x / basketball
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="partnerships">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>PARTNERSHIPS</p>
+          </Element>
+        </div>
+        <p style={{ ...styles.h6, marginBottom: 50 }}>
+          Winner of the HUCP Innovation Fund
+        </p>
+        <p style={{ ...styles.h6, marginBottom: 50 }}>
+          Awarded Harvard i-Labs SPARK Grant
+        </p>
+        <p style={{ ...styles.h6, marginBottom: 108 }}>
+          MIT/Harvard PROD cohort
+        </p>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <div style={{ width: 380 }}>
+            <img src={InnovationLabsImage} style={{ width: 281, height: 87 }} />
+          </div>
+          <div
+            style={{ width: 380, display: 'flex', justifyContent: 'center' }}
+          >
+            <img
+              src={CapitalPartnersImage}
+              style={{ width: 281, height: 87 }}
+            />
+          </div>
+          <div
+            style={{ width: 380, display: 'flex', justifyContent: 'center' }}
+          >
+            <img src={ProdImage} style={{ width: 138, height: 53 }} />
+          </div>
+        </div>
+        <div
+          style={{
+            backgroundColor: grayBlue,
+            width: 500,
+            height: 2,
+            marginBottom: 68,
+            marginTop: 100,
+          }}
+        />
+        <p style={{ ...styles.h6, color: grayBlue, marginBottom: 64 }}>
+          We are committed to serving local restaurants & small businesses
+        </p>
+        <p style={{ ...styles.h6, marginBottom: 50 }}>El Jefe’s Tacqueria</p>
+        <p style={{ ...styles.h6, marginBottom: 50 }}>Playa Bowls</p>
+        <p style={{ ...styles.h6, marginBottom: 80 }}>Hongkong Restaurant</p>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginBottom: 394,
+          }}
+        >
+          <div style={{ width: 150 }}>
+            <img src={JefesCircle} style={{ width: 110, height: 110 }} />
+          </div>
+          <div
+            style={{ width: 150, display: 'flex', justifyContent: 'center' }}
+          >
+            <img src={HongKongCircle} style={{ width: 90, height: 90 }} />
+          </div>
+          <div
+            style={{ width: 150, display: 'flex', justifyContent: 'flex-end' }}
+          >
+            <img src={PlayaCircle} style={{ width: 90, height: 90 }} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-const sxTitle = {
-  fontFamily: 'Raleway-Bold',
-  fontSize: 48,
-  [theme.breakpoints.down('lg')]: {
-    fontSize: 42,
-  },
-  [theme.breakpoints.down('md')]: {
-    fontSize: 34,
-  },
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 22,
-  },
-};
-const sxSubTitle = {
-  fontFamily: 'Raleway-Bold',
-  fontSize: 44,
-  color: '#0083FF',
-  [theme.breakpoints.down('lg')]: {
-    fontSize: 38,
-  },
-  [theme.breakpoints.down('md')]: {
-    fontSize: 26,
-  },
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 18,
-  },
-}
-const sxDescription = {
-  fontFamily: 'Raleway-Light',
-  fontSize: 28,
-  [theme.breakpoints.down('lg')]: {
-    fontSize: 24,
-  },
-  [theme.breakpoints.down('md')]: {
+const styles = {
+  h6: {
+    fontFamily: 'Karla-Bold',
+    // fontWeight: '700',
     fontSize: 20,
   },
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 14,
-  },
-};
-const sxAchievements = {
-  fontFamily: 'Raleway-Light',
-  fontSize: 28,
-  [theme.breakpoints.down('lg')]: {
-    fontSize: 22,
-  },
-  [theme.breakpoints.down('md')]: {
-    fontSize: 15,
-  },
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 11,
-  },
-}
-const sxNumber = {
-  fontFamily: 'Raleway-ExtraBold',
-  fontSize: 100,
-  color: '#0082FF',
-  [theme.breakpoints.down('lg')]: {
-    fontSize: 75,
-  },
-  [theme.breakpoints.down('md')]: {
-    fontSize: 50,
-  },
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 30,
-  },
-};
-const sxBold = {
-  fontFamily: 'Raleway-ExtraBold',
-  fontSize: 32,
-  [theme.breakpoints.down('lg')]: {
-    fontSize: 28,
-  },
-  [theme.breakpoints.down('md')]: {
-    fontSize: 24,
-  },
-  [theme.breakpoints.down('sm')]: {
+  body: {
+    fontFamily: 'Karla-Medium',
+    fontWeight: '500',
     fontSize: 16,
   },
-}
-const sxRightMargin = {
-  marginRight: -5,
-  [theme.breakpoints.down('lg')]: {marginRight: -4},
-  [theme.breakpoints.down('md')]: {marginRight: -4},
-  [theme.breakpoints.down('sm')]: {marginRight: -3},
-}
-const sxLeftMargin = {
-  marginLeft: -5,
-  [theme.breakpoints.down('lg')]: {marginLeft: -4},
-  [theme.breakpoints.down('md')]: {marginLeft: -4},
-  [theme.breakpoints.down('sm')]: {marginLeft: -3},
-}
-const sxCapitalPartners = {
-  width: 500,
-  height: 150,
-  marginLeft: -3,
-  [theme.breakpoints.down('lg')]: {
-    width: 400, 
-    height: 120,
-    marginLeft: -1,
+  subtitle1: {
+    fontFamily: 'Rubik-SemiBold',
+    // fontWeight: '600',
+    fontSize: 24,
   },
-  [theme.breakpoints.down('md')]: {
-    width: 280, 
-    height: 100,
-    marginLeft: -2.5
+  subtitle2: {
+    fontFamily: 'Karla-Bold',
+    // fontWeight: '700',
+    fontSize: 24,
   },
-  [theme.breakpoints.down('sm')]: {
-    width: 180, 
-    height: 55, 
-    marginLeft: -2
-  }, 
-}
-const sxInnovationLab = {
-  width: 450,
-  height: 140,
-  [theme.breakpoints.down('lg')]: {
-    width: 340, 
-    height: 115, 
-  }, 
-  [theme.breakpoints.down('md')]: {
-    width: 250, 
-    height: 80, 
-  }, 
-  [theme.breakpoints.down('sm')]: {
-    width: 165,
-    height: 50
+  title: {
+    fontFamily: 'Rubik-ExtraBold',
+    // fontWeight: '800',
+    color: '#0082FF',
+    fontSize: 70,
   },
-}
-const sxProd = {
-  width: 350,
-  height: 150,
-  marginLeft: -10,
-  marginTop: 2,
-  [theme.breakpoints.down('lg')]: {
-    width: 250, 
-    height: 95,
-    marginTop: 1,
-  },
-  [theme.breakpoints.down('md')]: {
-    width: 190, 
-    height: 65,
-    marginTop: 1,
-  },
-  [theme.breakpoints.down('sm')]: {
-    width: 130, 
-    height: 60,
-    marginLeft: -3.5,
-    marginTop: 1,
-  }
-}
-
-const useStyles = makeStyles(() => ({
-  foodBackground: {
-    backgroundImage: `url(${FoodImage})`,
+  gradientBackground: {
+    background: 'linear-gradient(180deg, #FFFFFF 0%, #CEE7FF 100%)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '100%',
-    paddingBottom: '10%',
+    // height: '776px',
+    width: '100%',
+    // paddingBottom: '10%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    // justifyContent: 'center',
   },
-  screenBorder: {
-    borderColor: '#000000',
-    [theme.breakpoints.only('xl')]: { width: '15rem', borderWidth: 10, borderRadius: 25},
-    [theme.breakpoints.only('lg')]: { width: '13rem', borderWidth: 8, borderRadius: 21 },
-    [theme.breakpoints.only('md')]: { width: '11rem', borderWidth: 7, borderRadius: 18 },
-    [theme.breakpoints.only('sm')]: { width: '8rem', borderWidth: 5, borderRadius: 15 },
-    [theme.breakpoints.only('xs')]: { width: '4.75rem', borderWidth: 4, borderRadius: 12 },
-  },
-  biggerScreenBorder: {
-    borderColor: '#000000',
-    [theme.breakpoints.only('xl')]: { width: '17rem', borderWidth: 10, borderRadius: 25 },
-    [theme.breakpoints.only('lg')]: { width: '15rem', borderWidth: 8,  borderRadius: 21 },
-    [theme.breakpoints.only('md')]: { width: '13rem', borderWidth: 7,  borderRadius: 18 },
-    [theme.breakpoints.only('sm')]: { width: '9rem', borderWidth: 5,  borderRadius: 15 },
-    [theme.breakpoints.only('xs')]: { width: '5.25rem', borderWidth: 4, borderRadius: 12 },
 
+  headerText: {
+    fontFamily: 'Karla-Medium',
+    fontWeight: '500',
+    fontSize: '19px',
+    color: '#3B74B2',
+    marginRight: '70px',
   },
-  googlePlay: {
-    width: 150,
-    height: 80,
-    [theme.breakpoints.down('sm')]: {
-      width: 60,
-      height: 30,
-    }
+  stickyHeader: {
+    backgroundColor: '#FFF',
+    width: '100%',
+    height: '68px',
+    position: 'sticky',
+    top: 0,
+    boxShadow: '0px 8px 30px #CDEFFF',
+    display: 'flex',
+    paddingLeft: '53px',
+    zIndex: 2,
   },
-  appStore: {
-    width: 150,
-    height: 45,
-    [theme.breakpoints.down('sm')]: {
-      width: 60,
-      height: 20,
-    }
+
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
-  bigCircle: {
-    width: 270,
-    height: 270,
-    [theme.breakpoints.down('lg')]: {
-      width: 200,
-      height: 200,
-    },
-    [theme.breakpoints.down('md')]: {
-      width: 150,
-      height: 150,
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: 100,
-      height: 100,
-    },
-  },
-  smallCircle: {
-    width: 250,
-    height: 250,
-    [theme.breakpoints.down('lg')]: {
-      width: 185,
-      height: 185,
-    },
-    [theme.breakpoints.down('md')]: {
-      width: 135,
-      height: 135,
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: 85,
-      height: 85,
-    },
-  },
-  blueArrow: {
-    width: 48,
-    height: 48,
-    [theme.breakpoints.down('sm')]: {
-      width: 22,
-      height: 22,
-    }
-  },
-  appScreenshot: {
-    borderRadius: '8.5%',
-    width: 300,
-    height: 600,
-    [theme.breakpoints.down('lg')]: {
-      width: 200,
-      height: 400,
-    },
-    [theme.breakpoints.down('md')]: {
-      width: 185,
-      height: 390,
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: 135,
-      height: 260,
-    },
-  },
-}));
+};
 
 export default HomePage;
