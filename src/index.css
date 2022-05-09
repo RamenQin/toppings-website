@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Raleway-Regular';
-  src: local('Raleway-Regular'), url(./fonts//Raleway-Regular.ttf) format('truetype');
+  src: local('Raleway-Regular'),
+    url(./fonts//Raleway-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway-Bold';
@@ -8,19 +9,23 @@
 }
 @font-face {
   font-family: 'Raleway-Light';
-  src: local('Raleway-Light'), url(./fonts//Raleway-Light.ttf) format('truetype');
+  src: local('Raleway-Light'),
+    url(./fonts//Raleway-Light.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway-Medium';
-  src: local('Raleway-Medium'), url(./fonts//Raleway-Medium.ttf) format('truetype');
+  src: local('Raleway-Medium'),
+    url(./fonts//Raleway-Medium.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway-SemiBold';
-  src: local('Raleway-SemiBold'), url(./fonts//Raleway-SemiBold.ttf) format('truetype');
+  src: local('Raleway-SemiBold'),
+    url(./fonts//Raleway-SemiBold.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway-ExtraBold';
-  src: local('Raleway-ExtraBold'), url(./fonts//Raleway-ExtraBold.ttf) format('truetype');
+  src: local('Raleway-ExtraBold'),
+    url(./fonts//Raleway-ExtraBold.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway-Thin';
@@ -37,9 +42,60 @@
 }
 @font-face {
   font-family: 'Cabin-Regular';
-  src: local('Cabin-Regular'), url(./fonts//Cabin-Regular.ttf) format('truetype');
+  src: local('Cabin-Regular'),
+    url(./fonts//Cabin-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Cabin-SemiBold';
-  src: local('Cabin-SemiBold'), url(./fonts//Cabin-SemiBold.ttf) format('truetype');
+  src: local('Cabin-SemiBold'),
+    url(./fonts//Cabin-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Rubik-Regular';
+  src: local('Rubik-Regular'),
+    url(./fonts//Rubik-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik-ExtraBold';
+  src: local('Rubik-ExtraBold'),
+    url(./fonts//Rubik-ExtraBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik-SemiBold';
+  src: local('Rubik-SemiBold'),
+    url(./fonts//Rubik-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Karla-Bold';
+  src: local('Karla-Bold'), url(./fonts//Karla-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Karla-Medium';
+  src: local('Karla-Medium'), url(./fonts//Karla-Medium.ttf) format('truetype');
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.stats td {
+  padding-left: 65px;
+  padding-right: 65px;
+}
+.vectors td {
+  padding-left: 55px;
+  padding-right: 55px;
+  padding-bottom: 40px;
+}
+
+button:hover {
+  opacity: 50%;
+}
+
+#root {
+  width: 100%;
+  position: absolute;
+  overflow-x: hidden;
 }
