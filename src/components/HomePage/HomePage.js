@@ -56,7 +56,7 @@ const HomePage = () => {
   const isMobile = width <= 768;
   const getApp = () => {
     const url = isMobile
-      ? 'toppingsapp.page.link/download'
+      ? 'https://toppingsapp.page.link/download'
       : 'https://apps.apple.com/us/app/toppings-free-food-4-friends/id1552594551';
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
