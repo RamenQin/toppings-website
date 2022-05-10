@@ -63,6 +63,11 @@ const HomePage = () => {
   };
   // <  isMobile detecting
 
+  const openUrl = url => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  }
+
   const scrollTo = (elementName) => {
     scroller.scrollTo(elementName, {
       duration: 500,
@@ -96,7 +101,7 @@ const HomePage = () => {
           }}
           onClick={() => scrollTo('howItWorks')}
         >
-          How It Works
+          {isMobile ? 'About' : 'How It Works'}
         </button>
         <button           
           style={{
@@ -105,7 +110,7 @@ const HomePage = () => {
           }}
           onClick={() => scrollTo('team')}
         >
-          The Team
+          {!isMobile && 'The '}Team
         </button>
         <button
           style={{
@@ -115,6 +120,15 @@ const HomePage = () => {
           onClick={() => scrollTo('partnerships')}
         >
           Partnerships
+        </button>
+        <button
+          style={{
+            ...styles.headerText,
+            marginRight: isMobile ? 0 : 70,
+          }}
+          onClick={() => scrollTo('contact')}
+        >
+          Contact
         </button>
       </div>
       <div style={styles.root}>
@@ -728,11 +742,12 @@ const HomePage = () => {
             justifyContent: isMobile ? 'center' : undefined,
           }}
         >
-          <div style={{ width: 380, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}>
+          <div style={{ width: 380, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }} onClick={() => openUrl('https://innovationlabs.harvard.edu/')}>
             <img src={InnovationLabsImage} style={{ width: 281, height: 87 }} />
           </div>
           <div
             style={{ width: 380, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}
+            onClick={() => openUrl('https://www.harvardcap.org/')}
           >
             <img
               src={CapitalPartnersImage}
@@ -741,6 +756,7 @@ const HomePage = () => {
           </div>
           <div
             style={{ width: 380, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}
+            onClick={() => openUrl('https://www.prod.so/')}
           >
             <img src={ProdImage} style={{ width: 138, height: 53 }} />
           </div>
@@ -765,7 +781,7 @@ const HomePage = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            marginBottom: 394,
+            marginBottom: 80,
             flexDirection: isMobile ? 'column' : 'row',
           }}
         >
@@ -783,6 +799,29 @@ const HomePage = () => {
             <img src={PlayaCircle} style={{ width: 90, height: 90 }} />
           </div>
         </div>
+
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="contact">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>CONTACT US</p>
+          </Element>
+        </div>
+        <p style={{ ...styles.h6, color: grayBlue, marginBottom: 24, textAlign: 'center' }}>
+          raymondqin@toppingsapp.com
+        </p>
+        <p style={{ ...styles.h6, color: grayBlue, marginBottom: 268, textAlign: 'center' }}>
+          +1 (617) 710-1220
+        </p>
       </div>
     </div>
   );
