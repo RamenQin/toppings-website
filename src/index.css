@@ -75,6 +75,10 @@
   font-family: 'Karla-Medium';
   src: local('Karla-Medium'), url(./fonts//Karla-Medium.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'Karla-ExtraBold';
+  src: local('Karla-ExtraBold'), url(./fonts//Karla-ExtraBold.ttf) format('truetype');
+}
 
 *:focus {
   outline: none !important;

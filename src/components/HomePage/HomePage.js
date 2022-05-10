@@ -270,7 +270,7 @@ const HomePage = () => {
         >
           Other food apps make you order twenty items for one free item.
           {!isMobile && <br />}
-          Toppings gets you <b>free food with a single order.</b>
+          Toppings gets you <span style={{ fontFamily: 'Karla-ExtraBold' }}>free food with a single order.</span>
         </p>
         <div
           style={{
@@ -313,7 +313,7 @@ const HomePage = () => {
               <img src={S1i2} style={{ width: 157, height: 100, marginBottom: 40 }} />
             </div>
             <p style={styles.body}>
-              Friends <b>nearby</b> can
+              Friends <span style={{ fontFamily: 'Karla-ExtraBold' }}>nearby</span> can
               <br />
               order there too
             </p>
@@ -333,7 +333,7 @@ const HomePage = () => {
             <p style={styles.body}>
               Pick-up and bring back
               <br />
-              your food <b>and</b> your friends’ food
+              your food <span style={{ fontFamily: 'Karla-ExtraBold' }}>and</span> your friends’ food
             </p>
           </div>
           <div
@@ -348,7 +348,7 @@ const HomePage = () => {
               <img src={S1i4} style={{ width: 124, height: 140, marginBottom: 40 }} />{' '}
             </div>
             <p style={styles.body}>
-              Toppings <b>rewards</b> you
+              Toppings <span style={{ fontFamily: 'Karla-ExtraBold' }}>rewards</span> you
               <br />
               with free food!
             </p>
@@ -370,7 +370,7 @@ const HomePage = () => {
           item.
           {!isMobile && <br />}
 
-          With Toppings, <b>you pay nothing.</b>
+          With Toppings, <span style={{ fontFamily: 'Karla-ExtraBold' }}>you pay nothing.</span>
         </p>
         <div
           style={{
@@ -414,7 +414,7 @@ const HomePage = () => {
             <p style={styles.body}>
               Send them an order and your friend
               <br />
-              will <b>bring your food back</b> too
+              will <span style={{ fontFamily: 'Karla-ExtraBold' }}>bring your food back</span> too
             </p>
           </div>
           <div
@@ -432,7 +432,7 @@ const HomePage = () => {
             <p style={styles.body}>
               With Toppings, your social
               <br />
-              network helps you <b>save $$$!</b>
+              network helps you <span style={{ fontFamily: 'Karla-ExtraBold' }}>save $$$!</span>
             </p>
           </div>
         </div>
@@ -457,7 +457,7 @@ const HomePage = () => {
               Toppings is the future of food.
             </p>
             <p style={{ ...styles.body, marginBottom: 104, textAlign: 'center' }}>
-              Get free rewards & fee-less delivery <b>today</b>
+              Get free rewards & fee-less delivery <span style={{ fontFamily: 'Karla-ExtraBold' }}>today</span>
               <br />
               at your favorite restaurants in Harvard Square.
             </p>
