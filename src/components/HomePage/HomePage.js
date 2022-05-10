@@ -22,6 +22,14 @@ import S2i1 from 'images/vectors/S2i1.png';
 import S2i2 from 'images/vectors/S2i2.png';
 import S2i3 from 'images/vectors/S2i3.png';
 
+import fatass from 'images/fatass.png';
+import colin from 'images/colin.png';
+import shay from 'images/shay.png';
+import austin from 'images/austin.png';
+import quinn from 'images/quinn.png';
+import peter from 'images/peter.png';
+import seth from 'images/seth.png';
+
 import InnovationLabsImage from 'images/awards/InnovationLabsImage.png';
 import CapitalPartnersImage from 'images/awards/CapitalPartnersImage.png';
 import ProdImage from 'images/awards/ProdImage.png';
@@ -158,7 +166,7 @@ const HomePage = () => {
                 <br />
                 Order with Toppings at
               </div>
-              <div style={styles.subtitle1}>23 restaurants</div>
+              <div style={styles.subtitle1}>22 restaurants</div>
             </div>
           </div>
           <div
@@ -176,7 +184,7 @@ const HomePage = () => {
                 free food worth
               </div>
 
-              <div style={styles.subtitle1}>$1802</div>
+              <div style={styles.subtitle1}>$4037</div>
             </div>
           </div>
         </div>
@@ -225,6 +233,7 @@ const HomePage = () => {
             flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'center',
+            marginBottom: 80,
           }}
         >
           <div
@@ -236,7 +245,7 @@ const HomePage = () => {
               marginRight: 76,
             }}
           >
-            <img src={S1i1} style={{ width: 142, height: 160 }} />
+            <img src={S1i1} style={{ width: 142, height: 160, marginBottom: 40 }} />
             <p style={styles.body}>
               You’re hungry and order
               <br />
@@ -253,7 +262,7 @@ const HomePage = () => {
             }}
           >
             <div style={{ paddingTop: 60 }}>
-              <img src={S1i2} style={{ width: 157, height: 100 }} />
+              <img src={S1i2} style={{ width: 157, height: 100, marginBottom: 40 }} />
             </div>
             <p style={styles.body}>
               Friends <b>nearby</b> can
@@ -271,7 +280,7 @@ const HomePage = () => {
             }}
           >
             <div style={{ paddingTop: 10 }}>
-              <img src={S1i3} style={{ width: 198, height: 150 }} />
+              <img src={S1i3} style={{ width: 198, height: 150, marginBottom: 40 }} />
             </div>
             <p style={styles.body}>
               Pick-up and bring back
@@ -288,7 +297,7 @@ const HomePage = () => {
             }}
           >
             <div style={{ paddingTop: 20 }}>
-              <img src={S1i4} style={{ width: 124, height: 140 }} />{' '}
+              <img src={S1i4} style={{ width: 124, height: 140, marginBottom: 40 }} />{' '}
             </div>
             <p style={styles.body}>
               Toppings <b>rewards</b> you
@@ -330,7 +339,7 @@ const HomePage = () => {
               // marginRight: 76,
             }}
           >
-            <img src={S2i1} style={{ width: 418, height: 220 }} />
+            <img src={S2i1} style={{ width: 418, height: 220, marginBottom: 40 }} />
             <p style={styles.body}>
               Get notified when friends in your area
               <br />
@@ -347,7 +356,7 @@ const HomePage = () => {
             }}
           >
             <div style={{ paddingTop: 70 }}>
-              <img src={S2i2} style={{ width: 198, height: 150 }} />
+              <img src={S2i2} style={{ width: 198, height: 150, marginBottom: 40 }} />
             </div>
             <p style={styles.body}>
               Send them an order and your friend
@@ -365,7 +374,7 @@ const HomePage = () => {
             }}
           >
             <div style={{ paddingTop: 60 }}>
-              <img src={S2i3} style={{ width: 178, height: 160 }} />
+              <img src={S2i3} style={{ width: 178, height: 160, marginBottom: 40 }} />
             </div>
             <p style={styles.body}>
               With Toppings, your social
@@ -393,8 +402,10 @@ const HomePage = () => {
             <p style={{ ...styles.subtitle2, marginBottom: 30 }}>
               Toppings is the future of food.
             </p>
-            <p style={{ ...styles.body, marginBottom: 104 }}>
-              BLURB BLURB BLURB
+            <p style={{ ...styles.body, marginBottom: 104, textAlign: 'center' }}>
+              Get free rewards & fee-less delivery <b>today</b>
+              <br />
+              at your favorite restaurants in Harvard Square.
             </p>
             <button style={{ display: 'flex' }} onClick={getApp}>
               <p style={{ ...styles.h6, color: toppingsBlue }}>GET THE APP</p>
@@ -435,7 +446,8 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              marginRight: 60,
+              width: '50%',
+              minWidth: 500,
             }}
           >
             <div
@@ -445,12 +457,13 @@ const HomePage = () => {
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
+                overflow: 'hidden',
               }}
             >
-              {/* IMAGE */}
+              <img src={fatass} style={{ width: 140, height: 140 }} />
             </div>
             <div>
-              <p style={{ ...styles.body }}>CEO</p>
+              <p style={{ ...styles.body }}>Founder / CEO</p>
               <p style={{ ...styles.subtitle2 }}>RAYMOND</p>
               <p style={{ ...styles.body, color: grayBlue }}>
                 Serial founder + CEO/COO: ICON, GRC, PROD
@@ -466,7 +479,8 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              marginRight: 60,
+              width: '50%',
+              minWidth: 500,
             }}
           >
             <div
@@ -476,19 +490,20 @@ const HomePage = () => {
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
+                overflow: 'hidden',
               }}
             >
-              {/* IMAGE */}
+              <img src={colin} style={{ width: 140, height: 140 }} />
             </div>
             <div>
-              <p style={{ ...styles.body }}>CEO</p>
+              <p style={{ ...styles.body }}>Cofounder / Head of Technology</p>
               <p style={{ ...styles.subtitle2 }}>COLIN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
-                Serial founder + CEO/COO: ICON, GRC, PROD
+                USACO Gold Winner
                 <br />
-                Uncommon Venture PM
+                Minecraft Server Builder—monetized
                 <br />
-                ACL-tearer 2x / basketball
+                gym rat / guitar aficionado
               </p>
             </div>
           </div>
@@ -497,7 +512,8 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              marginRight: 60,
+              width: '50%',
+              minWidth: 500,
             }}
           >
             <div
@@ -507,19 +523,148 @@ const HomePage = () => {
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
+                overflow: 'hidden',
               }}
             >
-              {/* IMAGE */}
+              <img src={shay} style={{ width: 140, height: 140 }} />
             </div>
             <div>
-              <p style={{ ...styles.body }}>CEO</p>
+              <p style={{ ...styles.body }}>Cofounder / Head of Product</p>
               <p style={{ ...styles.subtitle2 }}>SHAY</p>
               <p style={{ ...styles.body, color: grayBlue }}>
-                Serial founder + CEO/COO: ICON, GRC, PROD
+                Design Director of HUFPI at Harvard
                 <br />
-                Uncommon Venture PM
+                Winner of various Scholastic Arts Awards
                 <br />
-                ACL-tearer 2x / basketball
+                avalon player / concert-goer
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 86,
+              width: '50%',
+              minWidth: 500,
+            }}
+          >
+            <div
+              style={{
+                height: 140,
+                width: 140,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+                overflow: 'hidden',
+              }}
+            >
+              <img src={austin} style={{ width: 140, height: 140 }} />
+            </div>
+            <div>
+              <p style={{ ...styles.body }}>App Dev</p>
+              <p style={{ ...styles.subtitle2 }}>AUSTIN</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Dev at CloudSafari Inc, Applied Brain Research,
+                <br />
+                3DQue Systems Inc
+                <br />
+                softball / cat dad
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 86,
+              width: '50%',
+              minWidth: 500,
+            }}
+          >
+            <div
+              style={{
+                height: 140,
+                width: 140,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+                overflow: 'hidden',
+              }}
+            >
+              <img src={quinn} style={{ width: 140, height: 140 }} />
+            </div>
+            <div>
+              <p style={{ ...styles.body }}>Marketing</p>
+              <p style={{ ...styles.subtitle2 }}>QUINN</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Harvard College Consulting Group,
+                <br />
+                Charles River Growth Fund, Harvard Ventures
+                <br />
+                cross-country runner / spike ball
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 86,
+              width: '50%',
+              minWidth: 500,
+            }}
+          >
+            <div
+              style={{
+                height: 140,
+                width: 140,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+                overflow: 'hidden',
+              }}
+            >
+              <img src={peter} style={{ width: 140, height: 140 }} />
+            </div>
+            <div>
+              <p style={{ ...styles.body }}>Advisor</p>
+              <p style={{ ...styles.subtitle2 }}>PETER GLADSTONE</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Director of Consumer Goods and Services @
+                <br />
+                Harvard i-Labs
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 86,
+              width: '50%',
+              minWidth: 500,
+            }}
+          >
+            <div
+              style={{
+                height: 140,
+                width: 140,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+                overflow: 'hidden',
+              }}
+            >
+              <img src={seth} style={{ width: 140, height: 140 }} />
+            </div>
+            <div>
+              <p style={{ ...styles.body }}>Advisor</p>
+              <p style={{ ...styles.subtitle2 }}>SETH RUBINSTEIN</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Former Chief of Staff
+                <br />
+                UberEats APAC
               </p>
             </div>
           </div>
@@ -586,7 +731,8 @@ const HomePage = () => {
         </p>
         <p style={{ ...styles.h6, marginBottom: 50 }}>El Jefe’s Tacqueria</p>
         <p style={{ ...styles.h6, marginBottom: 50 }}>Playa Bowls</p>
-        <p style={{ ...styles.h6, marginBottom: 80 }}>Hongkong Restaurant</p>
+        <p style={{ ...styles.h6, marginBottom: 50 }}>Hongkong Restaurant</p>
+        <p style={{ ...styles.h6, marginBottom: 80 }}>& more!</p>
         <div
           style={{
             display: 'flex',
@@ -638,10 +784,10 @@ const styles = {
     fontFamily: 'Rubik-ExtraBold',
     // fontWeight: '800',
     color: '#0082FF',
-    fontSize: 70,
+    fontSize: 80,
   },
   gradientBackground: {
-    background: 'linear-gradient(180deg, #FFFFFF 0%, #CEE7FF 100%)',
+    background: 'linear-gradient(180deg, #FFFFFF 0%, #b7e7ff 100%)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     // height: '776px',
