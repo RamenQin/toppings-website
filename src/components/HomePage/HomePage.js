@@ -73,20 +73,45 @@ const HomePage = () => {
     });
   };
 
+  const pfpSize = isMobile ? {
+    width: 80,
+    height: 80,
+  } : {
+    width: 140,
+    height: 140,
+  };
+
   return (
     <div>
-      <div style={styles.stickyHeader}>
+      <div style={{
+        ...styles.stickyHeader,
+        flexDirection: isMobile ? 'row' : undefined,
+        justifyContent: isMobile ? 'space-evenly' : undefined,
+        paddingLeft: isMobile ? 0 : 53,
+      }}>
         <button
-          style={styles.headerText}
+          style={{
+            ...styles.headerText,
+            marginRight: isMobile ? 0 : 70,
+          }}
           onClick={() => scrollTo('howItWorks')}
         >
           How It Works
         </button>
-        <button style={styles.headerText} onClick={() => scrollTo('team')}>
+        <button           
+          style={{
+            ...styles.headerText,
+            marginRight: isMobile ? 0 : 70,
+          }}
+          onClick={() => scrollTo('team')}
+        >
           The Team
         </button>
         <button
-          style={styles.headerText}
+          style={{
+            ...styles.headerText,
+            marginRight: isMobile ? 0 : 70,
+          }}
           onClick={() => scrollTo('partnerships')}
         >
           Partnerships
@@ -94,18 +119,20 @@ const HomePage = () => {
       </div>
       <div style={styles.root}>
         <div style={{ ...styles.gradientBackground }}>
-          <img
-            src={BackgroundBoxes}
-            style={{
-              width: 420,
-              height: 425,
-              objectFit: 'cover',
-              objectPosition: '0% 50%',
-              position: 'absolute',
-              right: 0,
-              top: 164,
-            }}
-          />
+          {!isMobile && (
+            <img
+              src={BackgroundBoxes}
+              style={{
+                width: 420,
+                height: 425,
+                objectFit: 'cover',
+                objectPosition: '0% 50%',
+                position: 'absolute',
+                right: 0,
+                top: 164,
+              }}
+            />
+          )}
           <p style={{ ...styles.title, marginTop: 160, marginBottom: 60 }}>
             Toppings
           </p>
@@ -142,6 +169,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               marginBottom: 48,
+              textAlign: isMobile ? 'center' : undefined,
             }}
           >
             <div>
@@ -159,6 +187,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               marginBottom: 48,
+              textAlign: isMobile ? 'center' : undefined,
             }}
           >
             <div>
@@ -176,6 +205,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               marginBottom: 48,
+              textAlign: isMobile ? 'center' : undefined,
             }}
           >
             <div>
@@ -220,10 +250,12 @@ const HomePage = () => {
             textAlign: 'center',
             marginTop: 64,
             marginBottom: 100,
+            marginLeft: isMobile ? 20 : 0,
+            marginRight: isMobile ? 20 : 0,
           }}
         >
           Other food apps make you order twenty items for one free item.
-          <br />
+          {!isMobile && <br />}
           Toppings gets you <b>free food with a single order.</b>
         </p>
         <div
@@ -234,6 +266,8 @@ const HomePage = () => {
             justifyContent: 'center',
             alignItems: 'center',
             marginBottom: 80,
+            flexDirection: isMobile ? 'column' : undefined,
+            textAlign: isMobile ? 'center' : undefined,
           }}
         >
           <div
@@ -242,7 +276,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               marginBottom: 48,
-              marginRight: 76,
+              marginRight: isMobile ? 0 : 76,
             }}
           >
             <img src={S1i1} style={{ width: 142, height: 160, marginBottom: 40 }} />
@@ -258,7 +292,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               marginBottom: 48,
-              marginRight: 76,
+              marginRight: isMobile ? 0 : 76,
             }}
           >
             <div style={{ paddingTop: 60 }}>
@@ -276,7 +310,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               marginBottom: 48,
-              marginRight: 76,
+              marginRight: isMobile ? 0 : 76,
             }}
           >
             <div style={{ paddingTop: 10 }}>
@@ -307,18 +341,21 @@ const HomePage = () => {
           </div>
         </div>
         {/* 2 */}
-        <p style={styles.subtitle2}>2. TOPPINGS = ZERO-COST DELIVERY</p>
+        <p style={{ ...styles.subtitle2, textAlign: isMobile ? 'center' : undefined }}>2. TOPPINGS = ZERO-COST DELIVERY</p>
         <p
           style={{
             ...styles.body,
             textAlign: 'center',
             marginTop: 64,
             marginBottom: 70,
+            marginLeft: isMobile ? 20 : 0,
+            marginRight: isMobile ? 20 : 0,
           }}
         >
           Other delivery apps make you pay $15 in delivery fees for a single
           item.
-          <br />
+          {!isMobile && <br />}
+
           With Toppings, <b>you pay nothing.</b>
         </p>
         <div
@@ -328,6 +365,8 @@ const HomePage = () => {
             flexWrap: 'wrap',
             justifyContent: 'center',
             // alignItems: 'center',
+            flexDirection: isMobile ? 'column' : undefined,
+            textAlign: isMobile ? 'center' : undefined
           }}
         >
           <div
@@ -352,7 +391,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               marginBottom: 64,
-              marginRight: 76,
+              marginRight: isMobile ? 0 : 76,
             }}
           >
             <div style={{ paddingTop: 70 }}>
@@ -370,7 +409,7 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               paddingBottom: 164,
-              marginRight: 76,
+              marginRight: isMobile ? 0 : 76,
             }}
           >
             <div style={{ paddingTop: 60 }}>
@@ -389,6 +428,7 @@ const HomePage = () => {
             flexWrap: 'wrap',
             alignItems: 'center',
             marginBottom: 140,
+            flexDirection: isMobile ? 'column' : undefined,
           }}
         >
           <div
@@ -396,7 +436,7 @@ const HomePage = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              marginRight: 117,
+              marginRight: isMobile ? 0 : 117,
             }}
           >
             <p style={{ ...styles.subtitle2, marginBottom: 30 }}>
@@ -446,23 +486,21 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              width: '50%',
-              minWidth: 500,
+              width: isMobile ? '100%' : '50%',
             }}
           >
             <div
               style={{
-                height: 140,
-                width: 140,
+                ...pfpSize,
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
                 overflow: 'hidden',
               }}
             >
-              <img src={fatass} style={{ width: 140, height: 140 }} />
+              <img src={fatass} style={pfpSize} />
             </div>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Founder / CEO</p>
               <p style={{ ...styles.subtitle2 }}>RAYMOND</p>
               <p style={{ ...styles.body, color: grayBlue }}>
@@ -479,23 +517,21 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              width: '50%',
-              minWidth: 500,
+              width: isMobile ? '100%' : '50%',
             }}
           >
             <div
               style={{
-                height: 140,
-                width: 140,
+                ...pfpSize,
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
                 overflow: 'hidden',
               }}
             >
-              <img src={colin} style={{ width: 140, height: 140 }} />
+              <img src={colin} style={pfpSize} />
             </div>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Cofounder / Head of Technology</p>
               <p style={{ ...styles.subtitle2 }}>COLIN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
@@ -512,23 +548,21 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              width: '50%',
-              minWidth: 500,
+              width: isMobile ? '100%' : '50%',
             }}
           >
             <div
               style={{
-                height: 140,
-                width: 140,
+                ...pfpSize,
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
                 overflow: 'hidden',
               }}
             >
-              <img src={shay} style={{ width: 140, height: 140 }} />
+              <img src={shay} style={pfpSize} />
             </div>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Cofounder / Head of Product</p>
               <p style={{ ...styles.subtitle2 }}>SHAY</p>
               <p style={{ ...styles.body, color: grayBlue }}>
@@ -545,23 +579,21 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              width: '50%',
-              minWidth: 500,
+              width: isMobile ? '100%' : '50%',
             }}
           >
             <div
               style={{
-                height: 140,
-                width: 140,
+                ...pfpSize,
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
                 overflow: 'hidden',
               }}
             >
-              <img src={austin} style={{ width: 140, height: 140 }} />
+              <img src={austin} style={pfpSize} />
             </div>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>App Dev</p>
               <p style={{ ...styles.subtitle2 }}>AUSTIN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
@@ -578,23 +610,21 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              width: '50%',
-              minWidth: 500,
+              width: isMobile ? '100%' : '50%',
             }}
           >
             <div
               style={{
-                height: 140,
-                width: 140,
+                ...pfpSize,
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
                 overflow: 'hidden',
               }}
             >
-              <img src={quinn} style={{ width: 140, height: 140 }} />
+              <img src={quinn} style={pfpSize} />
             </div>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Marketing</p>
               <p style={{ ...styles.subtitle2 }}>QUINN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
@@ -611,23 +641,21 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              width: '50%',
-              minWidth: 500,
+              width: isMobile ? '100%' : '50%',
             }}
           >
             <div
               style={{
-                height: 140,
-                width: 140,
+                ...pfpSize,
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
                 overflow: 'hidden',
               }}
             >
-              <img src={peter} style={{ width: 140, height: 140 }} />
+              <img src={peter} style={pfpSize} />
             </div>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Advisor</p>
               <p style={{ ...styles.subtitle2 }}>PETER GLADSTONE</p>
               <p style={{ ...styles.body, color: grayBlue }}>
@@ -642,23 +670,21 @@ const HomePage = () => {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 86,
-              width: '50%',
-              minWidth: 500,
+              width: isMobile ? '100%' : '50%',
             }}
           >
             <div
               style={{
-                height: 140,
-                width: 140,
+                ...pfpSize,
                 borderRadius: 70,
                 backgroundColor: '#C4C4C4',
                 marginRight: 33,
                 overflow: 'hidden',
               }}
             >
-              <img src={seth} style={{ width: 140, height: 140 }} />
+              <img src={seth} style={pfpSize} />
             </div>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Advisor</p>
               <p style={{ ...styles.subtitle2 }}>SETH RUBINSTEIN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
@@ -698,13 +724,15 @@ const HomePage = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
+            flexDirection: isMobile ? 'column' : 'row',
+            justifyContent: isMobile ? 'center' : undefined,
           }}
         >
-          <div style={{ width: 380 }}>
+          <div style={{ width: 380, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}>
             <img src={InnovationLabsImage} style={{ width: 281, height: 87 }} />
           </div>
           <div
-            style={{ width: 380, display: 'flex', justifyContent: 'center' }}
+            style={{ width: 380, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}
           >
             <img
               src={CapitalPartnersImage}
@@ -712,7 +740,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            style={{ width: 380, display: 'flex', justifyContent: 'center' }}
+            style={{ width: 380, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}
           >
             <img src={ProdImage} style={{ width: 138, height: 53 }} />
           </div>
@@ -720,13 +748,13 @@ const HomePage = () => {
         <div
           style={{
             backgroundColor: grayBlue,
-            width: 500,
+            width: isMobile ? 300 : 500,
             height: 2,
             marginBottom: 68,
             marginTop: 100,
           }}
         />
-        <p style={{ ...styles.h6, color: grayBlue, marginBottom: 64 }}>
+        <p style={{ ...styles.h6, color: grayBlue, marginBottom: 64, textAlign: 'center' }}>
           We are committed to serving local restaurants & small businesses
         </p>
         <p style={{ ...styles.h6, marginBottom: 50 }}>El Jefe’s Tacqueria</p>
@@ -738,18 +766,19 @@ const HomePage = () => {
             display: 'flex',
             alignItems: 'center',
             marginBottom: 394,
+            flexDirection: isMobile ? 'column' : 'row',
           }}
         >
-          <div style={{ width: 150 }}>
+          <div style={{ width: 150, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}>
             <img src={JefesCircle} style={{ width: 110, height: 110 }} />
           </div>
           <div
-            style={{ width: 150, display: 'flex', justifyContent: 'center' }}
+            style={{ width: 150, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}
           >
             <img src={HongKongCircle} style={{ width: 90, height: 90 }} />
           </div>
           <div
-            style={{ width: 150, display: 'flex', justifyContent: 'flex-end' }}
+            style={{ width: 150, display: 'flex', justifyContent: 'center', marginBottom: isMobile ? 20 : 0 }}
           >
             <img src={PlayaCircle} style={{ width: 90, height: 90 }} />
           </div>
@@ -802,7 +831,7 @@ const styles = {
   headerText: {
     fontFamily: 'Karla-Medium',
     fontWeight: '500',
-    fontSize: '19px',
+    fontSize: 18,
     color: '#3B74B2',
     marginRight: '70px',
   },
