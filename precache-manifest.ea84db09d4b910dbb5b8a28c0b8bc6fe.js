@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4791f8555bb5ac396a4cef8ad50bf6bf",
+    "revision": "2f2b8850c2087ac58e907ad949fd5ad7",
     "url": "/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.b71ebc9b.chunk.css"
   },
   {
-    "revision": "e2c794f402f39fdfa902",
-    "url": "/static/css/main.ca8624b3.chunk.css"
+    "revision": "d36d5c26b919b7db7c06",
+    "url": "/static/css/main.1b924788.chunk.css"
   },
   {
     "revision": "7214b7a54739d234cdd4",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.69740798.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e2c794f402f39fdfa902",
-    "url": "/static/js/main.15948df6.chunk.js"
+    "revision": "d36d5c26b919b7db7c06",
+    "url": "/static/js/main.0d903a8a.chunk.js"
   },
   {
     "revision": "7632c6acda2e3c494e67",
@@ -98,6 +98,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "008289c29878b73e3dbfbd85d41a75f0",
     "url": "/static/media/Karla-Bold.008289c2.ttf"
+  },
+  {
+    "revision": "deb29edabac74e45b03c66b59c1e2282",
+    "url": "/static/media/Karla-ExtraBold.deb29eda.ttf"
   },
   {
     "revision": "fc3c77ce1e2e821dc52aaeaa8e03f27e",
