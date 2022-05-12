@@ -119,7 +119,7 @@ const HomePage = () => {
           }}
           onClick={() => scrollTo('partnerships')}
         >
-          Partnerships
+          Partners
         </button>
         <button
           style={{
@@ -147,10 +147,19 @@ const HomePage = () => {
               }}
             />
           )}
-          <p style={{ ...styles.title, marginTop: 160, marginBottom: 60 }}>
+          <p style={{ 
+            ...styles.title,
+            marginTop: 160,
+            marginBottom: isMobile ? 30 : 60,
+            fontSize: isMobile ? 60 : 80,
+          }}>
             Toppings
           </p>
-          <p style={{ ...styles.subtitle2, color: grayBlue }}>
+          <p style={{ 
+            ...styles.subtitle2,
+            color: grayBlue,
+            fontSize: isMobile ? 18 : 24,
+          }}>
             FREE FOOD WITH FRIENDS.
           </p>
           <button
@@ -499,7 +508,7 @@ const HomePage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginBottom: 86,
+              marginBottom: isMobile ? 36 : 86,
               width: isMobile ? '100%' : '50%',
             }}
           >
@@ -530,7 +539,7 @@ const HomePage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginBottom: 86,
+              marginBottom: isMobile ? 36 : 86,
               width: isMobile ? '100%' : '50%',
             }}
           >
@@ -561,7 +570,7 @@ const HomePage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginBottom: 86,
+              marginBottom: isMobile ? 36 : 86,
               width: isMobile ? '100%' : '50%',
             }}
           >
@@ -592,7 +601,7 @@ const HomePage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginBottom: 86,
+              marginBottom: isMobile ? 36 : 86,
               width: isMobile ? '100%' : '50%',
             }}
           >
@@ -623,7 +632,7 @@ const HomePage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginBottom: 86,
+              marginBottom: isMobile ? 36 : 86,
               width: isMobile ? '100%' : '50%',
             }}
           >
@@ -654,7 +663,7 @@ const HomePage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginBottom: 86,
+              marginBottom: isMobile ? 36 : 86,
               width: isMobile ? '100%' : '50%',
             }}
           >
