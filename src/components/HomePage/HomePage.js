@@ -157,10 +157,13 @@ const HomePage = () => {
           </p>
           <p style={{ 
             ...styles.subtitle2,
+            textAlign: 'center',
             color: grayBlue,
             fontSize: isMobile ? 18 : 24,
           }}>
-            FREE FOOD WITH FRIENDS.
+            FREE FOOD WHEN YOU GO OUT
+            <br />
+            FREE DELIVERY WHEN YOUR FRIENDS ARE OUT
           </p>
           <button
             style={{
@@ -322,7 +325,7 @@ const HomePage = () => {
               <img src={S1i2} style={{ width: 157, height: 100, marginBottom: 40 }} />
             </div>
             <p style={styles.body}>
-              Friends <span style={{ fontFamily: 'Karla-ExtraBold' }}>nearby</span> can
+              Friends <span style={{ fontFamily: 'Karla-ExtraBold' }}>on-your-way</span> can
               <br />
               order there too
             </p>
