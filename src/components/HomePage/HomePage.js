@@ -561,9 +561,9 @@ const HomePage = () => {
               <p style={{ ...styles.body }}>Cofounder / Head of Technology</p>
               <p style={{ ...styles.subtitle2 }}>COLIN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
-                USACO Gold Winner
+                USA Coding Olympiad Gold Winner
                 <br />
-                Minecraft Server Builder—monetized
+                Serial Builder: Application tools, zoom add-ons, minecraft servers
                 <br />
                 gym rat / guitar aficionado
               </p>
@@ -594,7 +594,7 @@ const HomePage = () => {
               <p style={{ ...styles.body, color: grayBlue }}>
                 Design Director of HUFPI at Harvard
                 <br />
-                Winner of various Scholastic Arts Awards
+                Nationally awarded artist/designer
                 <br />
                 avalon player / concert-goer
               </p>
