@@ -130,6 +130,17 @@ const HomePage = () => {
         >
           Contact
         </button>
+        {!isMobile && (
+          <button
+            style={{
+              ...styles.headerText,
+              marginRight: isMobile ? 0 : 70,
+            }}
+            onClick={() => openUrl('https://toppings-dev.github.io/toppings-vendor/#/portal-auth/sign-in')}
+          >
+            Vendors
+          </button>        
+      )}
       </div>
       <div style={styles.root}>
         <div style={{ ...styles.gradientBackground }}>
