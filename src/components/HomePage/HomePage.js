@@ -140,7 +140,7 @@ const HomePage = () => {
           >
             Vendors
           </button>        
-      )}
+        )}
       </div>
       <div style={styles.root}>
         <div style={{ ...styles.gradientBackground }}>
@@ -843,7 +843,7 @@ const HomePage = () => {
           raymondqin@toppingsapp.com
         </p>
         <p style={{ ...styles.h6, color: grayBlue, marginBottom: 268, textAlign: 'center' }}>
-          +1 (617) 710-1220
+          +1 (678) 710-1220
         </p>
       </div>
     </div>
