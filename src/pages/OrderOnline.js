@@ -16,6 +16,7 @@ export default function OrderOnline() {
 
   const [run, setRun] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
+  const [menu, setMenu] = useState([]);
 
   const [createOrderLoading, setCreateOrderLoading] = useState(false);
 
@@ -65,7 +66,7 @@ export default function OrderOnline() {
   useEffect(() => {
     const getData = async () => {
       const resp = await axios.get(
-        (process.env.NODE_ENV === 'production' ? 'https://api.toppingsapp.com' : 'http://localhost:4000') +
+        (process.env.NODE_ENV === 'production' ? 'https://stage-api.toppingsapp.com' : 'http://localhost:4000') +
         `/getPartyInfo/?partyId=${runId}`,
         {
           headers: {
@@ -76,8 +77,31 @@ export default function OrderOnline() {
       setRun(resp.data.run);
 
       let restaurantData = resp.data.restaurant;
-      delete restaurantData.menu[0];
+      let menuCategories = [];
+      for (let i = 1; i < restaurantData.menu.length; i++) {
+        let currentDate = dayjs();
+        let shouldPush = true;
+        for (const availability of restaurantData.menu[i].availability) {
+          if (currentDate.day() !== availability.dayOfWeek) continue;
+          if (!availability.enabled) {
+            shouldPush = false;
+            break;
+          }
+          let currentTime = parseInt(currentDate.format('HHmm'));
+          console.log(currentTime);
+          let works = false;
+          for (const timePeriod of availability.timePeriods) {
+            let startTime = parseInt(timePeriod.startTime.replace(':', ''));
+            let endTime = parseInt(timePeriod.endTime.replace(':', ''));
+            console.log(startTime, endTime);
+            if (startTime <= currentTime && currentTime <= endTime) works = true;
+          }
+          if (!works) shouldPush = false;
+        }
+        if (shouldPush) menuCategories.push(restaurantData.menu[i]);
+      }
       setRestaurant(restaurantData);
+      setMenu(menuCategories);
     };
     getData();
   }, [runId]);
@@ -152,7 +176,7 @@ export default function OrderOnline() {
           <span className="menu-text">
             FULL MENU
           </span>
-          {restaurant.menu.map(menuCategory => 
+          {menu.map(menuCategory => 
             <div key={menuCategory.name}>
               <h2>
                 {menuCategory.name}
