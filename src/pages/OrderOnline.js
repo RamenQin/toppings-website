@@ -183,6 +183,11 @@ export default function OrderOnline() {
               </h2>
               {menuCategory.menuItems.map(menuItem => {
                 let numItems = cart.filter(item => item.menuItem.id === menuItem.id).length;
+                if (menuItem.suspendUntil && dayjs().unix() * 1000 < menuItem.suspendUntil) {
+                  return (
+                    <div />
+                  )
+                }
                 return (
                   <div key={menuItem.id} className="menu-item-row" onClick={() => handleOpenSelectedItem(menuItem)}>
                     <div>
