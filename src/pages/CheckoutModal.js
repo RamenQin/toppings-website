@@ -139,7 +139,10 @@ const CheckoutForm = ({ createOrder, price, createOrderLoading, setCreateOrderLo
     }
 
     const token = await stripe.createToken(elements.getElement(CardElement));
-    
+    if(!token.token) {
+      setCreateOrderLoading(false);
+      return; 
+    }
     await createOrder(token.token.id, nameInput.current.value, phoneNumberInput.current.value);
     setCreateOrderLoading(false);
   };

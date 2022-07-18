@@ -62,7 +62,7 @@ export default function OrderOnlineSuccess() {
           </h1>
           <h2 style={{ marginTop: 40 }}>
             Pick up your food at{'\n'}
-            <h2 style={{ color: '#0082FF' }}>{run.dropoffLocations[0]}</h2>{'\n'}
+            <h2 style={{ color: '#0082FF' }}>{run.dropoffLocation}</h2>{'\n'}
             from{'\n'}
             <h2 style={{ color: '#0082FF' }}>{dayjs(run.estimatedDeliveryTimeWindow.begin).format('h:mmA')} to {dayjs(run.estimatedDeliveryTimeWindow.end).format('h:mmA')}</h2>
           </h2>

@@ -118,7 +118,7 @@ export default function OrderOnline() {
           stripeToken: token,
           currency: 'usd',
           description: `Toppings at ${run.restaurant.name}`,
-          dropoffLocation: run.dropoffLocations[0],
+          dropoffLocation: run.dropoffLocation,
           name,
           phoneNumber,
         }
