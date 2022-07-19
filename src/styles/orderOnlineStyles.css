@@ -332,6 +332,24 @@
   margin-top: 20px;
 }
 
+.checkout-form button:disabled,
+button[disabled] {
+  width: 300px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #1C2547;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway";
+  font-size: 24px;
+  font-weight: 700;
+  color:#96CBFF;
+  align-self: center;
+  margin-top: 20px;
+  opacity: 0.5;
+}
+
 .card-payment {
   width: 100%;
   margin: 5px 0px 10px 0px;
