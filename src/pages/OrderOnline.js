@@ -13,6 +13,8 @@ export default function OrderOnline() {
   let { runId } = useParams();
 
   let history = useHistory();
+  
+  const [err, setErr] = useState(null); 
 
   const [run, setRun] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
@@ -73,7 +75,13 @@ export default function OrderOnline() {
             'content-type': 'application/json',
           },
         }
-      );
+      ).catch((error) => {
+        if(error.response) console.log(error.response); 
+        else if(error.request) console.log(error.request); 
+        else console.log(error.message); 
+        setErr(error); 
+      });
+      if(!resp) return; 
       setRun(resp.data.run);
 
       let restaurantData = resp.data.restaurant;
@@ -128,7 +136,17 @@ export default function OrderOnline() {
       console.log('[ERROR CREATE ORDER]:', err);
     }
   };
-
+  
+  if(err) {
+    return (
+      <body className="order-online">
+        <div>
+          An error has occurred. 
+        </div>
+      </body>
+    )
+  }
+  
   if (!run || !restaurant) {
     return (
       <body className="order-online">
