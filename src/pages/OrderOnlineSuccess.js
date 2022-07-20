@@ -43,6 +43,9 @@ export default function OrderOnlineSuccess() {
   const redirectToStore = () => {
     window.location.replace('https://toppingsapp.page.link/download');
   };
+  const redirectToHome = () => {
+    window.location.replace("https://toppingsapp.com"); 
+  }
 
   if (!run || !restaurant || !deliverer) {
     return (
@@ -89,6 +92,9 @@ export default function OrderOnlineSuccess() {
           <button onClick={redirectToStore} style={{ marginTop: 20 }}>
             <img src={IOSButton} alt={"IOS"} className="download-button-ios" />
             <img src={GooglePlayButton} alt={"Google Play"} className="download-button-android" />
+          </button>
+          <button onClick={redirectToHome} style = {{ borderRadius: 10, padding: "0px 10px 0px 10px", backgroundColor: "#0082FF", fontFamily: 'Cabin', fontSize: 24, color: '#ffffff', fontWeight: 500 }}>
+            Return Home
           </button>
         </div>
       </div>

@@ -134,6 +134,7 @@ export default function OrderOnline() {
       history.push(`/order/${runId}/success`);
     } catch (err) {
       console.log('[ERROR CREATE ORDER]:', err);
+      setErr(err); 
     }
   };
   
