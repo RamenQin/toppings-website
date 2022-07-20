@@ -60,20 +60,12 @@
 .order-online .menu-item-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin: 5px 0px 5px 0px;
   width: 100%;
 }
-.order-online .menu-item-row:hover {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 0px 5px 0px;
-  width: 100%;
-  opacity: 0.5; 
-}
+
 
 .order-online .menu-item-row div {
   display: flex;
@@ -81,12 +73,6 @@
   align-items: center;
 }
 
-.order-online .menu-item-row span {
-  font-family: "Cabin";
-  font-size: 20px;
-  font-weight: 700;
-  color: #1C2547;
-}
 
 .order-online .menu-item-row img {
   width: 60px;

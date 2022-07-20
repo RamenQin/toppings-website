@@ -208,6 +208,7 @@ export default function OrderOnline() {
                 }
                 return (
                   <div key={menuItem.id} className="menu-item-row" onClick={() => handleOpenSelectedItem(menuItem)}>
+                    
                     <div>
                       {numItems > 0 && (
                         <QuantityCircle
@@ -220,6 +221,7 @@ export default function OrderOnline() {
                       <span>
                         {menuItem.name} <span style={{ fontWeight: 400 }}>(${(menuItem.price / 100).toFixed(2)})</span>
                       </span>
+                      
                     </div>
                     <img src={menuItem.image} alt={`${menuItem.name}`} />
                   </div>
