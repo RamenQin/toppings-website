@@ -66,11 +66,21 @@
   width: 100%;
 }
 
+.order-online .menu-item-row:hover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0px 5px 0px;
+  width: 100%;
+  background-color: rgb(230, 230, 230);
+}
 
 .order-online .menu-item-row div {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 5px;
 }
 
 
