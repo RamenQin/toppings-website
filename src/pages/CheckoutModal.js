@@ -119,8 +119,8 @@ export default function CheckoutModal({ modalVisible, handleModalClose, cart, cr
 }
 
 const CheckoutForm = ({ createOrder, price, createOrderLoading, setCreateOrderLoading }) => {
-  const nameInput = useRef();
-  const phoneNumberInput = useRef();
+  const [nameInput, setNameInput] = useState();
+  const [phoneNumberInput, setPhoneNumberInput] = useState();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -139,20 +139,23 @@ const CheckoutForm = ({ createOrder, price, createOrderLoading, setCreateOrderLo
     }
 
     const token = await stripe.createToken(elements.getElement(CardElement));
-    
-    await createOrder(token.token.id, nameInput.current.value, phoneNumberInput.current.value);
+    if(!token.token) {
+      setCreateOrderLoading(false);
+      return; 
+    }
+    await createOrder(token.token.id, nameInput, phoneNumberInput);
     setCreateOrderLoading(false);
   };
 
   return (
     <form onSubmit={handleSubmit} className="checkout-form">
       <label for="name">Your name:</label>
-      <input type="text" id="name" name="name" ref={nameInput} />
+      <input type="text" id="name" name="name" onChange={(e)=>{setNameInput(e.target.value)}} />
       <label for="phoneNumber">Phone number:</label>
-      <input type="number" id="phoneNumber" name="phone number" ref={phoneNumberInput} />
+      <input type="number" id="phoneNumber" name="phone number" onChange={(e)=>{setPhoneNumberInput(e.target.value)}} />
       <label for="card-payment">Credit Card:</label>
       <CardElement className="card-payment" id="card-payment" />
-      <button type="submit" disabled={!stripe || !elements || createOrderLoading}>
+      <button type="submit" disabled={!stripe || !elements || createOrderLoading || !nameInput || !phoneNumberInput}>
         Place Order<span style={{ fontWeight: 500, marginLeft: 5 }}>(${(price / 100).toFixed(2)})</span>
       </button>
     </form>

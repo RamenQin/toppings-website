@@ -60,24 +60,29 @@
 .order-online .menu-item-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin: 5px 0px 5px 0px;
   width: 100%;
+}
+
+.order-online .menu-item-row:hover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0px 5px 0px;
+  width: 100%;
+  background-color: rgb(230, 230, 230);
 }
 
 .order-online .menu-item-row div {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 5px;
 }
 
-.order-online .menu-item-row span {
-  font-family: "Cabin";
-  font-size: 20px;
-  font-weight: 700;
-  color: #1C2547;
-}
 
 .order-online .menu-item-row img {
   width: 60px;
@@ -121,6 +126,18 @@
   background-color: #1C2547;
   position: absolute;
   bottom: 0px;
+}
+
+.footer:hover {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #1C2547;
+  position: absolute;
+  bottom: 0px;
+  opacity: 0.5; 
 }
 
 .footer span {
@@ -330,6 +347,24 @@
   color:#96CBFF;
   align-self: center;
   margin-top: 20px;
+}
+
+.checkout-form button:disabled,
+button[disabled] {
+  width: 300px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #1C2547;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway";
+  font-size: 24px;
+  font-weight: 700;
+  color:#96CBFF;
+  align-self: center;
+  margin-top: 20px;
+  opacity: 0.5;
 }
 
 .card-payment {
