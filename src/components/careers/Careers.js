@@ -86,9 +86,10 @@ const Careers = () => {
         <div style={{ ...styles.gradientBackground }}>
           <p style={{ 
             ...styles.title,
-            marginTop: 160,
+            marginTop: isMobile ? 30 : 160,
             marginBottom: isMobile ? 30 : 60,
             fontSize: isMobile ? 60 : 80,
+            paddingLeft: isMobile ? 80 : 0,
           }}>
             Join Toppings
           </p>
@@ -124,7 +125,7 @@ const Careers = () => {
             Come reimagine with us
           </h2>
           <div style={styles.line} />
-          <div style={styles.jobRow}>
+          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
             <div style={styles.jobColumn}>
               <p style={styles.jobSmall}>
                 Role
@@ -151,7 +152,7 @@ const Careers = () => {
             </div>
           </div>
           <div style={styles.line} />
-          <div style={styles.jobRow}>
+          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
             <div style={styles.jobColumn}>
               <p style={styles.jobSmall}>
                 Role
@@ -178,7 +179,7 @@ const Careers = () => {
             </div>
           </div>
           <div style={styles.line} />
-          <div style={styles.jobRow}>
+          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
             <div style={styles.jobColumn}>
               <p style={styles.jobSmall}>
                 Role
@@ -299,6 +300,13 @@ const styles = {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  jobRowMobile: {
+    display: 'flex',
+    height: 275,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width: '100%',
   },
   jobColumn: {
     display: 'flex',
