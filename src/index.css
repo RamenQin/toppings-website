@@ -76,6 +76,14 @@
   src: local('Karla-Medium'), url(./fonts//Karla-Medium.ttf) format('truetype');
 }
 @font-face {
+  font-family: 'Karla-Regular';
+  src: local('Karla-Regular'), url(./fonts//Karla-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Karla-Light';
+  src: local('Karla-Light'), url(./fonts//Karla-Light.ttf) format('truetype');
+}
+@font-face {
   font-family: 'Karla-ExtraBold';
   src: local('Karla-ExtraBold'), url(./fonts//Karla-ExtraBold.ttf) format('truetype');
 }

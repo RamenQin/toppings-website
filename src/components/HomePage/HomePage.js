@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Link,
   DirectLink,
   Element,
   Events,
@@ -8,6 +7,7 @@ import {
   scrollSpy,
   scroller,
 } from 'react-scroll';
+import { useHistory, Link } from 'react-router-dom';
 
 import BlueArrowRightIcon from 'images/icons/BlueArrowRight.png';
 
@@ -41,6 +41,8 @@ import PlayaCircle from 'images/restaurants/PlayaCircle.png';
 const toppingsBlue = '#0082FF';
 const grayBlue = '#3B74B2';
 const HomePage = () => {
+  let history = useHistory();
+
   // console.log(window.location.href);
   // isMobile detecting >
   const [width, setWidth] = useState(window.innerWidth);
@@ -130,6 +132,19 @@ const HomePage = () => {
         >
           Contact
         </button>
+        <Link
+          style={{
+            ...styles.headerText,
+            marginRight: isMobile ? 0 : 70,
+            marginTop: 20.25,
+            height: '100%',
+          }}
+          to="/careers"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Careers
+        </Link>
         {!isMobile && (
           <button
             style={{
