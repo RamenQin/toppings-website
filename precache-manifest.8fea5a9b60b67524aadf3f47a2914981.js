@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3166cf99a8d4bd78a65a66c85fb7941c",
+    "revision": "e7b6007e2cb626d663a673891fcb7ad6",
     "url": "/index.html"
   },
   {
-    "revision": "8b0cc3b663654e4dc1db",
+    "revision": "84667e359c1fcf10f3d5",
     "url": "/static/css/2.b71ebc9b.chunk.css"
   },
   {
-    "revision": "d5fbc53d708763bbce57",
-    "url": "/static/css/main.ee1a86d7.chunk.css"
+    "revision": "8b8e9f457d93fb547102",
+    "url": "/static/css/main.b4c60ec6.chunk.css"
   },
   {
-    "revision": "8b0cc3b663654e4dc1db",
-    "url": "/static/js/2.503dcf64.chunk.js"
+    "revision": "84667e359c1fcf10f3d5",
+    "url": "/static/js/2.ba254655.chunk.js"
   },
   {
     "revision": "e2c98ce8f8b8d248946b130fb1220862",
-    "url": "/static/js/2.503dcf64.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.ba254655.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d5fbc53d708763bbce57",
-    "url": "/static/js/main.ac5ed6fd.chunk.js"
+    "revision": "8b8e9f457d93fb547102",
+    "url": "/static/js/main.5f36320a.chunk.js"
   },
   {
     "revision": "7632c6acda2e3c494e67",
@@ -104,8 +104,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Karla-ExtraBold.deb29eda.ttf"
   },
   {
+    "revision": "345e34af5689a037bcf1c203e7f48ef2",
+    "url": "/static/media/Karla-Light.345e34af.ttf"
+  },
+  {
     "revision": "fc3c77ce1e2e821dc52aaeaa8e03f27e",
     "url": "/static/media/Karla-Medium.fc3c77ce.ttf"
+  },
+  {
+    "revision": "8f456584c855750cf2eb1c28f39753e5",
+    "url": "/static/media/Karla-Regular.8f456584.ttf"
   },
   {
     "revision": "d5a48afbe6bab4933939eff7653758fb",
