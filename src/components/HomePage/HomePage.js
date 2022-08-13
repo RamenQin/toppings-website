@@ -80,6 +80,16 @@ const HomePage = () => {
     });
   };
 
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   const pfpSize = isMobile ? {
     width: 80,
     height: 80,
@@ -646,7 +656,7 @@ const HomePage = () => {
               <img src={austin} style={pfpSize} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <p style={{ ...styles.body }}>App Dev</p>
+              <p style={{ ...styles.body }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>{isHovering ? 'Professional Software Engineer' : 'App Dev'}</p>
               <p style={{ ...styles.subtitle2 }}>AUSTIN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
                 Dev at CloudSafari Inc, Applied Brain Research,
