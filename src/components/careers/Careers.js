@@ -109,14 +109,11 @@ const Careers = () => {
 
             <p style={styles.p}>Toppings is making a zero-fee, restaurant-friendly, and sustainably profitable delivery system.</p>
 
-            <p style={styles.p}>Born out of the pandemic, Toppings rewards communities for turning takeout orders into delivery opportunities for friends and neighbors on the way back.</p>
-
-
             <p style={styles.p}>We have an all-star founding team from Harvard and MIT, recently raised at an 8-figure valuation, are backed by some of the top firms in our industry, and are looking for foundational members (that’s <span style={{ fontFamily: 'Karla-Bold' }}>you</span>) to join the founding team.</p>
 
             <p style={styles.p}>Be one of the first to build the future of delivery.</p>
 
-            <p style={styles.p}>Apply now!</p>
+            <p style={styles.p}>Apply to one of the roles below!</p>
           </div>
         </div>
         {/* 2 */}
@@ -208,6 +205,14 @@ const Careers = () => {
           <div style={styles.line} />
         </div>
 
+        {/* 3 */}
+        <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: 80, paddingRight: 80, width: '100%', marginTop: 60 }}>
+          <h2 style={styles.subtitle1}>
+            Got questions?
+          </h2>
+
+          <p style={{ ...styles.jobLarge, marginTop: 15 }}>Give our founder a call at +16787101220</p>
+        </div>
         {/* bottom padding */}
         <div style={{ height: 200 }} />
       </div>
