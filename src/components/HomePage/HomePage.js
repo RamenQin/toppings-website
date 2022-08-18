@@ -700,7 +700,7 @@ const HomePage = () => {
                 <br />
                 MIT Grad/Researcher
                 <br />
-                {isHoveringSS ? 'nerd' : 'foodie/board game enthusiast'}
+                {isHoveringSS ? 'nerd' : 'foodie / board game enthusiast'}
               </p>
             </div>
           </div>
@@ -755,7 +755,7 @@ const HomePage = () => {
               <img src={quinn} style={pfpSize} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <p style={{ ...styles.body }}>Founding Ops/Strategy</p>
+              <p style={{ ...styles.body }}>Head of Growth - Strategy</p>
               <p style={{ ...styles.subtitle2 }}>QUINN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
                 Harvard College Consulting Group,
