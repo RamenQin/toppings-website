@@ -700,7 +700,7 @@ const HomePage = () => {
                 <br />
                 MIT Grad/Researcher
                 <br />
-                {isHoveringSS ? 'rave bae' : 'shopping fiend/anime enthusiast'}
+                {isHoveringSS ? 'nerd' : 'foodie/board game enthusiast'}
               </p>
             </div>
           </div>
