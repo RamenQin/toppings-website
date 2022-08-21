@@ -83,11 +83,11 @@ const HomePage = () => {
 
   const [isHovering, setIsHovering] = useState(false);
   const [isHoveringSS, setIsHoveringSS] = useState(false);
+  const [isHoveringShay, setIsHoveringShay] = useState(false);
 
   const handleMouseOver = () => {
     setIsHovering(true);
   };
-
   const handleMouseOut = () => {
     setIsHovering(false);
   };
@@ -95,11 +95,16 @@ const HomePage = () => {
   const handleMouseOverSS = () => {
     setIsHoveringSS(true);
   };
-
   const handleMouseOutSS = () => {
     setIsHoveringSS(false);
   };
 
+  const handleMouseOverShay = () => {
+    setIsHoveringShay(true);
+  };
+  const handleMouseOutShay = () => {
+    setIsHoveringShay(false);
+  };
   const pfpSize = isMobile ? {
     width: 80,
     height: 80,
@@ -569,7 +574,7 @@ const HomePage = () => {
           }}
         >
           <Element name="team">
-            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM</p>
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM (full time)</p>
           </Element>
         </div>
         <div
@@ -664,12 +669,12 @@ const HomePage = () => {
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Cofounder / Head of Product</p>
               <p style={{ ...styles.subtitle2 }}>SHAY</p>
-              <p style={{ ...styles.body, color: grayBlue }}>
+              <p style={{ ...styles.body, color: grayBlue }} onMouseOver={handleMouseOverShay} onMouseOut={handleMouseOutShay}>
                 Design Director of HUFPI at Harvard
                 <br />
                 Nationally awarded artist/designer
                 <br />
-                avalon player / concert-goer
+                {isHoveringShay ? 'full-time slayage' : 'avalon player / concert-goer'}
               </p>
             </div>
           </div>
@@ -704,6 +709,31 @@ const HomePage = () => {
               </p>
             </div>
           </div>
+        </div>
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="team">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM (part time)</p>
+          </Element>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: '70%',
+            // justifyContent: 'space-between',
+          }}
+        >
           <div
             style={{
               display: 'flex',
@@ -755,7 +785,7 @@ const HomePage = () => {
               <img src={quinn} style={pfpSize} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <p style={{ ...styles.body }}>Head of Growth - Strategy</p>
+              <p style={{ ...styles.body }}>Lead Ambassador - Harvard</p>
               <p style={{ ...styles.subtitle2 }}>QUINN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
                 Harvard College Consulting Group,
@@ -766,6 +796,31 @@ const HomePage = () => {
               </p>
             </div>
           </div>
+        </div>
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="team">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM (advisors)</p>
+          </Element>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: '70%',
+            // justifyContent: 'space-between',
+          }}
+        >
           <div
             style={{
               display: 'flex',

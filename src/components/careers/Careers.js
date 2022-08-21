@@ -211,7 +211,7 @@ const Careers = () => {
             Got questions?
           </h2>
 
-          <p style={{ ...styles.jobLarge, marginTop: 15 }}>Give our founder a call at +16787101220</p>
+          <p style={{ ...styles.jobLarge, marginTop: 15 }}>Give our founder a call or text at +16787101220</p>
         </div>
         {/* bottom padding */}
         <div style={{ height: 200 }} />
