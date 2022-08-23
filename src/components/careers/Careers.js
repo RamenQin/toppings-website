@@ -230,6 +230,33 @@ const Careers = () => {
             </div>
           </div>
           <div style={styles.line} />
+          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
+            <div style={styles.jobColumn}>
+              <p style={styles.jobSmall}>
+                Role
+              </p>
+              <a target='_blank' href={'https://toppings.notion.site/Graphic-Design-Part-Timer-908d8e6d09184acf8c6a2fdbd81fb236'} style={{ ...styles.jobLarge, ...styles.link }}>
+                Part-time Graphic Designer
+              </a>
+            </div>
+            <div style={styles.jobColumn}>
+              <p style={styles.jobSmall}>
+                Sub-Team
+              </p>
+              <p style={styles.jobLarge}>
+                Product
+              </p>
+            </div>
+            <div style={styles.jobColumn}>
+              <p style={styles.jobSmall}>
+                Location
+              </p>
+              <p style={styles.jobLarge}>
+                Remote or Boston/Cambridge
+              </p>
+            </div>
+          </div>
+          <div style={styles.line} />
         </div>
 
         {/* 3 */}
