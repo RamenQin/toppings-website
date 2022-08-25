@@ -127,8 +127,8 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://toppings.notion.site/Founding-Growth-Manager-f59d33c13b034c4097a5dfc7d3f1e92b'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Founding Growth Manager
+              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Growth-Manager-f59d33c13b034c4097a5dfc7d3f1e92b'} style={{ ...styles.jobLarge, ...styles.link }}>
+                Part-Time Growth Manager
               </a>
             </div>
             <div style={styles.jobColumn}>
@@ -144,7 +144,7 @@ const Careers = () => {
                 Location
               </p>
               <p style={styles.jobLarge}>
-                Boston/Cambridge
+                Remote or Boston/Cambridge
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://toppings.notion.site/Full-Stack-SWE-Part-Timer-810bb92bfcb44d3694ff6aa448e26c31'} style={{ ...styles.jobLarge, ...styles.link }}>
+              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Full-Stack-SWE-810bb92bfcb44d3694ff6aa448e26c31'} style={{ ...styles.jobLarge, ...styles.link }}>
                 Part-time Software Engineer
               </a>
             </div>
@@ -208,7 +208,7 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://toppings.notion.site/UI-UX-Designer-Part-Timer-5ba1c9adef7b4726807ac9ef02ca1c14'} style={{ ...styles.jobLarge, ...styles.link }}>
+              <a target='_blank' href={'https://toppings.notion.site/Part-Time-UI-UX-Designer-5ba1c9adef7b4726807ac9ef02ca1c14'} style={{ ...styles.jobLarge, ...styles.link }}>
                 Part-time UI/UX Designer
               </a>
             </div>
@@ -235,7 +235,7 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://toppings.notion.site/Graphic-Design-Part-Timer-908d8e6d09184acf8c6a2fdbd81fb236'} style={{ ...styles.jobLarge, ...styles.link }}>
+              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Graphic-Design-908d8e6d09184acf8c6a2fdbd81fb236'} style={{ ...styles.jobLarge, ...styles.link }}>
                 Part-time Graphic Designer
               </a>
             </div>
