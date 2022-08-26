@@ -127,8 +127,8 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Growth-Manager-f59d33c13b034c4097a5dfc7d3f1e92b'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Part-Time Growth Manager
+              <a target='_blank' href={'https://toppings.notion.site/Founding-Growth-Manager-f59d33c13b034c4097a5dfc7d3f1e92b'} style={{ ...styles.jobLarge, ...styles.link }}>
+                Founding Growth Manager
               </a>
             </div>
             <div style={styles.jobColumn}>
@@ -144,7 +144,7 @@ const Careers = () => {
                 Location
               </p>
               <p style={styles.jobLarge}>
-                Remote or Boston/Cambridge
+                Boston/Cambridge
               </p>
             </div>
           </div>
@@ -172,6 +172,33 @@ const Careers = () => {
               </p>
               <p style={styles.jobLarge}>
                 Boston/Cambridge
+              </p>
+            </div>
+          </div>
+          <div style={styles.line} />
+          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
+            <div style={styles.jobColumn}>
+              <p style={styles.jobSmall}>
+                Role
+              </p>
+              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Growth-Manager-e1ec42637e0b4b04b3d7ea9e9fa1098b'} style={{ ...styles.jobLarge, ...styles.link }}>
+                Part-Time Growth Manager
+              </a>
+            </div>
+            <div style={styles.jobColumn}>
+              <p style={styles.jobSmall}>
+                Sub-Team
+              </p>
+              <p style={styles.jobLarge}>
+                Ops (Kitchen Sink)
+              </p>
+            </div>
+            <div style={styles.jobColumn}>
+              <p style={styles.jobSmall}>
+                Location
+              </p>
+              <p style={styles.jobLarge}>
+                Remote or Boston/Cambridge
               </p>
             </div>
           </div>
