@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Link,
   DirectLink,
   Element,
   Events,
@@ -8,6 +7,7 @@ import {
   scrollSpy,
   scroller,
 } from 'react-scroll';
+import { useHistory, Link } from 'react-router-dom';
 
 import BlueArrowRightIcon from 'images/icons/BlueArrowRight.png';
 
@@ -29,6 +29,7 @@ import austin from 'images/austin.png';
 import quinn from 'images/quinn.png';
 import peter from 'images/peter.png';
 import seth from 'images/seth.png';
+import ssp from 'images/ssp.jpeg';
 
 import InnovationLabsImage from 'images/awards/InnovationLabsImage.png';
 import CapitalPartnersImage from 'images/awards/CapitalPartnersImage.png';
@@ -41,6 +42,8 @@ import PlayaCircle from 'images/restaurants/PlayaCircle.png';
 const toppingsBlue = '#0082FF';
 const grayBlue = '#3B74B2';
 const HomePage = () => {
+  let history = useHistory();
+
   // console.log(window.location.href);
   // isMobile detecting >
   const [width, setWidth] = useState(window.innerWidth);
@@ -78,6 +81,30 @@ const HomePage = () => {
     });
   };
 
+  const [isHovering, setIsHovering] = useState(false);
+  const [isHoveringSS, setIsHoveringSS] = useState(false);
+  const [isHoveringShay, setIsHoveringShay] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
+  const handleMouseOverSS = () => {
+    setIsHoveringSS(true);
+  };
+  const handleMouseOutSS = () => {
+    setIsHoveringSS(false);
+  };
+
+  const handleMouseOverShay = () => {
+    setIsHoveringShay(true);
+  };
+  const handleMouseOutShay = () => {
+    setIsHoveringShay(false);
+  };
   const pfpSize = isMobile ? {
     width: 80,
     height: 80,
@@ -130,6 +157,19 @@ const HomePage = () => {
         >
           Contact
         </button>
+        <Link
+          style={{
+            ...styles.headerText,
+            marginRight: isMobile ? 0 : 70,
+            marginTop: 20.25,
+            height: '100%',
+          }}
+          to="/careers"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Careers
+        </Link>
         {!isMobile && (
           <button
             style={{
@@ -141,6 +181,15 @@ const HomePage = () => {
             Vendors
           </button>        
         )}
+      </div>
+      <div style={{
+        ...styles.stickyHeader2,
+        flexDirection: isMobile ? 'row' : undefined,
+        justifyContent: isMobile ? 'space-evenly' : 'center',
+        cursor: 'pointer'
+      }}
+      onClick={() => openUrl('https://toppingsapp.com/#/careers')}>
+        We're hiring!
       </div>
       <div style={styles.root}>
         <div style={{ ...styles.gradientBackground }}>
@@ -155,6 +204,7 @@ const HomePage = () => {
                 position: 'absolute',
                 right: 0,
                 top: 164,
+                zIndex: 0,
               }}
             />
           )}
@@ -163,6 +213,7 @@ const HomePage = () => {
             marginTop: 160,
             marginBottom: isMobile ? 30 : 60,
             fontSize: isMobile ? 60 : 80,
+            zIndex: 1,
           }}>
             Toppings
           </p>
@@ -171,6 +222,7 @@ const HomePage = () => {
             textAlign: 'center',
             color: grayBlue,
             fontSize: isMobile ? 18 : 24,
+            zIndex: 1,
           }}>
             FREE FOOD WHEN YOU GO OUT
             <br />
@@ -178,11 +230,26 @@ const HomePage = () => {
           </p>
           <button
             style={{
+              margin: '160px 0px 20px 0px',
+              width: 240,
+              height: 60,
+              borderRadius: 100,
+              backgroundColor: '#FFF',
+
+              ...styles.subtitle1,
+              color: '#0082FF',
+            }}
+            onClick={() => openUrl('https://toppingsapp.com/#/careers')}
+          >
+            WE'RE HIRING!
+          </button>
+          <button
+            style={{
               width: 240,
               height: 60,
               borderRadius: 100,
               backgroundColor: toppingsBlue,
-              margin: '160px 0px',
+              marginBottom: 160,
             }}
             onClick={getApp}
           >
@@ -336,9 +403,9 @@ const HomePage = () => {
               <img src={S1i2} style={{ width: 157, height: 100, marginBottom: 40 }} />
             </div>
             <p style={styles.body}>
-              Friends <span style={{ fontFamily: 'Karla-ExtraBold' }}>on-your-way</span> can
+              Friends <span style={{ fontFamily: 'Karla-ExtraBold' }}>near you</span>
               <br />
-              order there too
+              add their orders
             </p>
           </div>
           <div
@@ -507,7 +574,7 @@ const HomePage = () => {
           }}
         >
           <Element name="team">
-            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM</p>
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM (full time)</p>
           </Element>
         </div>
         <div
@@ -602,12 +669,12 @@ const HomePage = () => {
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               <p style={{ ...styles.body }}>Cofounder / Head of Product</p>
               <p style={{ ...styles.subtitle2 }}>SHAY</p>
-              <p style={{ ...styles.body, color: grayBlue }}>
+              <p style={{ ...styles.body, color: grayBlue }} onMouseOver={handleMouseOverShay} onMouseOut={handleMouseOutShay}>
                 Design Director of HUFPI at Harvard
                 <br />
                 Nationally awarded artist/designer
                 <br />
-                avalon player / concert-goer
+                {isHoveringShay ? 'full-time slayage' : 'avalon player / concert-goer'}
               </p>
             </div>
           </div>
@@ -628,10 +695,66 @@ const HomePage = () => {
                 overflow: 'hidden',
               }}
             >
+              <img src={ssp} style={pfpSize} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <p style={{ ...styles.body }} onMouseOver={handleMouseOverSS} onMouseOut={handleMouseOutSS}>{isHoveringSS ? 'Kitchen Sink' : 'Founding Ops/Strategy'}</p>
+              <p style={{ ...styles.subtitle2 }}>SHANSHAN</p>
+              <p style={{ ...styles.body, color: grayBlue }}>
+                Ex. Startup Founder
+                <br />
+                MIT Grad/Researcher
+                <br />
+                {isHoveringSS ? 'nerd' : 'foodie / board game enthusiast'}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="team">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM (part time)</p>
+          </Element>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: '70%',
+            // justifyContent: 'space-between',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: isMobile ? 36 : 86,
+              width: isMobile ? '100%' : '50%',
+            }}
+          >
+            <div
+              style={{
+                ...pfpSize,
+                borderRadius: 70,
+                backgroundColor: '#C4C4C4',
+                marginRight: 33,
+                overflow: 'hidden',
+              }}
+            >
               <img src={austin} style={pfpSize} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <p style={{ ...styles.body }}>App Dev</p>
+              <p style={{ ...styles.body }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>{isHovering ? 'Professional Software Engineer' : 'App Dev'}</p>
               <p style={{ ...styles.subtitle2 }}>AUSTIN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
                 Dev at CloudSafari Inc, Applied Brain Research,
@@ -662,7 +785,7 @@ const HomePage = () => {
               <img src={quinn} style={pfpSize} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <p style={{ ...styles.body }}>Marketing</p>
+              <p style={{ ...styles.body }}>Lead Ambassador - Harvard</p>
               <p style={{ ...styles.subtitle2 }}>QUINN</p>
               <p style={{ ...styles.body, color: grayBlue }}>
                 Harvard College Consulting Group,
@@ -673,6 +796,31 @@ const HomePage = () => {
               </p>
             </div>
           </div>
+        </div>
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #B8E7FF 0%, #F1FBFF 100%)',
+            width: '70%',
+            height: 80,
+            borderRadius: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 65,
+          }}
+        >
+          <Element name="team">
+            <p style={{ ...styles.subtitle1, color: grayBlue }}>THE TEAM (advisors)</p>
+          </Element>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: '70%',
+            // justifyContent: 'space-between',
+          }}
+        >
           <div
             style={{
               display: 'flex',
@@ -903,10 +1051,24 @@ const styles = {
     height: '68px',
     position: 'sticky',
     top: 0,
-    boxShadow: '0px 8px 30px #CDEFFF',
     display: 'flex',
     paddingLeft: '53px',
     zIndex: 2,
+  },
+  stickyHeader2: {
+    backgroundColor: '#0082FF',
+    width: '100%',
+    height: '68px',
+    position: 'sticky',
+    top: 68,
+    boxShadow: '0px 8px 30px #CDEFFF',
+    display: 'flex',
+    zIndex: 2,
+    alignItems: 'center',
+
+    fontFamily: 'Rubik-SemiBold',
+    color: '#FFF',
+    fontSize: 24,
   },
 
   root: {

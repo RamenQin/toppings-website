@@ -5,18 +5,18 @@ const MenuMaker = () => {
     
     const [edit, setEdit] = useState(false);
     
-    const handleJson = (input) => {
+    const handleJson = (input : string) => {
         restaurant = JSON.parse(input);
     }
     
-    const updateRestaurant = (category, originalId) => {
+    const updateRestaurant = (category : MenuCategory, originalId : string) => {
         if(!restaurant || !restaurant.menu) return; 
         const index = restaurant.menu.findIndex((i) => i.id === originalId); 
         if(!index || index  < 0) return; 
         restaurant.menu[index] = category; 
     }
     
-    const updateRewardItem = (item, originalId) => {
+    const updateRewardItem = (item : MenuItem, originalId : string) => {
         if(!restaurant || !restaurant.rewardItems) return; 
         const index = restaurant?.rewardItems?.findIndex((i) => i.id === originalId); 
         if(!index || index  < 0) return; 

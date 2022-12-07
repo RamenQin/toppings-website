@@ -110,6 +110,7 @@ import HomePage from "components/HomePage/HomePage.js";
 import OrderOnline from './pages/OrderOnline.js';
 import OrderOnlineSuccess from './pages/OrderOnlineSuccess.js';
 import ForgotPassword from './pages/ForgotPassword.js';
+import Careers from "components/careers/Careers.js";
 
 import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
 import MenuMaker from "pages/MenuMaker.js";
@@ -130,6 +131,7 @@ export default function App() {
         <Route path="/order/:runId" exact children={() => <OrderOnline />} />
         <Route path="/order/:runId/success" exact children={() => <OrderOnlineSuccess />} />
         <Route path="/menu" exact children={() => <MenuMaker />} />
+        <Route path="/careers" exact children={() => <Careers />} />
         <Route
           path="/download-app"
           component={() => {

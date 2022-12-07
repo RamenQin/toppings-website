@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8e44963f351f69bec792afe4170fb206",
+    "revision": "1afa6bc732e9e519ec7418e56b18356e",
     "url": "/index.html"
   },
   {
-    "revision": "8b0cc3b663654e4dc1db",
+    "revision": "c72c847747566b9bf4c7",
     "url": "/static/css/2.b71ebc9b.chunk.css"
   },
   {
-    "revision": "674858a69a7e219d65e3",
-    "url": "/static/css/main.1b924788.chunk.css"
+    "revision": "9332749c14bf0abac4ab",
+    "url": "/static/css/main.b4c60ec6.chunk.css"
   },
   {
-    "revision": "8b0cc3b663654e4dc1db",
-    "url": "/static/js/2.503dcf64.chunk.js"
+    "revision": "c72c847747566b9bf4c7",
+    "url": "/static/js/2.40ce7114.chunk.js"
   },
   {
     "revision": "e2c98ce8f8b8d248946b130fb1220862",
-    "url": "/static/js/2.503dcf64.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.40ce7114.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "674858a69a7e219d65e3",
-    "url": "/static/js/main.6595949b.chunk.js"
+    "revision": "9332749c14bf0abac4ab",
+    "url": "/static/js/main.53605122.chunk.js"
   },
   {
     "revision": "7632c6acda2e3c494e67",
@@ -104,8 +104,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Karla-ExtraBold.deb29eda.ttf"
   },
   {
+    "revision": "345e34af5689a037bcf1c203e7f48ef2",
+    "url": "/static/media/Karla-Light.345e34af.ttf"
+  },
+  {
     "revision": "fc3c77ce1e2e821dc52aaeaa8e03f27e",
     "url": "/static/media/Karla-Medium.fc3c77ce.ttf"
+  },
+  {
+    "revision": "8f456584c855750cf2eb1c28f39753e5",
+    "url": "/static/media/Karla-Regular.8f456584.ttf"
   },
   {
     "revision": "d5a48afbe6bab4933939eff7653758fb",
@@ -466,6 +474,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "345871b443e4f5f841bedccf11a61859",
     "url": "/static/media/simple-icon.345871b4.svg"
+  },
+  {
+    "revision": "76a38622e88e3293f78821e70638f1f4",
+    "url": "/static/media/ssp.76a38622.jpeg"
   },
   {
     "revision": "5d0ff9bc5818d6498df9d90437127f90",
