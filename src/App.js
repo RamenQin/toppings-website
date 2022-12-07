@@ -103,8 +103,8 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 // import TermsOfServicePage from "pages/TermsOfService.js";
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
-import ComponentRenderer from "ComponentRenderer.js";
-import MainLandingPage from "MainLandingPage.js";
+//import ComponentRenderer from "ComponentRenderer.js";
+//import MainLandingPage from "MainLandingPage.js";
 
 import HomePage from "components/HomePage/HomePage.js";
 import OrderOnline from './pages/OrderOnline.js';
@@ -112,6 +112,7 @@ import OrderOnlineSuccess from './pages/OrderOnlineSuccess.js';
 import ForgotPassword from './pages/ForgotPassword.js';
 
 import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
+import MenuMaker from "pages/MenuMaker.js";
 
 export default function App() {
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
@@ -128,6 +129,7 @@ export default function App() {
         </Route>
         <Route path="/order/:runId" exact children={() => <OrderOnline />} />
         <Route path="/order/:runId/success" exact children={() => <OrderOnlineSuccess />} />
+        <Route path="/menu" exact children={() => <MenuMaker />} />
         <Route
           path="/download-app"
           component={() => {
