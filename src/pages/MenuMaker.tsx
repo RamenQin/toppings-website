@@ -251,9 +251,9 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
         const menuItems = newCategory.menuItems; 
         menuItems[index] = item; 
         const updatedCategory = {...newCategory, menuItems: menuItems}; 
-        setNewCategory(updatedCategory);
-        updateRestaurant(updatedCategory, category.id);
+        updateChain(updatedCategory);
     }
+    
     const handleCreateItem = () => {
         const newMenuItem : MenuItem = {
            name: "PLACEHOLDER", 
@@ -264,29 +264,30 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
         const menuItems = newCategory.menuItems; 
         menuItems.push(newMenuItem);
         const updatedCategory = {...newCategory, menuItems: menuItems}; 
-        setNewCategory(updatedCategory);
-        updateRestaurant(updatedCategory, category.id);
+        updateChain(updatedCategory);
     }
     
     const handleRemoveItem = (id : string) => {
         const menuItems = newCategory.menuItems.filter((i) => i.id !== id);
         const updatedCategory = {...newCategory, menuItems: menuItems}; 
-        setNewCategory(updatedCategory);
-        updateRestaurant(updatedCategory, category.id);
+        updateChain(updatedCategory);
     }
     
     const updateAvailability = (availability : Availability) => {
         const arr = newCategory.availability; 
         arr[availability.dayOfWeek] = availability; 
         const updatedCategory = {...newCategory, availability: arr}; 
-        setNewCategory(updatedCategory);
-        updateRestaurant(updatedCategory, category.id);
+        updateChain(updatedCategory);
     }
     
     const updateName = (name : string) => {
         const updatedCategory = {...newCategory, name: name}; 
-        setNewCategory(updatedCategory);
-        updateRestaurant(updatedCategory, category.id);
+        updateChain(updatedCategory);
+    }
+    
+    const updateChain = (updatedMenuCategory : MenuCategory) => {
+        setNewCategory(updatedMenuCategory);
+        updateRestaurant(updatedMenuCategory, category.id);
     }
     
     return (
@@ -597,15 +598,14 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
         const arr = newFoodOption.options; 
         arr.push(newOption);
         const updatedFoodOption = {...newFoodOption, options: arr}; 
-        setNewFoodOption(updatedFoodOption);
-        updateItem(updatedFoodOption);
+        autoSave(updatedFoodOption);
     }
+
     
     const removeOption = (id : string) => {
         const arr = newFoodOption.options.filter((op) => op.id !== id); 
         const updatedFoodOption = {...newFoodOption, options: arr}; 
-        setNewFoodOption(updatedFoodOption);
-        updateItem(updatedFoodOption);
+        autoSave(updatedFoodOption);
     }
     
     const updateOption = (option : Option) => {
@@ -614,8 +614,7 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
         const arr = newFoodOption.options; 
         arr[index] = option; 
         const updatedFoodOption = {...newFoodOption, options: arr}; 
-        setNewFoodOption(updatedFoodOption);
-        updateItem(updatedFoodOption);
+        autoSave(updatedFoodOption);
     }
     
     const autoSave = (foodOption : FoodOption) => {
