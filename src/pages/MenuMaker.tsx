@@ -74,7 +74,11 @@ const MenuMaker = () => {
     }
     
     const handleCreateRewardItem = () => {
-        if(!restaurant || !restaurant.rewardItems) return; 
+        if(!restaurant) return;
+        if(!restaurant.rewardItems) {
+            setRestaurant({...restaurant, rewardItems: []});
+            return; 
+        } 
         const existingRewardItem = findMenuItem(rewardItemInput);
         setRewardItemInput('');
         if(!existingRewardItem || !existingRewardItem.reward) return; 
@@ -99,7 +103,11 @@ const MenuMaker = () => {
     }
 
     const handleCreateWithId = () => {
-        if(!restaurant || !restaurant.rewardItems) return; 
+        if(!restaurant) return;
+        if(!restaurant.rewardItems) {
+            setRestaurant({...restaurant, rewardItems: []});
+            return; 
+        } 
         const existingRewardItem = findMenuItem(rewardItemInput);
         setRewardItemInput('');
         if(!existingRewardItem || !existingRewardItem.reward) return; 
@@ -109,6 +117,36 @@ const MenuMaker = () => {
             ...restaurant, 
             rewardItems: newRewards
         });
+    }
+    
+    const createCategory = () => {
+        if(!restaurant) return; 
+        if(!restaurant.menu) {
+            setRestaurant({...restaurant, menu: []});
+            return; 
+        }
+        const availability = []; 
+        for(let i = 0; i < 7; i++) {
+            availability.push({
+                enabled: true, 
+                dayOfWeek: i, 
+                timePeriods: [
+                    {
+                        startTime: '00:00', 
+                        endTime: '00:00', 
+                    }
+                ]
+            });
+        }
+        const newCategory : MenuCategory = {
+            name: "PLACEHOLDER", 
+            id: uuid(), 
+            menuItems: [], 
+            availability: availability, 
+        }
+        const arr = restaurant.menu; 
+        arr.push(newCategory);
+        setRestaurant({...restaurant, menu: arr});
     }
     
     return (
@@ -135,6 +173,7 @@ const MenuMaker = () => {
                                     updateRestaurant={updateRestaurant}
                                     removeCategory={removeCategory}
                                     findItem={findMenuItem}/>)}
+                    <button onClick={createCategory}>Create Category</button>
                 </div>
                         
                 <text style={{fontSize: 18, marginTop: 20, fontWeight: '500'}}>Reward Items</text>
@@ -206,11 +245,19 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
         updateRestaurant(updatedCategory, category.id);
     }
     
+    const updateAvailability = (availability : Availability) => {
+        const arr = newCategory.availability; 
+        arr[availability.dayOfWeek] = availability; 
+        const updatedCategory = {...newCategory, availability: arr}; 
+        setNewCategory(updatedCategory);
+        updateRestaurant(updatedCategory, category.id);
+    }
+    
     return (
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{newCategory.name}</text>
-                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => {setEnabled(!enabled); updateRestaurant(newCategory, category.id)}}>Edit</button>
                 <button onClick={() => removeCategory(category.id)}>Delete Category</button>
             </div>
             {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
@@ -234,6 +281,13 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
                 </div>
                 
                 <button onClick={handleCreateItem}>Add item</button>
+                <text>Availability</text>
+                <div style={{marginLeft: 20}}>
+                    {newCategory.availability.map((day) => (
+                        <AvailabilityRow availability={day}
+                                        updateAvailability={updateAvailability}/>
+                    ))}
+                </div>
                 <button onClick={() => updateRestaurant(newCategory, category.id)}>Save</button>
             </div>}
         </div>
@@ -329,7 +383,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{newMenuItem.name}</text>
-                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => {setEnabled(!enabled); updateMenuCategory(newMenuItem, item.id)}}>Edit</button>
                 <button onClick={() => removeItem(item.id)}>Delete Item</button>
             </div>
             {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
@@ -500,7 +554,7 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{newFoodOption.name}</text>
-                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => {setEnabled(!enabled); updateItem(newFoodOption)}}>Edit</button>
                 <button onClick={() => removeFoodOption(foodOption.id)}>Delete Item</button>
             </div>
             {enabled && <div style={{marginLeft: 20}}>
@@ -551,7 +605,7 @@ const OptionRow = ({option, removeOption, updateOption} : OptionRowProps) => {
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{option.name}</text>
-                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => {setEnabled(!enabled); updateOption(newOption)}}>Edit</button>
                 <button onClick={() => removeOption(option.id)}>Delete Item</button>
             </div>
             {enabled && <div style={{marginLeft: 20}}>
@@ -572,6 +626,91 @@ const OptionRow = ({option, removeOption, updateOption} : OptionRowProps) => {
                     <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={option.points} onChange={(event) => {setNewOption({...newOption, points: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
                 </div>
                 <button onClick={() => updateOption(newOption)}>Save</button>
+            </div>}
+        </div>
+    );
+}
+
+type Availability = {
+    enabled: boolean;
+    dayOfWeek: number;
+    timePeriods: TimePeriod[];
+}
+type TimePeriod = {
+    startTime: string;
+    endTime: string;
+}
+
+type AvailabilityRowProp = {
+    availability: Availability; 
+    updateAvailability: (availability: Availability) => void; 
+}
+const AvailabilityRow = ({availability, updateAvailability} : AvailabilityRowProp) => {
+    const [newAvailability, setNewAvailability] = useState(availability);
+    const [enabled, setEnabled] = useState(false);
+    
+    const createTimePeriod = () => {
+        const newTimePeriod = {
+            startTime: "00:00", 
+            endTime: "00:00", 
+        }
+        const newTimePeriods = newAvailability.timePeriods; 
+        newTimePeriods.push(newTimePeriod);
+        const updatedAvailability = {...availability, timePeriods: newTimePeriods}; 
+        setNewAvailability(updatedAvailability);
+        updateAvailability(updatedAvailability);
+    }
+    const removeTimePeriod = (index : number) => {
+        const newTimePeriods = newAvailability.timePeriods; 
+        newTimePeriods.splice(index, 1);
+        const updatedAvailability = {...availability, timePeriods: newTimePeriods}; 
+        setNewAvailability(updatedAvailability);
+        updateAvailability(updatedAvailability);
+    }
+    
+    const updateTimePeriod = (timePeriod : TimePeriod, index : number) => {
+        const newTimePeriods = newAvailability.timePeriods; 
+        newTimePeriods[index] = timePeriod; 
+        const updatedAvailability = {...availability, timePeriods: newTimePeriods}; 
+        setNewAvailability(updatedAvailability);
+        updateAvailability(updatedAvailability);
+    }
+    
+    const enableTime = (b : boolean) => {
+        const updatedAvailability = {...newAvailability, enabled: !newAvailability.enabled}; 
+        setNewAvailability(updatedAvailability); 
+        updateAvailability(updatedAvailability);
+    }
+    
+    return (
+        <div>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                <text>Day of Week: {newAvailability.dayOfWeek}</text>
+                <button onClick={() => {setEnabled(!enabled); updateAvailability(newAvailability);}}>Edit</button>
+            </div> 
+           {enabled && <div style={{marginLeft: 20, display: 'flex', flexDirection: 'column'}}>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Enabled: </label>
+                    <input type='checkbox' checked={newAvailability.enabled} onChange={(event) => enableTime(!availability.enabled)}/>
+                </div>
+                <text>Time Periods</text>
+                <div style={{marginLeft: 20}}>
+                    {newAvailability.timePeriods.map((per, i) => (
+                        <div key={i}>
+                            <div style={{flexDirection: 'row'}}>
+                                <label>Start Time: </label>
+                                <input style={{borderWidth: 2, width: 100}} defaultValue={per.startTime} onChange={(event) => {updateTimePeriod({...per, startTime: event.currentTarget.value}, i)}}/>
+                            </div>
+                            <div style={{flexDirection: 'row'}}>
+                                <label>End Time: </label>
+                                <input style={{borderWidth: 2, width: 100}} defaultValue={per.endTime} onChange={(event) => {updateTimePeriod({...per, endTime: event.currentTarget.value}, i)}}/>
+                            </div>
+                            <button onClick={() => removeTimePeriod(i)}>Remove Period</button>
+                        </div>
+                    ))}
+                </div>
+                
+                <button onClick={createTimePeriod}>Add Time Period</button>
             </div>}
         </div>
     );
