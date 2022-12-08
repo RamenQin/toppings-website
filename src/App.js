@@ -113,7 +113,7 @@ import ForgotPassword from './pages/ForgotPassword.js';
 import Careers from "components/careers/Careers.js";
 
 import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
-import MenuMaker from "pages/MenuMaker.js";
+import MenuMaker from "pages/MenuMaker.tsx";
 
 export default function App() {
   // return <AnimationRevealPage disabled></AnimationRevealPage>;

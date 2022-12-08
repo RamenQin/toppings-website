@@ -1,70 +1,163 @@
 import React, { useEffect, useState } from "react";
+import { uuid } from 'uuidv4'; 
 
 const MenuMaker = () => {
-    let restaurant : Restaurant; 
+    const [restaurant, setRestaurant] = useState<Restaurant>();
+    const [result, setResult] = useState(JSON.stringify(restaurant, null, 2));
     
     const [edit, setEdit] = useState(false);
+    const [input, setInput] = useState('');
+    const [rewardItemInput, setRewardItemInput] = useState('');
     
-    const handleJson = (input : string) => {
-        restaurant = JSON.parse(input);
+    useEffect(() => {
+       setResult(JSON.stringify(restaurant, null, 2));  
+    }, [restaurant]);
+    
+    const handleJson = () => {
+        try {
+            setRestaurant(JSON.parse(input));
+            setEdit(true);
+        }
+        catch(e) {
+            console.log(e); 
+            return; 
+        }
     }
     
     const updateRestaurant = (category : MenuCategory, originalId : string) => {
         if(!restaurant || !restaurant.menu) return; 
         const index = restaurant.menu.findIndex((i) => i.id === originalId); 
-        if(!index || index  < 0) return; 
-        restaurant.menu[index] = category; 
+        if(index  < 0) return; 
+        const newMenu = [...restaurant.menu];
+        newMenu[index] = category; 
+        setRestaurant({
+            ...restaurant, 
+            menu: newMenu, 
+        });
     }
     
     const updateRewardItem = (item : MenuItem, originalId : string) => {
         if(!restaurant || !restaurant.rewardItems) return; 
         const index = restaurant?.rewardItems?.findIndex((i) => i.id === originalId); 
-        if(!index || index  < 0) return; 
-        restaurant.rewardItems[index] = item; 
+        if(index  < 0) return; 
+        const newRewards = [...restaurant.rewardItems];
+        newRewards[index] = item; 
+        setRestaurant({
+            ...restaurant, 
+            rewardItems: newRewards
+        });
     }
     
     const removeCategory = (id : string) => {
-        restaurant.menu = restaurant?.menu?.filter((i) => i.id === id); 
+        const newMenu = restaurant?.menu?.filter((i) => i.id !== id); 
+        if(!newMenu || !restaurant) return; 
+        setRestaurant({
+            ...restaurant, 
+            menu: newMenu, 
+        });
     }
     
     const handleRemoveRewardItem = (id : string) => {
-        if(restaurant?.menu?.findIndex((i) => i.id === id)) return; 
-        restaurant.rewardItems = restaurant?.rewardItems?.filter((i) => i.id = id); 
+        if(!restaurant || !restaurant.menu) return; 
+        const newRewards = restaurant.rewardItems?.filter((i) => i.id !== id); 
+        if(!newRewards) return; 
+        setRestaurant({
+            ...restaurant, 
+            rewardItems: newRewards
+        });
+    }
+        
+    const findMenuItem = (id : string) => {
+        if(!restaurant || !restaurant.menu) return; 
+        const allItems = restaurant.menu.flatMap((category) => category.menuItems); 
+        return allItems.find((item) => item.id === id);
+    }
+    
+    const handleCreateRewardItem = () => {
+        if(!restaurant || !restaurant.rewardItems) return; 
+        const existingRewardItem = findMenuItem(rewardItemInput);
+        setRewardItemInput('');
+        if(!existingRewardItem || !existingRewardItem.reward) return; 
+        const newMenuItem : MenuItem = {
+           name: "PLACEHOLDER", 
+           price: existingRewardItem.price, 
+           taxRate: existingRewardItem.taxRate, 
+           id: uuid(), 
+           reward: {
+            discount: existingRewardItem.reward.discount, 
+            discountText: existingRewardItem.reward.discountText, 
+            points: existingRewardItem.reward.points, 
+           }, 
+           itemChoices: [existingRewardItem], 
+        }; 
+        const newRewards = [...restaurant.rewardItems];
+        newRewards.push(newMenuItem);
+        setRestaurant({
+            ...restaurant, 
+            rewardItems: newRewards
+        });
+    }
+
+    const handleCreateWithId = () => {
+        if(!restaurant || !restaurant.rewardItems) return; 
+        const existingRewardItem = findMenuItem(rewardItemInput);
+        setRewardItemInput('');
+        if(!existingRewardItem || !existingRewardItem.reward) return; 
+        const newRewards = [...restaurant.rewardItems];
+        newRewards.push(existingRewardItem);
+        setRestaurant({
+            ...restaurant, 
+            rewardItems: newRewards
+        });
     }
     
     return (
         <div>
-            {!edit || !restaurant ? <form>
-                <label>
-                    Enter a restaurant JSON 
-                </label>
-                <input onChange={handleJson}/>
-                <button onSubmit={() => setEdit(true)}>
-                    Edit
-                </button>
-            </form> : 
-            <div style={{flexDirection: 'column'}}>
-                <text style={{fontSize: 20}}>{restaurant.name}</text>
-                <text style={{fontSize: 16}}>{restaurant.id}</text>
-                <text style={{fontSize: 18}}>Menu</text>
-                <div>
-                    {restaurant.menu?.map((category) => 
-                    <MenuCategoryRow category={category} 
-                                    updateRestaurant={updateRestaurant}
-                                    removeCategory={removeCategory}/>)}
-                </div>
-                        
-                <text style={{fontSize: 18}}>Reward Items</text>
-                <div>
-                    {restaurant.rewardItems?.map((rewardItem) => 
-                    <MenuItemRow item={rewardItem} 
-                                updateMenuCategory={updateRewardItem} 
-                                removeItem={handleRemoveRewardItem}/>)}
+            {!edit ? 
+            <form style={{padding: 20}}>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <label>
+                        Enter a restaurant JSON 
+                    </label>
+                    <textarea style={{margin: 10, height: 400, borderWidth: 1}} onChange={(event) => setInput(event.currentTarget.value)}></textarea>
+                    <input value='Edit' type='button' onClick={() => handleJson()} />
                 </div>
                 
-                <div>
-                    <text>Result</text> 
-                    <input defaultValue={JSON.stringify(restaurant)} readOnly={true}/>
+            </form> : 
+            <div style={{padding: 20, display: 'flex', flexDirection: 'column'}}>
+                <text style={{fontSize: 20, fontWeight: '700'}}>{restaurant?.name}</text>
+                <text style={{fontSize: 16}}>{restaurant?.id}</text>
+                <text style={{fontSize: 18, marginTop: 20, fontWeight: '500'}}>Menu</text>
+                <div style={{marginBottom: 20}}>
+                    {restaurant?.menu?.map((category) => 
+                    <MenuCategoryRow category={category} 
+                                    key={category.id}
+                                    updateRestaurant={updateRestaurant}
+                                    removeCategory={removeCategory}
+                                    findItem={findMenuItem}/>)}
+                </div>
+                        
+                <text style={{fontSize: 18, marginTop: 20, fontWeight: '500'}}>Reward Items</text>
+                <div style={{marginBottom: 20}}>
+                    {restaurant?.rewardItems?.map((rewardItem) => rewardItem.itemChoices ? 
+                    <MenuItemRow item={rewardItem} 
+                                key={rewardItem.id}
+                                updateMenuCategory={updateRewardItem} 
+                                removeItem={handleRemoveRewardItem}
+                                findItem={findMenuItem}/> : 
+                    <RewardItemRow key={rewardItem.id} 
+                                item={rewardItem} 
+                                removeItem={handleRemoveRewardItem}/>)}
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <input style={{borderWidth: 2}} value={rewardItemInput} onChange={(event) => setRewardItemInput(event.currentTarget.value)}/>
+                        <button onClick={handleCreateWithId}>Add Reward Item from Existing</button>
+                        <button onClick={() => handleCreateRewardItem()}>Create Reward Item & Add as Item Choice</button>
+                    </div>
+                    
+                </div>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <text style={{fontSize: 20, fontWeight: '500'}}>Result</text> 
+                    <textarea style={{height: 400, borderWidth: 2}} defaultValue={result} readOnly={true}></textarea>
                 </div>
             </div>}
         </div>
@@ -77,54 +170,71 @@ type MenuCategoryRowProps = {
     category: MenuCategory; 
     updateRestaurant: (category : MenuCategory, originalId: string) => void; 
     removeCategory: (id: string) => void; 
+    findItem: (id: string) => MenuItem | undefined; 
 }
-const MenuCategoryRow = ({category, updateRestaurant, removeCategory} : MenuCategoryRowProps) => {
-    let newCategory : MenuCategory = JSON.parse(JSON.stringify(category));
+const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} : MenuCategoryRowProps) => {
+    const [newCategory, setNewCategory] = useState(category); 
     const [enabled, setEnabled] = useState(false);
-    const handleEditItem = (item, originalId) => {
+    
+    const handleEditItem = (item : MenuItem, originalId : string) => {
         const index = newCategory.menuItems.findIndex((i) => i.id === originalId); 
         if(index  < 0) return; 
-        newCategory.menuItems[index] = item; 
-        updateRestaurant(newCategory, category.id);
+        const menuItems = newCategory.menuItems; 
+        menuItems[index] = item; 
+        const updatedCategory = {...newCategory, menuItems: menuItems}; 
+        setNewCategory(updatedCategory);
+        updateRestaurant(updatedCategory, category.id);
     }
     const handleCreateItem = () => {
         const newMenuItem : MenuItem = {
            name: "PLACEHOLDER", 
            price: 0, 
            taxRate: 0, 
-           id: "", 
+           id: uuid(), 
         }; 
-        newCategory.menuItems.push(newMenuItem);
-        updateRestaurant(newCategory, category.id); 
+        const menuItems = newCategory.menuItems; 
+        menuItems.push(newMenuItem);
+        const updatedCategory = {...newCategory, menuItems: menuItems}; 
+        setNewCategory(updatedCategory);
+        updateRestaurant(updatedCategory, category.id);
     }
     
     const handleRemoveItem = (id : string) => {
-        newCategory.menuItems = newCategory.menuItems.filter((i) => i.id === id);
-        updateRestaurant(newCategory, category.id);
+        const menuItems = newCategory.menuItems.filter((i) => i.id !== id);
+        const updatedCategory = {...newCategory, menuItems: menuItems}; 
+        setNewCategory(updatedCategory);
+        updateRestaurant(updatedCategory, category.id);
     }
     
     return (
         <div>
-            <div style={{flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
-                <text>{newCategory.name}</text>
-                <button onSubmit={() => setEnabled(true)}>Edit</button>
-                <button onSubmit={() => removeCategory(category.id)}>Delete Category</button>
+            <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
+                <text style={{width: 300}}>{newCategory.name}</text>
+                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => removeCategory(category.id)}>Delete Category</button>
             </div>
-            {enabled && <div style={{flexDirection: 'column', width: '100%'}}>
-                <label>Category Name</label>
-                <input defaultValue={newCategory.name} onChange={(event) => {newCategory.name = event.currentTarget.value}}/>
-                <label>ID</label>
-                <input defaultValue={newCategory.id} onChange={(event) => {newCategory.id = event.currentTarget.value}}/>
+            {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Category Name: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newCategory.name} onChange={(event) => {setNewCategory({...newCategory, name: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>ID: </label>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={newCategory.id} onChange={(event) => {setNewCategory({...newCategory, id: event.currentTarget.value})}}/>
+                </div>
                 <text>Items</text>
-                <div>
+                <div style={{marginLeft: 20}}>
                     {newCategory.menuItems.map((item) => (
                         <MenuItemRow item={item} 
+                                    key={item.id}
                                     updateMenuCategory={handleEditItem}
-                                    removeItem={handleRemoveItem} />
+                                    removeItem={handleRemoveItem}
+                                    findItem={findItem} />
                     ))}
                 </div>
-                <button onSubmit={handleCreateItem}>Add item</button>
-                <button onSubmit={() => updateRestaurant(newCategory, category.id)}>Save</button>
+                
+                <button onClick={handleCreateItem}>Add item</button>
+                <button onClick={() => updateRestaurant(newCategory, category.id)}>Save</button>
             </div>}
         </div>
         
@@ -135,54 +245,168 @@ type MenuItemRowProps = {
     item: MenuItem; 
     updateMenuCategory: (item : MenuItem, originalId: string) => void; 
     removeItem: (id : string) => void; 
+    findItem: (id : string) => MenuItem | undefined; 
 }
-const MenuItemRow = ({item, updateMenuCategory, removeItem} : MenuItemRowProps) => {
-    let newMenuItem : MenuItem = JSON.parse(JSON.stringify(item));
+const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItemRowProps) => {
+    const [newMenuItem, setNewMenuItem] = useState(item);
     const [enabled, setEnabled] = useState(false);
-    const [isReward, setIsReward] = useState(false);
+    const [isReward, setIsReward] = useState(item.reward !== undefined);
+    const [hasChoices, setHasChoices] = useState(item.itemChoices !== undefined);
+    const [itemChoiceId, setItemChoiceId] = useState('');
+    const [choices, setChoices] = useState<string[]>(item.itemChoices?.map((it) => it.id) ?? []);
+    
     const enableRewardItem = (b : boolean) => {
-        newMenuItem.reward = b ? {
+        const reward = b ? {
             discount: 0, 
             discountText: '', 
             points: 1, 
         } : undefined; 
+        setNewMenuItem({...newMenuItem, reward: reward});
         setIsReward(b);
     }
+    const enableChoices = (b : boolean) => {
+        const itemChoices = b ? [] : undefined; 
+        setNewMenuItem({...newMenuItem, itemChoices: itemChoices});
+        setHasChoices(b);
+    }
+    const addChoice = () => {
+        const id = itemChoiceId; 
+        setItemChoiceId('');
+        const item = findItem(id);
+        if(!item || choices.includes(id)) return; 
+        choices.push(item.id); 
+    }
+    
+    const removeChoice = (id : string) => {
+        setChoices(choices.filter((s) => s !== id));
+    }
+    
+    const handleSave = () => {
+        let updatedItem = newMenuItem; 
+        if(newMenuItem.itemChoices) {
+            const itemChoices : MenuItem[] = []; 
+            choices.forEach((choice) => {
+                const item = findItem(choice);
+                if(item) itemChoices.push(item);
+            });
+            updatedItem = {...newMenuItem, itemChoices: itemChoices}; 
+            setNewMenuItem(updatedItem); 
+        }
+        updateMenuCategory(updatedItem, item.id); 
+    }
+    
     return (
         <div>
-            <div style={{flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
-                <text>{newMenuItem.name}</text>
-                <button onSubmit={() => setEnabled(true)}>Edit</button>
-                <button onSubmit={() => removeItem(item.id)}>Delete Item</button>
+            <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
+                <text style={{width: 300}}>{newMenuItem.name}</text>
+                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => removeItem(item.id)}>Delete Item</button>
             </div>
-            {enabled && <div style={{flexDirection: 'column', width: '100%'}}>
-                <label>Item Name</label>
-                <input defaultValue={newMenuItem.name} onChange={(event) => {newMenuItem.name = event.currentTarget.value}}/>
-                <label>ID</label>
-                <input defaultValue={newMenuItem.id} onChange={(event) => {newMenuItem.id = event.currentTarget.value}}/>
-                <label>Description</label>
-                <input defaultValue={newMenuItem.description} onChange={(event) => {newMenuItem.description = event.currentTarget.value}}/>
-                <label>Image</label>
-                <input defaultValue={newMenuItem.image} onChange={(event) => {newMenuItem.image = event.currentTarget.value}}/>
-                <label>Is Alcohol</label>
-                <input defaultValue={newMenuItem.isAlcohol?.toString()} onChange={(event) => {newMenuItem.isAlcohol = event.currentTarget.value === 'true'}}/>
-                <label>Price</label>
-                <input defaultValue={newMenuItem.price} onChange={(event) => {newMenuItem.price = +event.currentTarget.value}}/>
-                <label>Tax Rate</label>
-                <input defaultValue={newMenuItem.taxRate} onChange={(event) => {newMenuItem.taxRate = +event.currentTarget.value}}/>
-                <label>Reward Item</label>
-                <input type='checkbox' checked={isReward} onChange={(event) => enableRewardItem(!isReward)}></input>
-                {isReward && <div>
-                    <label>Discount</label>
-                    <input defaultValue={newMenuItem.reward?.discount} onChange={(event) => {newMenuItem.reward.discount = +event.currentTarget.value}}/>
-                    <label>Discount Text</label>
-                    <input defaultValue={newMenuItem.reward?.discountText} onChange={(event) => {newMenuItem.reward.discountText = event.currentTarget.value}}/>
-                    <label>Points</label>
-                    <input defaultValue={newMenuItem.reward?.points} onChange={(event) => {newMenuItem.reward.points = +event.currentTarget.value}}/>
-                </div>}
-                
-                <button onSubmit={() => updateMenuCategory(newMenuItem, item.id)}>Save</button>
+            {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Item Name: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.name} onChange={(event) => {newMenuItem.name = event.currentTarget.value}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>ID: </label>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={newMenuItem.id} onChange={(event) => {setNewMenuItem({...newMenuItem, id: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Description: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.description} onChange={(event) => {setNewMenuItem({...newMenuItem, description: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Image: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.image} onChange={(event) => {setNewMenuItem({...newMenuItem, image: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Is Alcohol: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.isAlcohol?.toString()} onChange={(event) => {setNewMenuItem({...newMenuItem, isAlcohol: event.currentTarget.value === 'true'})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Price: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.price} onChange={(event) => {setNewMenuItem({...newMenuItem, price: +event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Tax Rate: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.taxRate} onChange={(event) => {setNewMenuItem({...newMenuItem, taxRate: +event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Reward Item: </label>
+                    <input type='checkbox' checked={isReward} onChange={(event) => enableRewardItem(!isReward)}></input>
+                    {isReward && <div style={{marginLeft: 20}}>
+                        <div style={{flexDirection: 'row'}}>
+                            <label>Discount: </label>
+                            <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.reward?.discount} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, discount: +event.currentTarget.value}})}}/>
+                        </div>
+                        <div style={{flexDirection: 'row'}}>
+                            <label>Discount Text: </label>
+                            <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.reward?.discountText} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, discountText: event.currentTarget.value}})}}/>
+                        </div>
+                        <div style={{flexDirection: 'row'}}>
+                            <label>Points: </label>
+                            <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.reward?.points} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, points: +event.currentTarget.value}})}}/>
+                        </div>
+                    </div>}
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Item Choices: </label>
+                    <input type='checkbox' checked={hasChoices} onChange={(event) => enableChoices(!hasChoices)}></input>
+                    {hasChoices && <div style={{marginLeft: 20}}>
+                        {choices.map((choice) => (
+                            <MenuItemChoice choiceId={choice} 
+                                            key={choice}
+                                            findItem={findItem}
+                                            removeChoice={removeChoice} />
+                        ))}
+                        <div style={{display: 'flex', flexDirection: 'row'}}>
+                            <label>ID: </label>
+                            <input style={{borderWidth: 2, width: 100}} value={itemChoiceId} onChange={(event) => {setItemChoiceId(event.currentTarget.value)}}/>
+                            <button onClick={() => addChoice()}>Add Item Choice</button>
+                        </div>
+                    </div>}
+                </div>
+                <button onClick={() => handleSave()}>Save</button>
             </div>}
         </div>
     );
+}
+
+type MenuItemChoiceProps = {
+    choiceId: string; 
+    removeChoice: (id : string) => void; 
+    findItem: (id : string) => MenuItem | undefined; 
+}
+
+const MenuItemChoice = ({choiceId, removeChoice, findItem} : MenuItemChoiceProps) => {
+    
+    const [choice, setChoice] = useState(findItem(choiceId)); 
+    
+    useEffect(() => {
+        if(!choice) {
+            removeChoice(choiceId); 
+        }
+    }, [choice]);
+    
+    return (
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+            <text>{choice?.name}</text>
+            <text>{choice?.id}</text>
+            <button onClick={() => removeChoice(choiceId)}>Remove</button>
+        </div>
+    );
+}
+
+type RewardItemRowProps = {
+    item: MenuItem; 
+    removeItem: (id: string) => void; 
+}
+const RewardItemRow = ({item, removeItem} : RewardItemRowProps) => {
+    return (
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+            <text>{item.name}</text>
+            <text>{item.id}</text>
+            <button onClick={() => removeItem(item.id)}>Remove</button>
+        </div>
+    ); 
 }
