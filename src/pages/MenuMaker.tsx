@@ -188,7 +188,7 @@ const MenuMaker = () => {
                         Enter a restaurant JSON 
                     </label>
                     <textarea style={{margin: 10, height: 400, borderWidth: 1}} onChange={(event) => setInput(event.currentTarget.value)}></textarea>
-                    <input value='Edit' type='button' onClick={() => handleJson()} />
+                    <input style={{borderWidth: 2}} value='Edit' type='button' onClick={() => handleJson()} />
                 </div>
                 
             </form> : 
@@ -203,7 +203,7 @@ const MenuMaker = () => {
                                     updateRestaurant={updateRestaurant}
                                     removeCategory={removeCategory}
                                     findItem={findMenuItem}/>)}
-                    <button onClick={createCategory}>Create Category</button>
+                    <button style={{borderWidth: 2, padding: 5}} onClick={createCategory}>Create Category</button>
                 </div>
                         
                 <text style={{fontSize: 18, marginTop: 20, fontWeight: '500'}}>Reward Items</text>
@@ -219,10 +219,10 @@ const MenuMaker = () => {
                                 removeItem={handleRemoveRewardItem}/>)}
                     <div style={{display: 'flex', flexDirection: 'column'}}>
                         <input style={{borderWidth: 2}} value={rewardItemInput} onChange={(event) => setRewardItemInput(event.currentTarget.value)}/>
-                        <button onClick={handleCreateWithId}>Add Reward Item from Existing</button>
-                        <button onClick={() => handleCreateRewardItem()}>Create Reward Item & Add as Item Choice</button>
+                        <button style={{borderWidth: 2, padding: 5}} onClick={handleCreateWithId}>Add Reward Item from Existing</button>
+                        <button style={{borderWidth: 2, padding: 5}} onClick={() => handleCreateRewardItem()}>Create Reward Item & Add as Item Choice</button>
                     </div>
-                    <button onClick={handleUpdateRewardItems}>Save</button>
+                    <button style={{borderWidth: 2, padding: 5}} onClick={handleUpdateRewardItems}>Save</button>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <text style={{fontSize: 20, fontWeight: '500'}}>Result</text> 
@@ -293,8 +293,8 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{newCategory.name}</text>
-                <button onClick={() => {setEnabled(!enabled); updateRestaurant(newCategory, category.id)}}>Edit</button>
-                <button onClick={() => removeCategory(category.id)}>Delete Category</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => {setEnabled(!enabled); updateRestaurant(newCategory, category.id)}}>Edit</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => removeCategory(category.id)}>Delete Category</button>
             </div>
             {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
@@ -316,7 +316,7 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
                     ))}
                 </div>
                 
-                <button onClick={handleCreateItem}>Add item</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={handleCreateItem}>Add item</button>
                 <text>Availability</text>
                 <div style={{marginLeft: 20}}>
                     {newCategory.availability.map((day) => (
@@ -420,8 +420,8 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{newMenuItem.name}</text>
-                <button onClick={() => {setEnabled(!enabled); updateMenuCategory(newMenuItem, item.id)}}>Edit</button>
-                <button onClick={() => removeItem(item.id)}>Delete Item</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => {setEnabled(!enabled); updateMenuCategory(newMenuItem, item.id)}}>Edit</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => removeItem(item.id)}>Delete Item</button>
             </div>
             {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
@@ -485,7 +485,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                             <input style={{borderWidth: 2, width: 100}} value={itemChoiceId} onChange={(event) => {setItemChoiceId(event.currentTarget.value)}}/>
                             
                         </div>
-                        <button onClick={() => addChoice()}>Add Item Choice</button>
+                        <button style={{borderWidth: 2, padding: 5}} onClick={() => addChoice()}>Add Item Choice</button>
                     </div>}
                 </div>
                 <div style={{flexDirection: 'row'}}>
@@ -498,10 +498,10 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                                         removeFoodOption={removeFoodOption}
                                         updateItem={updateFoodOption}/>
                         ))}
-                        <button onClick={() => addOption()}>Add Food Option</button>
+                        <button style={{borderWidth: 2, padding: 5}} onClick={() => addOption()}>Add Food Option</button>
                     </div>}
                 </div>
-                <button onClick={() => handleSave()}>Save</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => handleSave()}>Save</button>
             </div>}
         </div>
     );
@@ -527,7 +527,7 @@ const MenuItemChoice = ({choiceId, removeChoice, findItem} : MenuItemChoiceProps
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <text>{choice?.name}</text>
             <text>{choice?.id}</text>
-            <button onClick={() => removeChoice(choiceId)}>Remove</button>
+            <button style={{borderWidth: 2, padding: 5}} onClick={() => removeChoice(choiceId)}>Remove</button>
         </div>
     );
 }
@@ -541,7 +541,7 @@ const RewardItemRow = ({item, removeItem} : RewardItemRowProps) => {
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <text>{item.name}</text>
             <text>{item.id}</text>
-            <button onClick={() => removeItem(item.id)}>Remove</button>
+            <button style={{borderWidth: 2, padding: 5}} onClick={() => removeItem(item.id)}>Remove</button>
         </div>
     ); 
 }
@@ -596,8 +596,8 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{newFoodOption.name}</text>
-                <button onClick={() => {setEnabled(!enabled); updateItem(newFoodOption)}}>Edit</button>
-                <button onClick={() => removeFoodOption(foodOption.id)}>Delete Item</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => {setEnabled(!enabled); updateItem(newFoodOption)}}>Edit</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => removeFoodOption(foodOption.id)}>Delete Item</button>
             </div>
             {enabled && <div style={{marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
@@ -626,7 +626,7 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
                                     updateOption={updateOption}/>
                         ))}
                     </div>
-                    <button onClick={createOption}>Create Option</button>
+                    <button style={{borderWidth: 2, padding: 5}} onClick={createOption}>Create Option</button>
                 </div>
             </div>}
         </div>
@@ -651,8 +651,8 @@ const OptionRow = ({option, removeOption, updateOption} : OptionRowProps) => {
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
                 <text style={{width: 300}}>{option.name}</text>
-                <button onClick={() => {setEnabled(!enabled); updateOption(newOption)}}>Edit</button>
-                <button onClick={() => removeOption(option.id)}>Delete Item</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => {setEnabled(!enabled); updateOption(newOption)}}>Edit</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => removeOption(option.id)}>Delete Item</button>
             </div>
             {enabled && <div style={{marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
@@ -731,7 +731,7 @@ const AvailabilityRow = ({availability, updateAvailability} : AvailabilityRowPro
         <div>
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                 <text>Day of Week: {newAvailability.dayOfWeek}</text>
-                <button onClick={() => {setEnabled(!enabled); updateAvailability(newAvailability);}}>Edit</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={() => {setEnabled(!enabled); updateAvailability(newAvailability);}}>Edit</button>
             </div> 
            {enabled && <div style={{marginLeft: 20, display: 'flex', flexDirection: 'column'}}>
                 <div style={{flexDirection: 'row'}}>
@@ -750,12 +750,12 @@ const AvailabilityRow = ({availability, updateAvailability} : AvailabilityRowPro
                                 <label>End Time: </label>
                                 <input style={{borderWidth: 2, width: 100}} defaultValue={per.endTime} onChange={(event) => {updateTimePeriod({...per, endTime: event.currentTarget.value}, i)}}/>
                             </div>
-                            <button onClick={() => removeTimePeriod(i)}>Remove Period</button>
+                            <button style={{borderWidth: 2, padding: 5}} onClick={() => removeTimePeriod(i)}>Remove Period</button>
                         </div>
                     ))}
                 </div>
                 
-                <button onClick={createTimePeriod}>Add Time Period</button>
+                <button style={{borderWidth: 2, padding: 5}} onClick={createTimePeriod}>Add Time Period</button>
             </div>}
         </div>
     );
