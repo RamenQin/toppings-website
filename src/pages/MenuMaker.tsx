@@ -371,11 +371,11 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
         if(!newMenuItem.itemChoices) return; 
         const id = itemChoiceId; 
         setItemChoiceId('');
-        const item = findItem(id);
-        if(!item || choices.includes(id)) return; 
-        choices.push(item.id); 
+        const itemChoice = findItem(id);
+        if(!itemChoice || choices.includes(id) || id === item.id) return; 
+        choices.push(id); 
         const arr = newMenuItem.itemChoices; 
-        arr.push(item);
+        arr.push(itemChoice);
         updateChain({...newMenuItem, itemChoices: arr});
     }
     
