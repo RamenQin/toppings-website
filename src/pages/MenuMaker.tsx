@@ -222,7 +222,7 @@ const MenuMaker = () => {
                         <button style={{backgroundColor: '#EEEFF4', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={handleCreateWithId}>Add Reward Item from Existing</button>
                         <button style={{backgroundColor: '#EEEFF4', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={() => handleCreateRewardItem()}>Create Reward Item & Add as Item Choice</button>
                     </div>
-                    <button style={{backgroundColor: '#EEEFF4', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={handleUpdateRewardItems}>Save</button>
+                    <button style={{backgroundColor: '#2E75FF', color: 'white', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={handleUpdateRewardItems}>Save</button>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <text style={{fontSize: 20, fontWeight: '500'}}>Result</text> 
@@ -306,7 +306,7 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
                     <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={newCategory.id} />
                 </div>
                 <text>Items</text>
-                <div style={{marginLeft: 20}}>
+                <div style={{marginLeft: 20, paddingRight: 20}}>
                     {newCategory.menuItems.map((item) => (
                         <MenuItemRow item={item} 
                                     key={item.id}
@@ -318,7 +318,7 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
                 
                 <button style={{backgroundColor: '#EEEFF4', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={handleCreateItem}>Add item</button>
                 <text>Availability</text>
-                <div style={{marginLeft: 20}}>
+                <div style={{marginLeft: 20, paddingRight: 20}}>
                     {newCategory.availability.map((day) => (
                         <AvailabilityRow availability={day}
                                         updateAvailability={updateAvailability}/>
@@ -351,34 +351,67 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
             discountText: '', 
             points: 1, 
         } : undefined; 
-        setNewMenuItem({...newMenuItem, reward: reward});
+        updateChain({...newMenuItem, reward: reward});
         setIsReward(b);
     }
     const enableChoices = (b : boolean) => {
         const itemChoices = b ? [] : undefined; 
-        setNewMenuItem({...newMenuItem, itemChoices: itemChoices});
+        const updatedMenuItem = {...newMenuItem, itemChoices: itemChoices}; 
+        updateChain(updatedMenuItem);
         setHasChoices(b);
     }
+    
+    const updateChain = (updatedMenuItem : MenuItem) => {
+        setNewMenuItem(updatedMenuItem);
+        updateMenuCategory(updatedMenuItem, item.id);
+    }
+    
     const addChoice = () => {
+        if(!newMenuItem.itemChoices) return; 
         const id = itemChoiceId; 
         setItemChoiceId('');
         const item = findItem(id);
         if(!item || choices.includes(id)) return; 
         choices.push(item.id); 
+        const arr = newMenuItem.itemChoices; 
+        arr.push(item);
+        updateChain({...newMenuItem, itemChoices: arr});
     }
     
     const removeChoice = (id : string) => {
+        if(!newMenuItem.itemChoices) return; 
         setChoices(choices.filter((s) => s !== id));
+        const updatedMenuItem : MenuItem = {
+            ...newMenuItem, 
+            itemChoices: newMenuItem.itemChoices.filter((s) => s.id !== id),  
+        }
+        updateChain(updatedMenuItem);
     }
     
     const enableOptions = (b : boolean) => {
         const foodOptions = b ? [] : undefined; 
-        setNewMenuItem({...newMenuItem, foodOptions: foodOptions});
+        const updatedMenuItem = {...newMenuItem, foodOptions: foodOptions}; 
+        updateChain(updatedMenuItem);
         setHasOptions(b);
     }
     
     const addOption = () => {
-        
+        if(!newMenuItem.foodOptions) return; 
+        const newFoodOption : FoodOption = {
+            id: uuid(), 
+            name: "PLACEHOLDER", 
+            minChoices: 0, 
+            numChoices: 0, 
+            options: [], 
+            required: false, 
+        }
+        const arr = [...newMenuItem.foodOptions];
+        arr.push(newFoodOption); 
+        const updatedMenuItem : MenuItem = {
+            ...newMenuItem, 
+            foodOptions: arr
+        }
+        updateChain(updatedMenuItem);
     }
     
     const handleSave = () => {
@@ -400,9 +433,8 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
     const removeFoodOption = (id : string) => {
         if(!newMenuItem.foodOptions) return;
         const arr = newMenuItem.foodOptions.filter((op) => op.id !== id);
-        const updatedItem = {...newMenuItem, foodOptions: arr};
-        setNewMenuItem(updatedItem); 
-        updateMenuCategory(updatedItem, item.id); 
+        const updatedMenuItem = {...newMenuItem, foodOptions: arr};
+        updateChain(updatedMenuItem);
     }
     
     const updateFoodOption = (foodOption : FoodOption) => {
@@ -412,8 +444,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
         const arr = newMenuItem.foodOptions; 
         arr[index] = foodOption; 
         const updatedMenuItem = {...newMenuItem, foodOption: arr};
-        setNewMenuItem(updatedMenuItem);
-        updateMenuCategory(updatedMenuItem, item.id);  
+        updateChain(updatedMenuItem);
     }
     
     return (
@@ -473,7 +504,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                 <div style={{flexDirection: 'row'}}>
                     <label>Item Choices: </label>
                     <input type='checkbox' checked={hasChoices} onChange={(event) => enableChoices(!hasChoices)}></input>
-                    {hasChoices && <div style={{marginLeft: 20}}>
+                    {hasChoices && <div style={{marginLeft: 20, paddingRight: 40}}>
                         {choices.map((choice) => (
                             <MenuItemChoice choiceId={choice} 
                                             key={choice}
@@ -491,7 +522,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                 <div style={{flexDirection: 'row'}}>
                     <label>Options: </label>
                     <input type='checkbox' checked={hasOptions} onChange={(event) => enableOptions(!hasOptions)}></input>
-                    {hasOptions && <div style={{marginLeft: 20}}>
+                    {hasOptions && <div style={{marginLeft: 20, paddingRight: 40}}>
                         {newMenuItem.foodOptions?.map((foodOption) => (
                             <FoodOptionRow foodOption={foodOption} 
                                         key={foodOption.id}
@@ -501,7 +532,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                         <button style={{backgroundColor: '#EEEFF4', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={() => addOption()}>Add Food Option</button>
                     </div>}
                 </div>
-                <button style={{backgroundColor: '#EEEFF4', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={() => handleSave()}>Save</button>
+                <button style={{backgroundColor: '#2E75FF', color: 'white', paddingLeft: 5, paddingRight: 5, paddingTop: 3, paddingBottom: 5, marginBottom: 5}} onClick={() => handleSave()}>Save</button>
             </div>}
         </div>
     );
@@ -616,6 +647,7 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
                     <label>Min Choices: </label>
                     <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={foodOption.minChoices} onChange={(event) => {autoSave({...newFoodOption, minChoices: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
                 </div>
+                <label>Required: </label>
                 <input type='checkbox' checked={newFoodOption.required} onChange={(event) => autoSave({...newFoodOption, required: !newFoodOption.required})}/>
                 <div style={{flexDirection: 'row'}}>
                     <label>Options: </label>
