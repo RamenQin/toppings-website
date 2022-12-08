@@ -149,6 +149,28 @@ const MenuMaker = () => {
         setRestaurant({...restaurant, menu: arr});
     }
     
+    const handleUpdateRewardItems = () => {
+        if(!restaurant || !restaurant.rewardItems) return; 
+        let newRewardItems = restaurant.rewardItems; 
+        /*
+        newRewardItems.forEach((item, i) => {
+            if(!item.itemChoices) return; 
+            item.itemChoices.forEach((choice, j) => {
+                const c = findMenuItem(choice.id);
+                if(!c || !newRewardItems[i].itemChoices) return; 
+                newRewardItems[i].itemChoices![j] = c; 
+            }); 
+        }); 
+        */
+        newRewardItems = newRewardItems.map((item) => (
+            !item.itemChoices ? item :
+            {...item, itemChoices : item.itemChoices.map((choice) => (
+                findMenuItem(choice.id) 
+            )).filter((choice) => choice !== undefined) as MenuItem[]}
+        ));
+        setRestaurant({...restaurant, rewardItems: newRewardItems});
+    }
+    
     return (
         <div>
             {!edit ? 
@@ -192,7 +214,7 @@ const MenuMaker = () => {
                         <button onClick={handleCreateWithId}>Add Reward Item from Existing</button>
                         <button onClick={() => handleCreateRewardItem()}>Create Reward Item & Add as Item Choice</button>
                     </div>
-                    
+                    <button onClick={handleUpdateRewardItems}>Save</button>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <text style={{fontSize: 20, fontWeight: '500'}}>Result</text> 
@@ -355,10 +377,12 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
         let updatedItem = newMenuItem; 
         if(newMenuItem.itemChoices) {
             const itemChoices : MenuItem[] = []; 
+            
             choices.forEach((choice) => {
                 const item = findItem(choice);
                 if(item) itemChoices.push(item);
             });
+            setChoices(choices.filter((choices) => findItem(choices) !== undefined));
             updatedItem = {...newMenuItem, itemChoices: itemChoices}; 
             setNewMenuItem(updatedItem); 
         }
