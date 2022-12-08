@@ -458,31 +458,31 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
             {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
                     <label>Item Name: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.name} onChange={(event) => {newMenuItem.name = event.currentTarget.value}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.name} onChange={(event) => {updateChain({...newMenuItem, name: event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>ID: </label>
-                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={newMenuItem.id} onChange={(event) => {setNewMenuItem({...newMenuItem, id: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={newMenuItem.id} onChange={(event) => {updateChain({...newMenuItem, id: event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Description: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.description} onChange={(event) => {setNewMenuItem({...newMenuItem, description: (event.currentTarget.value.length) > 0 ? event.currentTarget.value : undefined})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.description} onChange={(event) => {updateChain({...newMenuItem, description: (event.currentTarget.value.length) > 0 ? event.currentTarget.value : undefined})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Image: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.image} onChange={(event) => {setNewMenuItem({...newMenuItem, image: event.currentTarget.value.length > 0 ? event.currentTarget.value : undefined})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.image} onChange={(event) => {updateChain({...newMenuItem, image: event.currentTarget.value.length > 0 ? event.currentTarget.value : undefined})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Is Alcohol: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.isAlcohol?.toString()} onChange={(event) => {setNewMenuItem({...newMenuItem, isAlcohol: event.currentTarget.value === 'true'})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.isAlcohol?.toString()} onChange={(event) => {updateChain({...newMenuItem, isAlcohol: event.currentTarget.value === 'true'})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Price: </label>
-                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.price} onChange={(event) => {setNewMenuItem({...newMenuItem, price: +event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.price} onChange={(event) => {updateChain({...newMenuItem, price: +event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Tax Rate: </label>
-                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.taxRate} onChange={(event) => {setNewMenuItem({...newMenuItem, taxRate: +event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.taxRate} onChange={(event) => {updateChain({...newMenuItem, taxRate: +event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Reward Item: </label>
@@ -490,15 +490,15 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                     {isReward && <div style={{marginLeft: 20}}>
                         <div style={{flexDirection: 'row'}}>
                             <label>Discount: </label>
-                            <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.reward?.discount} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, discount: +event.currentTarget.value}})}}/>
+                            <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.reward?.discount} onChange={(event) => {if(newMenuItem.reward) updateChain({...newMenuItem, reward: {...newMenuItem.reward, discount: +event.currentTarget.value}})}}/>
                         </div>
                         <div style={{flexDirection: 'row'}}>
                             <label>Discount Text: </label>
-                            <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.reward?.discountText} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, discountText: event.currentTarget.value}})}}/>
+                            <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.reward?.discountText} onChange={(event) => {if(newMenuItem.reward) updateChain({...newMenuItem, reward: {...newMenuItem.reward, discountText: event.currentTarget.value}})}}/>
                         </div>
                         <div style={{flexDirection: 'row'}}>
                             <label>Points: </label>
-                            <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.reward?.points} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, points: +event.currentTarget.value}})}}/>
+                            <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.reward?.points} onChange={(event) => {if(newMenuItem.reward) updateChain({...newMenuItem, reward: {...newMenuItem.reward, points: +event.currentTarget.value}})}}/>
                         </div>
                     </div>}
                 </div>
