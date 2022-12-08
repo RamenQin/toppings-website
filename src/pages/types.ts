@@ -1,9 +1,3 @@
-type SelectedOptions = {
-  [id: string]: {
-    [id: string]: boolean;
-  };
-};
-
 
 type School = {
   id: string;
@@ -46,7 +40,7 @@ type User = {
 };
 
 
-type Option = {
+export type Option = {
   id: string;
   name: string;
   price: number | undefined;
@@ -54,7 +48,7 @@ type Option = {
   suspendUntil: number | undefined;
 };
 
-type FoodOption = {
+export type FoodOption = {
   id: string;
   name: string;
   numChoices: number | undefined;
@@ -63,13 +57,13 @@ type FoodOption = {
   options: Option[];
 };
 
-type MenuReward = {
+export type MenuReward = {
   points: number | undefined;
   discount: number | undefined;
   discountText: string | undefined;
 };
 
-type MenuItem = {
+export type MenuItem = {
   id: string;
   name: string;
   description?: string | undefined;
@@ -84,7 +78,7 @@ type MenuItem = {
   taxRate: number;
 };
 
-type MenuCategory = {
+export type MenuCategory = {
   id: string;
   name: string;
   menuItems: MenuItem[];
@@ -98,17 +92,17 @@ type MenuCategory = {
   }[];
 };
 
-type RestaurantHours = {
+export type RestaurantHours = {
   open: string;
   close: string;
 };
 
-type EstimatedTimeMinutes = {
+export type EstimatedTimeMinutes = {
   begin: number;
   end: number;
 };
 
-type Restaurant = {
+export type Restaurant = {
   id: string;
   externalId: string;
   name: string | undefined;
@@ -126,18 +120,4 @@ type Restaurant = {
   rewardItems: MenuItem[] | undefined;
   discountAmt: string | undefined;
   cashback: number | undefined;
-};
-
-
-type RewardPoints = {
-  id: string;
-  points: number;
-  userId: string;
-  restaurantId: string;
-  restaurant: Restaurant;
-};
-
-type EstimatedTimeWindow = {
-  begin: string;
-  end: string;
 };

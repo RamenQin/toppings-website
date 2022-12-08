@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { uuid } from 'uuidv4'; 
+import { MenuCategory, 
+        EstimatedTimeMinutes, 
+        FoodOption, 
+        MenuItem, 
+        MenuReward, 
+        Option, 
+        Restaurant, 
+        RestaurantHours } from "./types";
 
 const MenuMaker = () => {
     const [restaurant, setRestaurant] = useState<Restaurant>();
