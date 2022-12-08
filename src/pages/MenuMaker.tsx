@@ -254,6 +254,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
     const [hasChoices, setHasChoices] = useState(item.itemChoices !== undefined);
     const [itemChoiceId, setItemChoiceId] = useState('');
     const [choices, setChoices] = useState<string[]>(item.itemChoices?.map((it) => it.id) ?? []);
+    const [hasOptions, setHasOptions] = useState(item.foodOptions !== undefined);
     
     const enableRewardItem = (b : boolean) => {
         const reward = b ? {
@@ -281,6 +282,16 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
         setChoices(choices.filter((s) => s !== id));
     }
     
+    const enableOptions = (b : boolean) => {
+        const foodOptions = b ? [] : undefined; 
+        setNewMenuItem({...newMenuItem, foodOptions: foodOptions});
+        setHasOptions(b);
+    }
+    
+    const addOption = () => {
+        
+    }
+    
     const handleSave = () => {
         let updatedItem = newMenuItem; 
         if(newMenuItem.itemChoices) {
@@ -293,6 +304,25 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
             setNewMenuItem(updatedItem); 
         }
         updateMenuCategory(updatedItem, item.id); 
+    }
+    
+    const removeFoodOption = (id : string) => {
+        if(!newMenuItem.foodOptions) return;
+        const arr = newMenuItem.foodOptions.filter((op) => op.id !== id);
+        const updatedItem = {...newMenuItem, foodOptions: arr};
+        setNewMenuItem(updatedItem); 
+        updateMenuCategory(updatedItem, item.id); 
+    }
+    
+    const updateFoodOption = (foodOption : FoodOption) => {
+        if(!newMenuItem.foodOptions) return;
+        const index = newMenuItem.foodOptions.findIndex((op) => op.id === foodOption.id);
+        if(index < 0) return; 
+        const arr = newMenuItem.foodOptions; 
+        arr[index] = foodOption; 
+        const updatedMenuItem = {...newMenuItem, foodOption: arr};
+        setNewMenuItem(updatedMenuItem);
+        updateMenuCategory(updatedMenuItem, item.id);  
     }
     
     return (
@@ -313,11 +343,11 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Description: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.description} onChange={(event) => {setNewMenuItem({...newMenuItem, description: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.description} onChange={(event) => {setNewMenuItem({...newMenuItem, description: (event.currentTarget.value.length) > 0 ? event.currentTarget.value : undefined})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Image: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.image} onChange={(event) => {setNewMenuItem({...newMenuItem, image: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.image} onChange={(event) => {setNewMenuItem({...newMenuItem, image: event.currentTarget.value.length > 0 ? event.currentTarget.value : undefined})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Is Alcohol: </label>
@@ -325,11 +355,11 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Price: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.price} onChange={(event) => {setNewMenuItem({...newMenuItem, price: +event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.price} onChange={(event) => {setNewMenuItem({...newMenuItem, price: +event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Tax Rate: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.taxRate} onChange={(event) => {setNewMenuItem({...newMenuItem, taxRate: +event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.taxRate} onChange={(event) => {setNewMenuItem({...newMenuItem, taxRate: +event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Reward Item: </label>
@@ -337,7 +367,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                     {isReward && <div style={{marginLeft: 20}}>
                         <div style={{flexDirection: 'row'}}>
                             <label>Discount: </label>
-                            <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.reward?.discount} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, discount: +event.currentTarget.value}})}}/>
+                            <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.reward?.discount} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, discount: +event.currentTarget.value}})}}/>
                         </div>
                         <div style={{flexDirection: 'row'}}>
                             <label>Discount Text: </label>
@@ -345,7 +375,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                         </div>
                         <div style={{flexDirection: 'row'}}>
                             <label>Points: </label>
-                            <input style={{borderWidth: 2, width: 100}} defaultValue={newMenuItem.reward?.points} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, points: +event.currentTarget.value}})}}/>
+                            <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={newMenuItem.reward?.points} onChange={(event) => {if(newMenuItem.reward) setNewMenuItem({...newMenuItem, reward: {...newMenuItem.reward, points: +event.currentTarget.value}})}}/>
                         </div>
                     </div>}
                 </div>
@@ -362,8 +392,22 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
                         <div style={{display: 'flex', flexDirection: 'row'}}>
                             <label>ID: </label>
                             <input style={{borderWidth: 2, width: 100}} value={itemChoiceId} onChange={(event) => {setItemChoiceId(event.currentTarget.value)}}/>
-                            <button onClick={() => addChoice()}>Add Item Choice</button>
+                            
                         </div>
+                        <button onClick={() => addChoice()}>Add Item Choice</button>
+                    </div>}
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Options: </label>
+                    <input type='checkbox' checked={hasOptions} onChange={(event) => enableOptions(!hasOptions)}></input>
+                    {hasOptions && <div style={{marginLeft: 20}}>
+                        {newMenuItem.foodOptions?.map((foodOption) => (
+                            <FoodOptionRow foodOption={foodOption} 
+                                        key={foodOption.id}
+                                        removeFoodOption={removeFoodOption}
+                                        updateItem={updateFoodOption}/>
+                        ))}
+                        <button onClick={() => addOption()}>Add Food Option</button>
                     </div>}
                 </div>
                 <button onClick={() => handleSave()}>Save</button>
@@ -409,4 +453,126 @@ const RewardItemRow = ({item, removeItem} : RewardItemRowProps) => {
             <button onClick={() => removeItem(item.id)}>Remove</button>
         </div>
     ); 
+}
+
+type FoodOptionRowProps = {
+    foodOption : FoodOption; 
+    updateItem : (foodOption : FoodOption) => void; 
+    removeFoodOption : (id : string) => void; 
+}
+const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRowProps) => {
+    const [enabled, setEnabled] = useState(false); 
+    const [newFoodOption, setNewFoodOption] = useState(foodOption);
+    
+    const createOption = () => {
+        const newOption : Option = {
+            name: "PLACEHOLDER", 
+            id: uuid(), 
+            price: 0, 
+            points: 0,
+            suspendUntil: undefined
+        }; 
+        const arr = newFoodOption.options; 
+        arr.push(newOption);
+        const updatedFoodOption = {...newFoodOption, options: arr}; 
+        setNewFoodOption(updatedFoodOption);
+        updateItem(updatedFoodOption);
+    }
+    
+    const removeOption = (id : string) => {
+        const arr = newFoodOption.options.filter((op) => op.id !== id); 
+        const updatedFoodOption = {...newFoodOption, options: arr}; 
+        setNewFoodOption(updatedFoodOption);
+        updateItem(updatedFoodOption);
+    }
+    
+    const updateOption = (option : Option) => {
+        const index = newFoodOption.options.findIndex((op) => op.id === option.id); 
+        if(index < 0) return; 
+        const arr = newFoodOption.options; 
+        arr[index] = option; 
+        const updatedFoodOption = {...newFoodOption, options: arr}; 
+        setNewFoodOption(updatedFoodOption);
+        updateItem(updatedFoodOption);
+    }
+    
+    return (
+        <div>
+            <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
+                <text style={{width: 300}}>{newFoodOption.name}</text>
+                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => removeFoodOption(foodOption.id)}>Delete Item</button>
+            </div>
+            {enabled && <div style={{marginLeft: 20}}>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Name: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={foodOption.name} onChange={(event) => {setNewFoodOption({...newFoodOption, name: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>ID: </label>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={foodOption.id} onChange={(event) => {setNewFoodOption({...newFoodOption, id: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Number Choices: </label>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={foodOption.numChoices} onChange={(event) => {setNewFoodOption({...newFoodOption, numChoices: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Min Choices: </label>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={foodOption.minChoices} onChange={(event) => {setNewFoodOption({...newFoodOption, minChoices: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                </div>
+                <input type='checkbox' checked={newFoodOption.required} onChange={(event) => setNewFoodOption({...newFoodOption, required: !newFoodOption.required})}/>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Options: </label>
+                    <div style={{marginLeft: 20}}>
+                        {newFoodOption.options.map((option) => (
+                            <OptionRow option={option}
+                                    removeOption={removeOption}
+                                    updateOption={updateOption}/>
+                        ))}
+                    </div>
+                    <button onClick={createOption}>Create Option</button>
+                </div>
+                <button onClick={() => updateItem(newFoodOption)}>Save</button>
+            </div>}
+        </div>
+    );
+}
+
+type OptionRowProps = {
+    option : Option; 
+    removeOption : (id : string) => void; 
+    updateOption : (option : Option) => void; 
+}
+const OptionRow = ({option, removeOption, updateOption} : OptionRowProps) => {
+    const [enabled, setEnabled] = useState(false); 
+    const [newOption, setNewOption] = useState(option);
+    
+    return (
+        <div>
+            <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
+                <text style={{width: 300}}>{option.name}</text>
+                <button onClick={() => setEnabled(!enabled)}>Edit</button>
+                <button onClick={() => removeOption(option.id)}>Delete Item</button>
+            </div>
+            {enabled && <div style={{marginLeft: 20}}>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Name: </label>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={option.name} onChange={(event) => {setNewOption({...newOption, name: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>ID: </label>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={option.id} onChange={(event) => {setNewOption({...newOption, id: event.currentTarget.value})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Price: </label>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={option.price} onChange={(event) => {setNewOption({...newOption, price: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                </div>
+                <div style={{flexDirection: 'row'}}>
+                    <label>Points: </label>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={option.points} onChange={(event) => {setNewOption({...newOption, points: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                </div>
+                <button onClick={() => updateOption(newOption)}>Save</button>
+            </div>}
+        </div>
+    );
 }
