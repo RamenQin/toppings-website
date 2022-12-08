@@ -253,6 +253,12 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
         updateRestaurant(updatedCategory, category.id);
     }
     
+    const updateName = (name : string) => {
+        const updatedCategory = {...newCategory, name: name}; 
+        setNewCategory(updatedCategory);
+        updateRestaurant(updatedCategory, category.id);
+    }
+    
     return (
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
@@ -263,11 +269,11 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
             {enabled && <div style={{display: 'flex', flexDirection: 'column', width: '100%', marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
                     <label>Category Name: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={newCategory.name} onChange={(event) => {setNewCategory({...newCategory, name: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={newCategory.name} onChange={(event) => updateName(event.currentTarget.value)}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>ID: </label>
-                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={newCategory.id} onChange={(event) => {setNewCategory({...newCategory, id: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={newCategory.id} />
                 </div>
                 <text>Items</text>
                 <div style={{marginLeft: 20}}>
@@ -288,7 +294,6 @@ const MenuCategoryRow = ({category, updateRestaurant, removeCategory, findItem} 
                                         updateAvailability={updateAvailability}/>
                     ))}
                 </div>
-                <button onClick={() => updateRestaurant(newCategory, category.id)}>Save</button>
             </div>}
         </div>
         
@@ -550,6 +555,11 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
         updateItem(updatedFoodOption);
     }
     
+    const autoSave = (foodOption : FoodOption) => {
+        setNewFoodOption(foodOption);
+        updateItem(foodOption); 
+    }
+    
     return (
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
@@ -560,21 +570,21 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
             {enabled && <div style={{marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
                     <label>Name: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={foodOption.name} onChange={(event) => {setNewFoodOption({...newFoodOption, name: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={foodOption.name} onChange={(event) => {autoSave({...newFoodOption, name: event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>ID: </label>
-                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={foodOption.id} onChange={(event) => {setNewFoodOption({...newFoodOption, id: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={foodOption.id} onChange={(event) => {autoSave({...newFoodOption, id: event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Number Choices: </label>
-                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={foodOption.numChoices} onChange={(event) => {setNewFoodOption({...newFoodOption, numChoices: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={foodOption.numChoices} onChange={(event) => {autoSave({...newFoodOption, numChoices: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Min Choices: </label>
-                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={foodOption.minChoices} onChange={(event) => {setNewFoodOption({...newFoodOption, minChoices: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={foodOption.minChoices} onChange={(event) => {autoSave({...newFoodOption, minChoices: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
                 </div>
-                <input type='checkbox' checked={newFoodOption.required} onChange={(event) => setNewFoodOption({...newFoodOption, required: !newFoodOption.required})}/>
+                <input type='checkbox' checked={newFoodOption.required} onChange={(event) => autoSave({...newFoodOption, required: !newFoodOption.required})}/>
                 <div style={{flexDirection: 'row'}}>
                     <label>Options: </label>
                     <div style={{marginLeft: 20}}>
@@ -586,7 +596,6 @@ const FoodOptionRow = ({foodOption, updateItem, removeFoodOption} : FoodOptionRo
                     </div>
                     <button onClick={createOption}>Create Option</button>
                 </div>
-                <button onClick={() => updateItem(newFoodOption)}>Save</button>
             </div>}
         </div>
     );
@@ -601,6 +610,11 @@ const OptionRow = ({option, removeOption, updateOption} : OptionRowProps) => {
     const [enabled, setEnabled] = useState(false); 
     const [newOption, setNewOption] = useState(option);
     
+    const autoSave = (option : Option) => {
+        setNewOption(option);
+        updateOption(option);
+    }
+    
     return (
         <div>
             <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between'}}>
@@ -611,21 +625,20 @@ const OptionRow = ({option, removeOption, updateOption} : OptionRowProps) => {
             {enabled && <div style={{marginLeft: 20}}>
                 <div style={{flexDirection: 'row'}}>
                     <label>Name: </label>
-                    <input style={{borderWidth: 2, width: 100}} defaultValue={option.name} onChange={(event) => {setNewOption({...newOption, name: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} defaultValue={option.name} onChange={(event) => {autoSave({...newOption, name: event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>ID: </label>
-                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={option.id} onChange={(event) => {setNewOption({...newOption, id: event.currentTarget.value})}}/>
+                    <input style={{borderWidth: 2, width: 100}} readOnly={true} defaultValue={option.id} onChange={(event) => {autoSave({...newOption, id: event.currentTarget.value})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Price: </label>
-                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={option.price} onChange={(event) => {setNewOption({...newOption, price: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={option.price} onChange={(event) => {autoSave({...newOption, price: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
                 </div>
                 <div style={{flexDirection: 'row'}}>
                     <label>Points: </label>
-                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={option.points} onChange={(event) => {setNewOption({...newOption, points: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
+                    <input style={{borderWidth: 2, width: 100}} type='number' defaultValue={option.points} onChange={(event) => {autoSave({...newOption, points: (event.currentTarget.value.length > 0) ? +event.currentTarget.value : undefined})}}/>
                 </div>
-                <button onClick={() => updateOption(newOption)}>Save</button>
             </div>}
         </div>
     );
