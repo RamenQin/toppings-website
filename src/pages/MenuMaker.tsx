@@ -141,7 +141,7 @@ const MenuMaker = () => {
                 timePeriods: [
                     {
                         startTime: '00:00', 
-                        endTime: '00:00', 
+                        endTime: '24:00', 
                     }
                 ]
             });
