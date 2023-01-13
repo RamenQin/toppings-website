@@ -444,7 +444,7 @@ const MenuItemRow = ({item, updateMenuCategory, removeItem, findItem} : MenuItem
         if(index < 0) return; 
         const arr = newMenuItem.foodOptions; 
         arr[index] = foodOption; 
-        const updatedMenuItem = {...newMenuItem, foodOption: arr};
+        const updatedMenuItem = {...newMenuItem, foodOptions: arr};
         updateChain(updatedMenuItem);
     }
     
