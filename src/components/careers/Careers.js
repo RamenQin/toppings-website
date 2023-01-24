@@ -96,7 +96,8 @@ const Careers = () => {
         </div>
         {/* 1 */}
         <div style={{ marginTop: 40, display: 'flex', width: '100%', paddingLeft: 80, paddingRight: 80, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-          {!isMobile && (<img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.15752-9/297825535_769570057495655_1088605076071815020_n.png?_nc_cat=108&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_ohc=cS7216e-bLQAX-muFRW&amp;_nc_ht=scontent-sjc3-1.xx&amp;oh=03_AVL5LjZl0Uxbefh7kiFItvuYjd7xD2z7swUXEjtROlfG_A&amp;oe=631E38CB" alt="Random Image" role="presentation" aria-hidden="true" style={{ width: '45%' }} />)}
+          {!isMobile && (<img src="https://toppingsapp.com/static/media/S1i3.c76bc738.png
+" alt="Haha ur mom" role="presentation" aria-hidden="true" style={{ width: '45%' }} />)}
           <div style={{ width: 80 }} />
           <div style={{ flexDirection: 'column', width: isMobile ? '100%' : '40%' }}>
             <h2 style={styles.subtitle1}>
