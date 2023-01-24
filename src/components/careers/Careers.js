@@ -127,8 +127,8 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://toppings.notion.site/Founding-Growth-Manager-f59d33c13b034c4097a5dfc7d3f1e92b'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Founding Growth Manager
+              <a target='_blank' href={'https://www.notion.so/toppings/Toppings-Ambassadors-1c65df4d01d843738d6e93e486350261'} style={{ ...styles.jobLarge, ...styles.link }}>
+                Ambassador
               </a>
             </div>
             <div style={styles.jobColumn}>
@@ -136,7 +136,7 @@ const Careers = () => {
                 Sub-Team
               </p>
               <p style={styles.jobLarge}>
-                Ops (Kitchen Sink)
+                Marketing
               </p>
             </div>
             <div style={styles.jobColumn}>
@@ -154,8 +154,8 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://toppings.notion.site/Founding-Software-Engineer-2a82d13c9fd94939afb49a5788c8f976'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Founding Software Engineer
+              <a target='_blank' href={'https://www.notion.so/toppings/Toppings-Lead-Ambassador-8aaaa72c3391468693f6853cae65bead'} style={{ ...styles.jobLarge, ...styles.link }}>
+                Lead Ambassador
               </a>
             </div>
             <div style={styles.jobColumn}>
@@ -163,7 +163,7 @@ const Careers = () => {
                 Sub-Team
               </p>
               <p style={styles.jobLarge}>
-                Product
+                Marketing/Ops
               </p>
             </div>
             <div style={styles.jobColumn}>
@@ -172,114 +172,6 @@ const Careers = () => {
               </p>
               <p style={styles.jobLarge}>
                 Boston/Cambridge
-              </p>
-            </div>
-          </div>
-          <div style={styles.line} />
-          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Role
-              </p>
-              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Growth-Manager-e1ec42637e0b4b04b3d7ea9e9fa1098b'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Part-Time Growth Manager
-              </a>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Sub-Team
-              </p>
-              <p style={styles.jobLarge}>
-                Ops (Kitchen Sink)
-              </p>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Location
-              </p>
-              <p style={styles.jobLarge}>
-                Remote or Boston/Cambridge
-              </p>
-            </div>
-          </div>
-          <div style={styles.line} />
-          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Role
-              </p>
-              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Full-Stack-SWE-810bb92bfcb44d3694ff6aa448e26c31'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Part-time Software Engineer
-              </a>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Sub-Team
-              </p>
-              <p style={styles.jobLarge}>
-                Product
-              </p>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Location
-              </p>
-              <p style={styles.jobLarge}>
-                Remote or Boston/Cambridge
-              </p>
-            </div>
-          </div>
-          <div style={styles.line} />
-          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Role
-              </p>
-              <a target='_blank' href={'https://toppings.notion.site/Part-Time-UI-UX-Designer-5ba1c9adef7b4726807ac9ef02ca1c14'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Part-time UI/UX Designer
-              </a>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Sub-Team
-              </p>
-              <p style={styles.jobLarge}>
-                Product
-              </p>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Location
-              </p>
-              <p style={styles.jobLarge}>
-                Remote or Boston/Cambridge
-              </p>
-            </div>
-          </div>
-          <div style={styles.line} />
-          <div style={isMobile ? styles.jobRowMobile : styles.jobRow}>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Role
-              </p>
-              <a target='_blank' href={'https://toppings.notion.site/Part-Time-Graphic-Design-908d8e6d09184acf8c6a2fdbd81fb236'} style={{ ...styles.jobLarge, ...styles.link }}>
-                Part-time Graphic Designer
-              </a>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Sub-Team
-              </p>
-              <p style={styles.jobLarge}>
-                Product
-              </p>
-            </div>
-            <div style={styles.jobColumn}>
-              <p style={styles.jobSmall}>
-                Location
-              </p>
-              <p style={styles.jobLarge}>
-                Remote or Boston/Cambridge
               </p>
             </div>
           </div>
