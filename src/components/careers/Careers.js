@@ -128,7 +128,7 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://www.notion.so/toppings/Toppings-Ambassadors-1c65df4d01d843738d6e93e486350261'} style={{ ...styles.jobLarge, ...styles.link }}>
+              <a target='_blank' href={'https://toppings.notion.site/Toppings-Ambassadors-1c65df4d01d843738d6e93e486350261'} style={{ ...styles.jobLarge, ...styles.link }}>
                 Ambassador
               </a>
             </div>
@@ -155,7 +155,7 @@ const Careers = () => {
               <p style={styles.jobSmall}>
                 Role
               </p>
-              <a target='_blank' href={'https://www.notion.so/toppings/Toppings-Lead-Ambassador-8aaaa72c3391468693f6853cae65bead'} style={{ ...styles.jobLarge, ...styles.link }}>
+              <a target='_blank' href={'https://toppings.notion.site/Toppings-Lead-Ambassador-8aaaa72c3391468693f6853cae65bead'} style={{ ...styles.jobLarge, ...styles.link }}>
                 Lead Ambassador
               </a>
             </div>
